@@ -1,1 +1,6 @@
-[]
+{
+  "app.containers.HomePage.header": "This is the HomePage container!",
+  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!",
+  "app.components.GlobalHeader.home": "Home",
+  "app.components.GlobalHeader.jobs": "Jobs"
+}

@@ -4,6 +4,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
 module.exports = options => ({
   mode: options.mode,
@@ -32,15 +34,32 @@ module.exports = options => ({
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        // exclude: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          { loader: 'less-loader', options: { javascriptEnabled: true } },
+        ],
       },
       {
-        // Preprocess 3rd party .css files located in node_modules
-        test: /\.css$/,
-        include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.less$/,
+        // exclude: /node_modules/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          { loader: 'less-loader', options: { javascriptEnabled: true } },
+        ],
       },
+      // {
+      //   // Preprocess 3rd party .css files located in node_modules
+      //   test: /\.css$/,
+      //   include: /node_modules/,
+      //   use: ['style-loader', 'css-loader'],
+      // },
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
         use: 'file-loader',
@@ -59,7 +78,7 @@ module.exports = options => ({
         ],
       },
       {
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|png|gif|jpeg)$/,
         use: [
           {
             loader: 'url-loader',
@@ -114,6 +133,12 @@ module.exports = options => ({
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
     }),
+    // new MiniCssExtractPlugin({
+    //   filename: 'style.css',
+    // }),
+    // new WebpackRTLPlugin({
+    //   diffOnly: true,
+    // }),
   ]),
   resolve: {
     modules: ['node_modules', 'app'],

@@ -6,13 +6,25 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import GlobalHeader from '../../components/GlobalHeader';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import Rtl from '../../components/Rtl';
+
+const theme = createMuiTheme({
+  direction: 'rtl',
+  typography: {
+    fontFamily: ['IRANSans', 'Segoe UI'].join(','),
+    fontSize: 14,
+  },
+});
 
 export default function HomePage() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <Rtl>
+      <ThemeProvider theme={theme}>
+        <GlobalHeader />
+      </ThemeProvider>
+    </Rtl>
   );
 }
