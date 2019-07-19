@@ -10,6 +10,7 @@ const { execSync } = require('child_process');
 const componentGenerator = require('./component/index.js');
 const containerGenerator = require('./container/index.js');
 const languageGenerator = require('./language/index.js');
+const muiGenerator = require('./mui/index.js');
 
 /**
  * Every generated backup file gets this extension
@@ -21,6 +22,7 @@ module.exports = plop => {
   plop.setGenerator('component', componentGenerator);
   plop.setGenerator('container', containerGenerator);
   plop.setGenerator('language', languageGenerator);
+  plop.setGenerator('mui', muiGenerator);
   plop.addHelper('directory', comp => {
     try {
       fs.accessSync(
@@ -34,14 +36,24 @@ module.exports = plop => {
   });
   plop.addHelper('curly', (object, open) => (open ? '{' : '}'));
   plop.setActionType('prettify', (answers, config) => {
-    const folderPath = `${path.join(
-      __dirname,
-      '/../../app/',
-      config.path,
-      plop.getHelper('properCase')(answers.name),
-      '**',
-      '**.js',
-    )}`;
+    let folderPath;
+    if (config.folderPath)
+      folderPath = `${path.join(
+        __dirname,
+        '/../../app/',
+        config.folderPath,
+        '**',
+        '**.js',
+      )}`;
+    else
+      folderPath = `${path.join(
+        __dirname,
+        '/../../app/',
+        config.path,
+        plop.getHelper('properCase')(answers.name),
+        '**',
+        '**.js',
+      )}`;
 
     try {
       execSync(`npm run prettify -- "${folderPath}"`);
