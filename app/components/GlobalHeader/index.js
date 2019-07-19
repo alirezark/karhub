@@ -14,8 +14,8 @@ import Menu from '@material-ui/core/Menu';
 import Link from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
 import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
-import { MAppBar } from './appbar';
-import { MTabs, MTab } from './tabs';
+import MAppBar from '../../mui/MAppBar';
+import { MTabs, MTab } from '../../mui/MTabs';
 import messages from './messages';
 
 import logo from '../../assets/images/logo.png';
@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   searchButton: {
     color: '#888888',
     marginRight: 10,
-  }
+  },
 }));
 
 function GlobalHeader(props) {

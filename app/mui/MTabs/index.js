@@ -10,7 +10,7 @@ export const MTabs = withStyles({
   indicator: {
     height: 6,
     backgroundColor: '#4BBB81',
-  }
+  },
 })(Tabs);
 
 export const MTab = withStyles(theme => ({
