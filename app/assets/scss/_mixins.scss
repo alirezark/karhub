@@ -236,3 +236,12 @@
     @include icon($top, $left, $width, $height);
   }
 }
+
+@mixin plain_icon($width, $height, $url) {
+  width: $width;
+  height: $height;
+  background-image: url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+}

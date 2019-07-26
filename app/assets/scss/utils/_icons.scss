@@ -9,9 +9,25 @@
   background-image: url('images/employers.png');
 }
 
+// public icons
+[class^='i-'] {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('images/icons.png');
+}
+
 
 .ie-1 { @include icon(0px, 0, 64px, 64px)}
 .ie-2 { @include icon(64px, 0, 64px, 64px)}
 .ie-3 { @include icon(128px, 0, 64px, 64px)}
 .ie-4 { @include icon(192px, 0, 64px, 64px)}
 .ie-5 { @include icon(256px, 0, 64px, 64px)}
+
+.ic-tests { @include plain_icon(90px, 100px, 'images/icons/tests.png'); }
+.ic-notify { @include plain_icon(90px, 100px, 'images/icons/notify.png'); }
+.ic-create-cv { @include plain_icon(90px, 100px, 'images/icons/create_cv.png'); }
+.ic-company-info { @include plain_icon(90px, 100px, 'images/icons/company_info.png'); }
+
+.i-company { @include icon(0px, 0px, 21px, 21px) }
+.i-location { @include icon(0px, 21px, 14px, 21px) }
+.i-arrow-left { @include icon(0px, 35px, 13px, 24px) }

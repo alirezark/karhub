@@ -4,6 +4,7 @@ const styles = makeStyles(theme => ({
   root: {
     marginTop: theme.spacing(6),
     position: 'relative',
+    paddingBottom: 200,
   },
   HotText: {
     color: theme.palette.primary.main,

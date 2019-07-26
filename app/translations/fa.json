@@ -16,9 +16,17 @@
   "app.containers.HomePage.SearchContainer.employment_ad": "درج آگهی استخدام",
   "app.containers.HomePage.SearchContainer.sub_head1": "کارفرمایان معمولا برای هر موقعیت شغلی حقوق ثابتی را با تغییرات ناچیز در نظر می\u200Cگیرند. ",
   "app.containers.HomePage.SearchContainer.why_karhub": "چرا کارهاب؟",
-
   "app.containers.HomePage.SearchContainer.last_search": "جستجو\u200Cهای اخیر",
   "app.containers.HomePage.SearchContainer.delete_all": "پاک کردن همه",
+
+  "app.containers.HomePage.Features.create_cv": "ساخت رزومه",
+  "app.containers.HomePage.Features.tests": "آزمون\u200Cها",
+  "app.containers.HomePage.Features.companies_info": "اطلاعات شرکت\u200Cها",
+  "app.containers.HomePage.Features.alert": "به من اطلاع بده",
+  "app.containers.HomePage.Features.create_cv_sub": "به راحتی رزومه\u200Cی خودت رو بساز و برای کارفرما ارسال کن",
+  "app.containers.HomePage.Features.tests_sub": "با شرکت در آزمون\u200Cهای کارهاب خودت رو بسنج و عملکرد بهتری داشته باش",
+  "app.containers.HomePage.Features.companies_info_sub": "به راحتی رزومه\u200Cی خودت رو بساز و برای کارفرما ارسال کن",
+  "app.containers.HomePage.Features.alert_sub": "به راحتی رزومه\u200Cی خودت رو بساز و برای کارفرما ارسال کن",
 
   "app.components.JobSearch.head": "Hello"
 }
