@@ -18,6 +18,18 @@ const style = makeStyles({
   root: {
     flexGrow: 1,
   },
+  width_2: {
+    maxWidth: '38%',
+    flexBasis: '38%',
+  },
+  width_1: {
+    maxWidth: '22%',
+    flexBasis: '22%',
+  },
+  btn_search: {
+    lineHeight: '38px',
+    marginTop: 3,
+  }
 });
 
 function JobSearch() {
@@ -25,14 +37,19 @@ function JobSearch() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item md={5} spacing={3}>
+        <Grid item md={5} className={classes.width_2}>
           <MTextField label="عنوان شغلی" />
         </Grid>
-        <Grid item md={5}>
+        <Grid item md={5} className={classes.width_2}>
           <MTextField label="در کدام شهر" />
         </Grid>
-        <Grid item md={2}>
-          <MButton fullWidth variant="contained" color="primary">
+        <Grid item md={2} className={classes.width_1}>
+          <MButton
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.btn_search}
+          >
             جستجو
           </MButton>
         </Grid>

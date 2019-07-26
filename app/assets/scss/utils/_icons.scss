@@ -1,0 +1,17 @@
+/*------------------------------------------------------------------
+  	[Icons]
+------------------------------------------------------------------*/
+
+// employers icons
+[class^='ie-'] {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url('images/employers.png');
+}
+
+
+.ie-1 { @include icon(0px, 0, 64px, 64px)}
+.ie-2 { @include icon(64px, 0, 64px, 64px)}
+.ie-3 { @include icon(128px, 0, 64px, 64px)}
+.ie-4 { @include icon(192px, 0, 64px, 64px)}
+.ie-5 { @include icon(256px, 0, 64px, 64px)}

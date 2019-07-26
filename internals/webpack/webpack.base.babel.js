@@ -40,18 +40,18 @@ module.exports = options => ({
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          { loader: 'less-loader', options: { javascriptEnabled: true } },
+          { loader: 'sass-loader', options: { javascriptEnabled: true } },
         ],
       },
       {
-        test: /\.less$/,
+        test: /\.scss$/,
         // exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          { loader: 'less-loader', options: { javascriptEnabled: true } },
+          { loader: 'sass-loader', options: { javascriptEnabled: true } },
         ],
       },
       // {
@@ -84,7 +84,7 @@ module.exports = options => ({
             loader: 'url-loader',
             options: {
               // Inline files smaller than 10 kB
-              limit: 10 * 1024,
+              // limit: 10 * 1024,
             },
           },
           {

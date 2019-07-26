@@ -22,6 +22,17 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['IRANSans', 'Segoe UI'].join(','),
     fontSize: 14,
+    h1: {
+      fontSize: '2rem',
+      color: '#4A4A4A',
+    },
+    h2: {
+      fontSize: '1.2rem',
+      color: '#4A4A4A',
+    },
+    subtitle2: {
+      color: '#979797',
+    },
   },
 });
 

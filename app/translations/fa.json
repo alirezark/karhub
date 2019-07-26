@@ -12,6 +12,13 @@
 
   "app.containers.HomePage.SearchContainer.karhub": "کارهاب",
   "app.containers.HomePage.SearchContainer.head1": "بدون دغدغه شغل مورد علاقه\u200Cت رو پیدا کن!",
+  "app.containers.HomePage.SearchContainer.head2": "کارفرمای عزیز! استخدام بعدی شما اینجاست!",
+  "app.containers.HomePage.SearchContainer.employment_ad": "درج آگهی استخدام",
+  "app.containers.HomePage.SearchContainer.sub_head1": "کارفرمایان معمولا برای هر موقعیت شغلی حقوق ثابتی را با تغییرات ناچیز در نظر می\u200Cگیرند. ",
+  "app.containers.HomePage.SearchContainer.why_karhub": "چرا کارهاب؟",
+
+  "app.containers.HomePage.SearchContainer.last_search": "جستجو\u200Cهای اخیر",
+  "app.containers.HomePage.SearchContainer.delete_all": "پاک کردن همه",
 
   "app.components.JobSearch.head": "Hello"
 }
