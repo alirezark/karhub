@@ -19,7 +19,7 @@ function HireUrgent() {
   return (
     <Container maxWidth="md" mt={6} className={classes.root}>
       <Typography variant="h1" component="h1" className={classes.sectionHead}>
-        استخدام های فوری
+        <FormattedMessage {...messages.title} />
         <Link className={classes.blueLink} component="button">
           مشاهده همه
         </Link>
@@ -93,7 +93,6 @@ function HireUrgent() {
             </div>
           </Card>
         </Grid>
-
       </Grid>
 
       <Grid container spacing={3}>
@@ -164,7 +163,6 @@ function HireUrgent() {
             </div>
           </Card>
         </Grid>
-
       </Grid>
 
       <Grid container spacing={3}>

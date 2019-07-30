@@ -28,5 +28,10 @@
   "app.containers.HomePage.Features.companies_info_sub": "به راحتی رزومه\u200Cی خودت رو بساز و برای کارفرما ارسال کن",
   "app.containers.HomePage.Features.alert_sub": "به راحتی رزومه\u200Cی خودت رو بساز و برای کارفرما ارسال کن",
 
+  "app.containers.HomePage.HireUrgent.title": "استخدام\u200Cهای فوری",
+  "app.containers.HomePage.HireUrgent.see_all": "مشاهده همه",
+
+  "app.containers.HomePage.PopularTests.title": "آزمون\u200Cهای پرطرفدار",
+
   "app.components.JobSearch.head": "Hello"
 }

@@ -12,4 +12,12 @@ export default defineMessages({
     id: `${scope}.create_cv`,
     defaultMessage: 'Create CV',
   },
+  title: {
+    id: `${scope}.title`,
+    defaultMessage: 'Hire Urgent',
+  },
+  see_all: {
+    id: `${scope}.see_all`,
+    defaultMessage: 'See all',
+  }
 });
