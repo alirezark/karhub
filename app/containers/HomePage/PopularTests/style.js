@@ -9,9 +9,11 @@ const styles = makeStyles(theme => ({
     fontWeight: 'bold',
     margin: '2rem 0',
   },
+  subTitle: {
+    marginBottom: '3rem',
+  },
   card: {
     ...cardBox().panel,
-    margin: '54px 14px 0',
   },
   icon: {
     ...cardBox().icon,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Container from '@material-ui/core/Container';
+import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,7 +17,7 @@ function PopularJobs() {
   const classes = styles();
 
   return (
-    <Container maxWidth="md" mt={6} className={classes.root}>
+    <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Grid container>
         <Grid item md={3}>
           <img alt="Tests" className={classes.section_img} src={imgJobs} />
@@ -99,7 +99,7 @@ function PopularJobs() {
           </Grid>
         </Grid>
       </Grid>
-    </Container>
+    </MContainer>
   );
 }
 

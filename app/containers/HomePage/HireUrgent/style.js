@@ -40,6 +40,7 @@ const styles = makeStyles(theme => ({
   icons: {
     color: '#9B9B9B',
     fontSize: '.75rem',
+    marginTop: '.5rem',
     '& i': {
       margin: '0 .5rem',
     },

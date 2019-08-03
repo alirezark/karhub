@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Container from '@material-ui/core/Container';
+import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,7 +17,7 @@ function HireUrgent() {
   const classes = styles();
 
   return (
-    <Container maxWidth="md" mt={6} className={classes.root}>
+    <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Typography variant="h1" component="h1" className={classes.sectionHead}>
         <FormattedMessage {...messages.title} />
         <Link className={classes.blueLink} component="button">
@@ -235,7 +235,7 @@ function HireUrgent() {
         </Grid>
 
       </Grid>
-    </Container>
+    </MContainer>
   );
 }
 

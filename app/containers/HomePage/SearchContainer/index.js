@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Container from '@material-ui/core/Container';
+import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
@@ -16,7 +16,7 @@ function SearchContainer() {
   const foo = () => {};
 
   return (
-    <Container maxWidth="md" mt={6} className={classes.root}>
+    <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Typography variant="h2" gutterBottom>
         <span className={classes.HotText}>
           <FormattedMessage {...messages.karhub} />،{' '}
@@ -67,7 +67,7 @@ function SearchContainer() {
           <img className={classes.intro_img} src={introImg} />
         </Grid>
       </Grid>
-    </Container>
+    </MContainer>
   );
 }
 

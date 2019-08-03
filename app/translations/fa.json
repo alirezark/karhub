@@ -37,5 +37,7 @@
   "app.containers.HomePage.PopularJobs.title": "شغل های برتر",
   "app.containers.HomePage.PopularJobs.sub_head": "با شرکت در آزمون\u200Cهای کارهاب خودت رو بسنج و عملکرد بهتری داشته باش! شما میتوانید با انتخاب یکی از آزمون ها وارد صفحه آزمون شده و این متن به صورت تست می\u200Cباشد",
 
+  "app.containers.HomePage.TopJobsCategory.title": "دسته بندی\u200Cهای برتر شغلی",
+
   "app.components.JobSearch.head": "Hello"
 }

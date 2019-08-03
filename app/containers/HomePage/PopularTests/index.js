@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Container from '@material-ui/core/Container';
+import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -17,16 +17,16 @@ function PopularTests() {
   const classes = styles();
 
   return (
-    <Container maxWidth="md" mt={6} className={classes.root}>
+    <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Grid container>
         <Grid item md={9}>
           <Typography variant="h1" component="h1" className={classes.sectionHead}>
             <FormattedMessage {...messages.title} />
           </Typography>
-          <Typography variant="subtitle1" component="p">
+          <Typography variant="subtitle1" component="p" className={classes.subTitle}>
             <FormattedMessage {...messages.sub_head} />
           </Typography>
-          <Grid container>
+          <Grid container spacing={4}>
             <Grid item md={4}>
               <Card className={classes.card} raised>
                 <CardMedia
@@ -102,7 +102,7 @@ function PopularTests() {
           <img alt="Tests" className={classes.section_img} src={imgTests} />
         </Grid>
       </Grid>
-    </Container>
+    </MContainer>
   );
 }
 
