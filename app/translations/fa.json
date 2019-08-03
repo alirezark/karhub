@@ -32,6 +32,7 @@
   "app.containers.HomePage.HireUrgent.see_all": "مشاهده همه",
 
   "app.containers.HomePage.PopularTests.title": "آزمون\u200Cهای پرطرفدار",
+  "app.containers.HomePage.PopularTests.sub_head": "با شرکت در آزمون\u200Cهای کارهاب خودت رو بسنج و عملکرد بهتری داشته باش! شما میتوانید با انتخاب یکی از آزمون ها وارد صفحه آزمون شده و این متن به صورت تست می\u200Cباشد",
 
   "app.components.JobSearch.head": "Hello"
 }

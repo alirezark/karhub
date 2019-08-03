@@ -5,8 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WebpackRTLPlugin = require('webpack-rtl-plugin');
-
+console.log(path.resolve(__dirname, './app/mui/'));
 module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
@@ -133,17 +132,14 @@ module.exports = options => ({
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development',
     }),
-    // new MiniCssExtractPlugin({
-    //   filename: 'style.css',
-    // }),
-    // new WebpackRTLPlugin({
-    //   diffOnly: true,
-    // }),
   ]),
   resolve: {
     modules: ['node_modules', 'app'],
     extensions: ['.js', '.jsx', '.react.js'],
     mainFields: ['browser', 'jsnext:main', 'main'],
+    alias: {
+      mui: path.resolve('app/mui/'),
+    },
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window

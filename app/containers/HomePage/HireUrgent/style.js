@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import cardBox from '../../../mui/MCard/cardBox';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -15,9 +16,8 @@ const styles = makeStyles(theme => ({
     fontWeight: 'bold',
   },
   card: {
+    ...cardBox().panel,
     display: 'flex',
-    boxShadow: '0 0 14px 0 rgba(178,178,178,0.5)',
-    borderRadius: 8,
     marginBottom: '1rem',
   },
   details: {
