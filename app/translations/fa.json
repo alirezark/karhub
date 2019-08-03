@@ -39,5 +39,7 @@
 
   "app.containers.HomePage.TopJobsCategory.title": "دسته بندی\u200Cهای برتر شغلی",
 
+  "app.containers.HomePage.EmployersView.title": "نظر کارفرمایان در مورد کارهاب",
+
   "app.components.JobSearch.head": "Hello"
 }

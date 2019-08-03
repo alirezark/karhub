@@ -15,6 +15,7 @@ import HireUrgent from './HireUrgent';
 import PopularTests from './PopularTests';
 import PopularJobs from './PopularJobs';
 import TopJobsCategory from './TopJobsCategory';
+import EmployersView from './EmployersView';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -28,11 +29,11 @@ const theme = createMuiTheme({
     fontFamily: ['IRANSans', 'Segoe UI'].join(','),
     fontSize: 14,
     h1: {
-      fontSize: '1.5rem',
+      fontSize: '1.63rem',
       color: '#4A4A4A',
     },
     h2: {
-      fontSize: '1.2rem',
+      fontSize: '1.18rem',
       color: '#4A4A4A',
     },
     h5: {
@@ -61,6 +62,7 @@ export default function HomePage() {
         <PopularTests />
         <PopularJobs />
         <TopJobsCategory />
+        <EmployersView />
       </ThemeProvider>
     </Rtl>
   );

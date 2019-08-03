@@ -12,7 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import icon_data from '../../../assets/images/icons/data.png';
 import icon_flasks from '../../../assets/images/icons/flasks.png';
 import icon_mechanic from '../../../assets/images/icons/mechanic.png';
-import icon_nurce from '../../../assets/images/icons/nurse.png';
+import icon_nurse from '../../../assets/images/icons/nurse.png';
 import icon_promotion from '../../../assets/images/icons/promotion.png';
 
 function TopJobsCategory() {
@@ -50,7 +50,7 @@ function TopJobsCategory() {
             <Card className={classes.card} raised>
               <CardMedia
                 className={classes.icon}
-                image={icon_nurce}
+                image={icon_nurse}
                 title="Live from space album cover"
               />
               <CardContent className={classes.cardContent}>
@@ -142,7 +142,7 @@ function TopJobsCategory() {
             <Card className={classes.card} raised>
               <CardMedia
                 className={classes.icon}
-                image={icon_nurce}
+                image={icon_nurse}
                 title="Live from space album cover"
               />
               <CardContent className={classes.cardContent}>
