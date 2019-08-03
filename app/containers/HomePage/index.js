@@ -13,6 +13,7 @@ import SearchContainer from './SearchContainer';
 import Features from './Features';
 import HireUrgent from './HireUrgent';
 import PopularTests from './PopularTests';
+import PopularJobs from './PopularJobs';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -39,6 +40,9 @@ const theme = createMuiTheme({
     h6: {
       fontSize: '.88rem',
     },
+    subtitle1: {
+      color: '#606062',
+    },
     subtitle2: {
       color: '#979797',
     },
@@ -54,6 +58,7 @@ export default function HomePage() {
         <Features />
         <HireUrgent />
         <PopularTests />
+        <PopularJobs />
       </ThemeProvider>
     </Rtl>
   );
