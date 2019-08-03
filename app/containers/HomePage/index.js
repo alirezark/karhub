@@ -14,6 +14,7 @@ import Features from './Features';
 import HireUrgent from './HireUrgent';
 import PopularTests from './PopularTests';
 import PopularJobs from './PopularJobs';
+import TopJobsCategory from './TopJobsCategory';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -59,6 +60,7 @@ export default function HomePage() {
         <HireUrgent />
         <PopularTests />
         <PopularJobs />
+        <TopJobsCategory />
       </ThemeProvider>
     </Rtl>
   );
