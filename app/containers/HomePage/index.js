@@ -16,6 +16,7 @@ import PopularTests from './PopularTests';
 import PopularJobs from './PopularJobs';
 import TopJobsCategory from './TopJobsCategory';
 import EmployersView from './EmployersView';
+import Companies from './Companies';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -26,7 +27,7 @@ const theme = createMuiTheme({
   },
   direction: 'rtl',
   typography: {
-    fontFamily: ['IRANSans', 'Segoe UI'].join(','),
+    fontFamily: ['iranyekan', 'Segoe UI'].join(','),
     fontSize: 14,
     h1: {
       fontSize: '1.63rem',
@@ -63,6 +64,7 @@ export default function HomePage() {
         <PopularJobs />
         <TopJobsCategory />
         <EmployersView />
+        <Companies />
       </ThemeProvider>
     </Rtl>
   );

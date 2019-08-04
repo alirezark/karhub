@@ -8,6 +8,9 @@
   vertical-align: middle;
   background-image: url('images/employers.png');
 }
+[class ^='ie-140'] {
+  background-image: url('images/employers_140.png');
+}
 
 // public icons
 [class^='i-'] {
@@ -22,6 +25,13 @@
 .ie-3 { @include icon(128px, 0, 64px, 64px)}
 .ie-4 { @include icon(192px, 0, 64px, 64px)}
 .ie-5 { @include icon(256px, 0, 64px, 64px)}
+
+.ie-140-1 { @include icon(0px, 0, 140px, 140px)}
+.ie-140-2 { @include icon(140px, 0, 140px, 140px)}
+.ie-140-3 { @include icon(280px, 0, 140px, 140px)}
+.ie-140-4 { @include icon(420px, 0, 140px, 140px)}
+.ie-140-5 { @include icon(560px, 0, 140px, 140px)}
+.ie-140-6 { @include icon(700px, 0, 140px, 140px)}
 
 .ic-tests { @include plain_icon(90px, 100px, 'images/icons/tests.png'); }
 .ic-notify { @include plain_icon(90px, 100px, 'images/icons/notify.png'); }

@@ -41,5 +41,8 @@
 
   "app.containers.HomePage.EmployersView.title": "نظر کارفرمایان در مورد کارهاب",
 
+  "app.containers.HomePage.Companies.thousand": "هزار",
+  "app.containers.HomePage.Companies.title": "شرکت\u200C راضی از کارهاب",
+
   "app.components.JobSearch.head": "Hello"
 }
