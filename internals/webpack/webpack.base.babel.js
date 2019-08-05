@@ -139,6 +139,7 @@ module.exports = options => ({
     mainFields: ['browser', 'jsnext:main', 'main'],
     alias: {
       mui: path.resolve('app/mui/'),
+      app: path.resolve('app/'),
     },
   },
   devtool: options.devtool,

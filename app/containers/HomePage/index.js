@@ -17,6 +17,7 @@ import PopularJobs from './PopularJobs';
 import TopJobsCategory from './TopJobsCategory';
 import EmployersView from './EmployersView';
 import Companies from './Companies';
+import LatestContent from './LatestContent';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -65,6 +66,7 @@ export default function HomePage() {
         <TopJobsCategory />
         <EmployersView />
         <Companies />
+        <LatestContent />
       </ThemeProvider>
     </Rtl>
   );

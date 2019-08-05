@@ -44,5 +44,7 @@
   "app.containers.HomePage.Companies.thousand": "هزار",
   "app.containers.HomePage.Companies.title": "شرکت\u200C راضی از کارهاب",
 
+  "app.containers.HomePage.LatestContent.title": "آخرین مطالب",
+
   "app.components.JobSearch.head": "Hello"
 }
