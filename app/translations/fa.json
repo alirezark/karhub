@@ -46,5 +46,8 @@
 
   "app.containers.HomePage.LatestContent.title": "آخرین مطالب",
 
+  "app.components.GlobalFooter.subscribe_title": "عضویت در خبرنامه",
+  "app.components.GlobalFooter.subscribe_subtitle": "با عضویت در خبرنامه کارهاب از آخرین اطلاعات با خبر شوید!",
+
   "app.components.JobSearch.head": "Hello"
 }

@@ -8,7 +8,7 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import GlobalHeader from '../../components/GlobalHeader';
+import GlobalHeader from 'app/components/GlobalHeader';
 import SearchContainer from './SearchContainer';
 import Features from './Features';
 import HireUrgent from './HireUrgent';
@@ -18,6 +18,7 @@ import TopJobsCategory from './TopJobsCategory';
 import EmployersView from './EmployersView';
 import Companies from './Companies';
 import LatestContent from './LatestContent';
+import GlobalFooter from 'app/components/GlobalFooter';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -67,6 +68,7 @@ export default function HomePage() {
         <EmployersView />
         <Companies />
         <LatestContent />
+        <GlobalFooter />
       </ThemeProvider>
     </Rtl>
   );
