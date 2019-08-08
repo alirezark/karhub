@@ -12,7 +12,7 @@ function Features() {
   return (
     <Container maxWidth="md" className={classes.root} mt={6}>
       <Grid container spacing={10}>
-        <Grid Item md={3} className={classes.featBox}>
+        <Grid item md={3} className={classes.featBox}>
           <i className="ic-create-cv" />
           <Typography variant="h2">
             <FormattedMessage {...messages.create_cv} />
@@ -21,7 +21,7 @@ function Features() {
             <FormattedMessage {...messages.create_cv_sub} />
           </Typography>
         </Grid>
-        <Grid Item md={3} className={classes.featBox}>
+        <Grid item md={3} className={classes.featBox}>
           <i className="ic-tests" />
           <Typography variant="h2">
             <FormattedMessage {...messages.tests} />
@@ -30,7 +30,7 @@ function Features() {
             <FormattedMessage {...messages.tests_sub} />
           </Typography>
         </Grid>
-        <Grid Item md={3} className={classes.featBox}>
+        <Grid item md={3} className={classes.featBox}>
           <i className="ic-company-info" />
           <Typography variant="h2">
             <FormattedMessage {...messages.companies_info} />
@@ -39,7 +39,7 @@ function Features() {
             <FormattedMessage {...messages.companies_info_sub} />
           </Typography>
         </Grid>
-        <Grid Item md={3} className={classes.featBox}>
+        <Grid item md={3} className={classes.featBox}>
           <i className="ic-notify" />
           <Typography variant="h2">
             <FormattedMessage {...messages.alert} />

@@ -58,5 +58,13 @@
   "app.components.GlobalFooter.address": "آدرس: تهران، کیلومتر ۲۰ جاده دماوند، پارک فناوری پردیس، خیابان نوآوری ۲، پلاک۲۴ واحد ۳۰۳",
   "app.components.GlobalFooter.corporate": " تمامی حقوق برای  کارهاب محفوظ است. ۱۳۹۸",
 
+  "app.containers.Jobs.SearchPanel.notify_me": "به من اطلاع بده",
+
+  "app.containers.Jobs.Filters.job_category": "دسته بندی شغلی",
+  "app.containers.Jobs.Filters.worked_year": "سابقه کار",
+  "app.containers.Jobs.Filters.job_type": "نوع شغل",
+  "app.containers.Jobs.Filters.edu": "تحصیلات",
+  "app.containers.Jobs.Filters.price": "محدوده حقوق",
+
   "app.components.JobSearch.head": "Hello"
 }

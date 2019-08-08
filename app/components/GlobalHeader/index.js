@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import Toolbar from '@material-ui/core/Toolbar';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
@@ -13,37 +13,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Link from '@material-ui/core/Link';
 import Avatar from '@material-ui/core/Avatar';
-import { intlShape, injectIntl, FormattedMessage } from 'react-intl';
+import Navigations from './navigations';
+import { withRouter } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
+import avatar from 'app/assets/images/avatar.jpeg';
+import logo from 'app/assets/images/logo.png';
 import MAppBar from '../../mui/MAppBar';
-import { MTabs, MTab } from '../../mui/MTabs';
+import styles from './style';
 import messages from './messages';
 
-import logo from '../../assets/images/logo.png';
-import avatar from '../../assets/images/avatar.jpeg';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  tabs: {
-    flexGrow: 1,
-  },
-  avatar: {
-    marginRight: 5,
-  },
-  searchButton: {
-    color: '#888888',
-    marginRight: 10,
-  },
-}));
-
 function GlobalHeader(props) {
-  const classes = useStyles();
+  const classes = styles();
   const [auth] = React.useState(true);
-  const [tabIndex, setTabIndex] = React.useState(0);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -55,10 +36,6 @@ function GlobalHeader(props) {
     setAnchorEl(null);
   }
 
-  function handleTabChange(e, val) {
-    setTabIndex(val);
-  }
-
   return (
     <div className={classes.root}>
       <MAppBar position="static">
@@ -67,22 +44,8 @@ function GlobalHeader(props) {
             <Link to="/">
               <img src={logo} alt="t" />
             </Link>
-            <MTabs value={tabIndex} className={classes.tabs} onChange={handleTabChange}>
-              <MTab label={props.intl.formatMessage({ ...messages.home })} />
-              <MTab
-                label={props.intl.formatMessage({
-                  ...messages.jobs_opportunities,
-                })}
-              />
-              <MTab
-                label={props.intl.formatMessage({ ...messages.companies_info })}
-              />
-              <MTab label={props.intl.formatMessage({ ...messages.exam })} />
-              <MTab
-                label={props.intl.formatMessage({ ...messages.cv_maker })}
-              />
-              <MTab label={props.intl.formatMessage({ ...messages.blog })} />
-            </MTabs>
+
+            <Navigations history={props.history} />
 
             <Button
               aria-label="Account of current user"
@@ -137,7 +100,7 @@ function GlobalHeader(props) {
 }
 
 GlobalHeader.propTypes = {
-  intl: intlShape.isRequired,
-};
+  history: PropTypes.object.isRequired,
+}
 
-export default injectIntl(GlobalHeader);
+export default withRouter(GlobalHeader);
