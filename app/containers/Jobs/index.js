@@ -17,15 +17,16 @@ import reducer from './reducer';
 import saga from './saga';
 import SearchPanel from './SearchPanel';
 import Filters from './Filters';
+import JobsList from './JobsList';
 
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
-
   return (
     <div>
       <SearchPanel />
       <Filters />
+      <JobsList />
     </div>
   );
 }

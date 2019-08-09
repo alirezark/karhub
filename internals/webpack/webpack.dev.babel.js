@@ -10,6 +10,8 @@ const CircularDependencyPlugin = require('circular-dependency-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
+const apiMocker = require('mocker-api');
+
 module.exports = require('./webpack.base.babel')({
   mode: 'development',
 
@@ -58,7 +60,16 @@ module.exports = require('./webpack.base.babel')({
   // Emit a source map for easier debugging
   // See https://webpack.js.org/configuration/devtool/#devtool
   devtool: 'eval-source-map',
-
+  devServer: {
+    before(app) {
+      apiMocker(app, path.resolve('mocker/index.js'), {
+        proxy: {
+          '/repos/*': 'https://api.github.com/',
+        },
+        changeHost: true,
+      });
+    },
+  },
   performance: {
     hints: false,
   },

@@ -6,15 +6,22 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import JobCard from 'components/JobCard';
 import messages from './messages';
 import styles from './style';
-import icon1 from '../../../assets/images/icon-1.png';
-import icon2 from '../../../assets/images/icon-2.png';
-import icon3 from '../../../assets/images/icon-3.png';
-import Link from '@material-ui/core/Link';
 
 function HireUrgent() {
   const classes = styles();
+
+  const jobs = [
+    { title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 1 },
+    { title: 'استخدام برنامه نویس', company: 'ایرانسل', location: 'تهران', icon: 2 },
+    { title: 'طراح و برنامه نویس موبایل', company: 'ایرانسل', location: 'تهران', icon: 3 },
+    { title: 'استخدام دیجتال مارکتینگ', company: 'ایرانسل', location: 'تهران', icon: 1 },
+    { title: 'طراح و برنامه نویس موبایل', company: 'ایرانسل', location: 'تهران', icon: 3 },
+    { title: 'استخدام برنامه نویس', company: 'ایرانسل', location: 'تهران', icon: 2 },
+  ];
 
   return (
     <MContainer maxWidth="md" mt={6} className={classes.root}>
@@ -26,214 +33,11 @@ function HireUrgent() {
       </Typography>
 
       <Grid container spacing={3}>
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon1}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon2}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon3}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon2}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={3}>
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon1}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-
-        <Grid item md={6}>
-          <Card className={classes.card} raised>
-            <CardMedia
-              className={classes.cover}
-              image={icon3}
-              title="Live from space album cover"
-            />
-            <div className={classes.details}>
-              <CardContent className={classes.content}>
-                <Typography
-                  component="h5"
-                  variant="h5"
-                  className={classes.title}
-                >
-                  مدیر فنی و پشتیبانی
-                </Typography>
-                <Grid container space={10} className={classes.icons}>
-                  <Grid item md={6}>
-                    <i className="i-company" />
-                    {'ایرانسل'}
-                  </Grid>
-                  <Grid item md={6}>
-                    <i className="i-location" />
-                    {'تهران'}
-                  </Grid>
-                </Grid>
-              </CardContent>
-              <div className={classes.arrow}>
-                <i className="i-arrow-left" />
-              </div>
-            </div>
-          </Card>
-        </Grid>
-
+        {jobs.map(job => (
+          <Grid item md={6}>
+            <JobCard job={job} />
+          </Grid>
+        ))}
       </Grid>
     </MContainer>
   );

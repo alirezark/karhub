@@ -29,7 +29,7 @@ const style = makeStyles({
   btn_search: {
     lineHeight: '38px',
     marginTop: 3,
-  }
+  },
 });
 
 function JobSearch() {
