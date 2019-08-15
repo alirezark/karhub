@@ -22,6 +22,7 @@ import JobsList from './JobsList';
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
+  console.log(props);
   return (
     <div>
       <SearchPanel />

@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
+import CategoryCard from 'components/CategoryCard';
 import icon_data from '../../../assets/images/icons/data.png';
 import icon_flasks from '../../../assets/images/icons/flasks.png';
 import icon_mechanic from '../../../assets/images/icons/mechanic.png';
@@ -23,156 +24,36 @@ function TopJobsCategory() {
       <MContainer maxWidth="md">
         <Typography variant="h1" component="h1" className={classes.sectionHead}>
           <FormattedMessage {...messages.title} />
-          <Link className={classes.blueLink} component="button">
+          <Link href='/Categories' className={classes.blueLink} component="a">
             مشاهده همه
           </Link>
         </Typography>
         <Grid container spacing={5} className={classes.cardsRow}>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_data}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مهندسی، برنامه نویسی و طراحی وب
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مهندسی، برنامه نویسی و طراحی وب' icon={icon_data}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_nurse}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مهندسی، پتروشیمی و غذا
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مهندسی، پتروشیمی و غذا' icon={icon_nurse}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_flasks}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مهندسی، پتروشیمی و غذا
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مهندسی، پتروشیمی و غذا' icon={icon_flasks}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_mechanic}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مهندسی، مکانیک و سیالات
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مهندسی، مکانیک و سیالات' icon={icon_mechanic}/>
           </Grid>
         </Grid>
         <Grid container spacing={5} className={classes.cardsRow}>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_promotion}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  تحقیقات و بررسی
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='تحقیقات و بررسی' icon={icon_promotion}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_data}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مهندسی، پتروشیمی و غذا
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مهندسی، پتروشیمی و غذا' icon={icon_data}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_nurse}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مراقبت و پرستاری
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مراقبت و پرستاری' icon={icon_nurse}/>
           </Grid>
           <Grid item md={3}>
-            <Card className={classes.card} raised>
-              <CardMedia
-                className={classes.icon}
-                image={icon_mechanic}
-                title="Live from space album cover"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography
-                  component="h6"
-                  variant="h6"
-                  className={classes.cardTitle}
-                >
-                  مراقبت و پرستاری
-                </Typography>
-              </CardContent>
-            </Card>
+            <CategoryCard title='مراقبت و پرستاری' icon={icon_mechanic}/>
           </Grid>
         </Grid>
       </MContainer>

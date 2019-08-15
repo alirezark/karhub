@@ -66,5 +66,12 @@
   "app.containers.Jobs.Filters.edu": "تحصیلات",
   "app.containers.Jobs.Filters.price": "محدوده حقوق",
 
+  "app.containers.Categories.header": "دسته بندی",
+
+  "app.containers.Categories.TopCategories.head": "دسته بندی\u200Cهای برتر شغلی",
+  "app.containers.Categories.TopCategories.sub_head": "با ورود به حساب کاربری خود به هزاران موقعیت شغلی و اطلاعات شرکت ها دسترسی داشته باشید.",
+
+  "app.containers.Categories.CategoryList.head": "دسته بندی\u200Cهای شغلی",
+
   "app.components.JobSearch.head": "Hello"
 }

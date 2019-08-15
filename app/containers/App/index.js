@@ -16,6 +16,7 @@ import GlobalHeader from 'components/GlobalHeader';
 import GlobalFooter from 'components/GlobalFooter';
 import HomePage from 'containers/HomePage/Loadable';
 import Jobs from 'containers/Jobs/Loadable';
+import Categories from 'containers/Categories';
 
 import '../../assets/style.scss';
 
@@ -63,6 +64,7 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/Jobs" component={Jobs} />
+          <Route exact path="/Categories" component={Categories} />
         </Switch>
         <GlobalFooter />
       </ThemeProvider>

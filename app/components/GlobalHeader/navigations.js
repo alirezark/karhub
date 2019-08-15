@@ -6,12 +6,23 @@ import { MTabs, MTab } from '../../mui/MTabs';
 import messages from './messages';
 import styles from './style';
 
+const HOME_LOCATIONS = ['/', '/Categories']
+const JOB_LOCATIONS = ['/Jobs'];
+
+function locationToNav(location) {
+  if (HOME_LOCATIONS.indexOf(location) > -1) return '/';
+  if (JOB_LOCATIONS.indexOf(location) > -1) return '/Jobs';
+  return '';
+}
+
 function Navigations(props) {
   const classes = styles();
-  const [tab, setTab] = useState(props.history.location.pathname);
+  const [tab, setTab] = useState(
+    locationToNav(props.history.location.pathname),
+  );
 
   useEffect(() => {
-    setTab(props.history.location.pathname);
+    setTab(locationToNav(props.history.location.pathname));
   }, [props.history.location.key]);
 
   function handleTabChange(e, val) {

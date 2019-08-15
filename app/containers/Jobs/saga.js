@@ -1,5 +1,6 @@
 import { take, call, put, select } from 'redux-saga/effects';
 import * as actions from './actions';
+import configs from 'app/config';
 
 // Individual exports for testing
 export function* jobsSaga() {
@@ -7,7 +8,7 @@ export function* jobsSaga() {
 }
 
 export function fetchJobsApi() {
-  return fetch('http://localhost:3721/api/jobs').then(response => response.json());
+  return fetch(configs.services.jobs.list).then(response => response.json());
 }
 
 export default function* fetchJobs() {
