@@ -12,7 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
-import GlobalHeader from 'components/GlobalHeader';
+import GlobalHeader from 'containers/GlobalHeader';
 import GlobalFooter from 'components/GlobalFooter';
 import HomePage from 'containers/HomePage/Loadable';
 import Jobs from 'containers/Jobs/Loadable';

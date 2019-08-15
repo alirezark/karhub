@@ -1,12 +1,12 @@
 /*
  * GlobalHeader Messages
  *
- * This contains all the text for the GlobalHeader component.
+ * This contains all the text for the GlobalHeader container.
  */
 
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.components.GlobalHeader';
+export const scope = 'app.containers.GlobalHeader';
 
 export default defineMessages({
   home: {

@@ -7,9 +7,6 @@ const styles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
-  tabs: {
-    flexGrow: 1,
-  },
   avatar: {
     marginRight: 5,
   },

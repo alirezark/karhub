@@ -6,23 +6,34 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@material-ui/core/Toolbar';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Link from '@material-ui/core/Link';
-import Avatar from '@material-ui/core/Avatar';
-import Navigations from './navigations';
-import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import avatar from 'app/assets/images/avatar.jpeg';
-import logo from 'app/assets/images/logo.png';
-import MAppBar from '../../mui/MAppBar';
-import styles from './style';
-import messages from './messages';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-function GlobalHeader(props) {
+import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from 'utils/injectReducer';
+import makeSelectGlobalHeader from './selectors';
+import reducer from './reducer';
+import saga from './saga';
+import messages from './messages';
+import MAppBar from 'mui/MAppBar';
+import Container from '@material-ui/core/Container';
+import Toolbar from '@material-ui/core/Toolbar';
+import Link from '@material-ui/core/Link';
+import logo from 'app/assets/images/logo.png';
+import Navigations from './Navigations';
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import avatar from 'app/assets/images/avatar.jpeg';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import styles from './style';
+
+export function GlobalHeader(props) {
+  useInjectReducer({ key: 'globalHeader', reducer });
+  useInjectSaga({ key: 'globalHeader', saga });
+
   const classes = styles();
   const [auth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +46,6 @@ function GlobalHeader(props) {
   function handleClose() {
     setAnchorEl(null);
   }
-
   return (
     <div className={classes.root}>
       <MAppBar position="static">
@@ -87,8 +97,8 @@ function GlobalHeader(props) {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>پروفایل</MenuItem>
+                  <MenuItem onClick={handleClose}>خروج</MenuItem>
                 </Menu>
               </div>
             )}
@@ -100,7 +110,22 @@ function GlobalHeader(props) {
 }
 
 GlobalHeader.propTypes = {
-  history: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = createStructuredSelector({
+  globalHeader: makeSelectGlobalHeader(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
 }
 
-export default withRouter(GlobalHeader);
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(GlobalHeader);

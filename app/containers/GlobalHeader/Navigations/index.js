@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import { withRouter } from 'react-router-dom';
-import { MTabs, MTab } from '../../mui/MTabs';
+import { MTabs, MTab } from 'mui/MTabs';
 import messages from './messages';
 import styles from './style';
 
