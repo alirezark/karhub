@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import * as actions from './actions';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
@@ -24,28 +25,24 @@ import Link from '@material-ui/core/Link';
 import logo from 'app/assets/images/logo.png';
 import Navigations from './Navigations';
 import Button from '@material-ui/core/Button';
-import Avatar from '@material-ui/core/Avatar';
-import avatar from 'app/assets/images/avatar.jpeg';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import User from './User';
+import LoginDialog from './LoginDialog';
 import styles from './style';
 
 export function GlobalHeader(props) {
   useInjectReducer({ key: 'globalHeader', reducer });
   useInjectSaga({ key: 'globalHeader', saga });
+  console.log(props);
+
+  const openLoginDialog = function() {
+    props.dispatch(actions.openLoginDialogAction());
+  };
+
+  const closeLoginDialog = function() {
+    props.dispatch(actions.closeLoginDialogAction());
+  };
 
   const classes = styles();
-  const [auth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-
-  function handleMenu(event) {
-    setAnchorEl(event.currentTarget);
-  }
-
-  function handleClose() {
-    setAnchorEl(null);
-  }
   return (
     <div className={classes.root}>
       <MAppBar position="static">
@@ -64,44 +61,18 @@ export function GlobalHeader(props) {
             >
               <FormattedMessage {...messages.search_csv} />
             </Button>
-
-            {auth && (
-              <div>
-                <Button
-                  aria-label="Account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
-                  <Avatar
-                    src={avatar}
-                    alt="user name"
-                    className={classes.avatar}
-                  />
-                  مانکی دی لوفی
-                </Button>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  getContentAnchorEl={null}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={open}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose}>پروفایل</MenuItem>
-                  <MenuItem onClick={handleClose}>خروج</MenuItem>
-                </Menu>
-              </div>
-            )}
+            {props.user.isLogin ?
+              <User user={props.user}/> :
+              <Button
+                aria-label="Account of current user"
+                aria-controls="menu-appbar"
+                className={classes.searchButton}
+                onClick={openLoginDialog}
+              >
+                ورود
+              </Button>
+            }
+            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog}/>
           </Toolbar>
         </Container>
       </MAppBar>
@@ -114,7 +85,7 @@ GlobalHeader.propTypes = {
 };
 
 const mapStateToProps = createStructuredSelector({
-  globalHeader: makeSelectGlobalHeader(),
+  user: makeSelectGlobalHeader(),
 });
 
 function mapDispatchToProps(dispatch) {

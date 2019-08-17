@@ -9,7 +9,14 @@ const MTextField = withStyles(theme => ({
         borderRadius: 50,
       },
     },
+    '&.outlined-strong fieldset': {
+      borderWidth: 2,
+      borderColor: '#8E8E8C',
+    },
+    '& svg': {
+      color: '#8E8E8C',
+    },
   },
-}))(props => <TextField variant="outlined" fullWidth {...props} />);
+}))(props => <TextField variant="outlined" {...props} />);
 
 export default MTextField;

@@ -4,16 +4,32 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import * as actions from './constants';
 
-export const initialState = {};
+export const initialState = {
+  isLogin: false,
+  showLoginDialog: false,
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const globalHeaderReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case DEFAULT_ACTION:
-        break;
+      case actions.SET_USER_LOGIN:
+        return {
+          ...state,
+          isLogin: true,
+        };
+      case actions.OPEN_LOGIN_DIALOG:
+        return {
+          ...state,
+          showLoginDialog: true,
+        };
+      case actions.CLOSE_LOGIN_DIALOG:
+        return {
+          ...state,
+          showLoginDialog: false,
+        };
     }
   });
 

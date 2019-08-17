@@ -10,6 +10,7 @@ import MTextField from '../../mui/MTextField';
 import MButton from '../../mui/MButton';
 // import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
@@ -38,10 +39,10 @@ function JobSearch() {
     <div className={classes.root}>
       <Grid container spacing={3}>
         <Grid item md={5} className={classes.width_2}>
-          <MTextField label="عنوان شغلی" />
+          <MTextField fullWidth label="عنوان شغلی" />
         </Grid>
         <Grid item md={5} className={classes.width_2}>
-          <MTextField label="در کدام شهر" />
+          <MTextField fullWidth label="در کدام شهر" />
         </Grid>
         <Grid item md={2} className={classes.width_1}>
           <MButton
