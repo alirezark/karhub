@@ -42,6 +42,11 @@ export function GlobalHeader(props) {
     props.dispatch(actions.closeLoginDialogAction());
   };
 
+  const handleLogin = function() {
+    props.dispatch(actions.setUserLoginAction());
+    closeLoginDialog();
+  };
+
   const classes = styles();
   return (
     <div className={classes.root}>
@@ -72,7 +77,7 @@ export function GlobalHeader(props) {
                 ورود
               </Button>
             }
-            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog}/>
+            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog} handleLogin={handleLogin}/>
           </Toolbar>
         </Container>
       </MAppBar>

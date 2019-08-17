@@ -53,7 +53,7 @@ function LoginDialog(props) {
             >
               ورود با حساب کاربری لینکدین
               <div className={classes.iconContain}>
-                <img src={iconLinkedin} />
+                <img alt="linkedin" src={iconLinkedin} />
               </div>
             </MButton>
           </Grid>
@@ -66,7 +66,7 @@ function LoginDialog(props) {
             >
               ورود با حساب کاربری گوگل
               <div className={classes.iconContain}>
-                <img src={iconGoogle} />
+                <img alt="google" src={iconGoogle} />
               </div>
             </MButton>
           </Grid>
@@ -112,7 +112,13 @@ function LoginDialog(props) {
             </Link>
           </div>
           <div className={classes.loginBtnContain}>
-            <MButton fullWidth variant="contained" color="primary" className={classes.btnLogin}>
+            <MButton
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.btnLogin}
+              onClick={props.handleLogin}
+            >
               ورود
             </MButton>
           </div>
@@ -131,6 +137,7 @@ function LoginDialog(props) {
 LoginDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
+  handleLogin: PropTypes.func.isRequired,
 };
 
 export default LoginDialog;
