@@ -32,6 +32,7 @@ function GlobalFooter() {
           </Grid>
           <Grid item md={5}>
             <MTextField
+              fullWidth
               className={classes.inputField}
               label="ایمیل خود را وارد نمایید"
             />

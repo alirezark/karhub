@@ -35,3 +35,15 @@ export function closeLoginDialogAction() {
     type: actions.CLOSE_LOGIN_DIALOG,
   };
 }
+
+export function openRegisterDialogAction() {
+  return {
+    type: actions.OPEN_REGISTER_DIALOG,
+  };
+}
+
+export function closeRegisterDialogAction() {
+  return {
+    type: actions.CLOSE_REGISTER_DIALOG,
+  };
+}

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-const styles = makeStyles(() => ({
+const styles = makeStyles(theme => ({
   subHead: {
     fontSize: 14,
     color: '#9B9B9B',
@@ -31,20 +31,15 @@ const styles = makeStyles(() => ({
       fontWeight: 800,
     },
   },
-  loginForm: {
-    '&>div': {
-      width: '60%',
-      margin: '24px auto 0',
-    },
-  },
   forgotLink: {
     fontSize: 14,
     color: '#9B9B9B',
     float: 'right',
     marginTop: '-12px',
   },
-  loginBtnContain: {
-    maxWidth: '30%',
+  registerBtnContain: {
+    maxWidth: '25%',
+    margin: '0 auto',
   },
   btnLogin: {
     padding: '9px 16px',
@@ -60,6 +55,25 @@ const styles = makeStyles(() => ({
   registerLink: {
     fontSize: 16,
     color: '#4A90E2',
+  },
+  registerInfo: {
+    maxWidth: '90%',
+    margin: '2rem auto 0',
+    '& p': {
+      fontSize: 12,
+      color: '#9B9B9B',
+      textAlign: 'justify',
+      margin: '5px 12px 0 25px',
+      paddingRight: '16px',
+      borderRight: '1px solid #979797',
+    },
+  },
+  infoLast: {
+    border: 'none!important',
+  },
+  infoIconContain: {
+    float: 'left',
+    color: '#359B3C',
   },
 }));
 

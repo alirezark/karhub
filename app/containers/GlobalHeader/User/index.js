@@ -1,10 +1,7 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import MContainer from 'mui/MContainer';
+// import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Typography, Grid } from '@material-ui/core';
-import CategoryCard from 'components/CategoryCard';
-import messages from './messages';
+// import messages from './messages';
 import styles from './style';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
@@ -36,11 +33,7 @@ function User(props) {
         onClick={handleMenu}
         color="inherit"
       >
-        <Avatar
-          src={avatar}
-          alt="user name"
-          className={classes.avatar}
-        />
+        <Avatar src={avatar} alt="user name" className={classes.avatar} />
         مانکی دی لوفی
       </Button>
       <Menu
@@ -64,10 +57,10 @@ function User(props) {
       </Menu>
     </div>
   );
-};
+}
 
 User.propTypes = {
   onLogout: PropTypes.func.isRequired,
-}
+};
 
 export default User;

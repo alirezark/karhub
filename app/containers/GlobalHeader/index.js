@@ -27,6 +27,7 @@ import Navigations from './Navigations';
 import Button from '@material-ui/core/Button';
 import User from './User';
 import LoginDialog from './LoginDialog';
+import RegisterDialog from './RegisterDialog';
 import styles from './style';
 
 export function GlobalHeader(props) {
@@ -49,6 +50,20 @@ export function GlobalHeader(props) {
 
   const handleLogout = function() {
     props.dispatch(actions.setUserLogoutAction());
+  };
+
+
+  const openRegisterDialog = function() {
+    props.dispatch(actions.openRegisterDialogAction());
+  };
+
+  const closeRegisterDialog = function() {
+    props.dispatch(actions.closeRegisterDialogAction());
+  };
+
+  const handleRegister = function() {
+    props.dispatch(actions.setUserLoginAction());
+    closeRegisterDialog();
   };
 
   const classes = styles();
@@ -81,7 +96,8 @@ export function GlobalHeader(props) {
                 ورود
               </Button>
             }
-            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog} handleLogin={handleLogin}/>
+            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog} handleLogin={handleLogin} showRegister={openRegisterDialog}/>
+            <RegisterDialog open={props.user.showRegisterDialog} handleClose={closeRegisterDialog} handleRegister={handleRegister} showLogin={openLoginDialog}/>
           </Toolbar>
         </Container>
       </MAppBar>

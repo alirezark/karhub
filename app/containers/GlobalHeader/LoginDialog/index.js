@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Typography, Grid, InputAdornment, IconButton, Link } from '@material-ui/core';
+import {
+  Typography,
+  Grid,
+  InputAdornment,
+  IconButton,
+  Link,
+} from '@material-ui/core';
 import {
   MDialog,
   MDialogTitle,
   MDialogContent,
-  MDialogActions,
 } from 'mui/MDialog';
-import Button from '@material-ui/core/Button';
 import MButton from 'mui/MButton';
 // import messages from './messages';
 import iconLinkedin from 'app/assets/images/icons/linkedin.png';
 import iconGoogle from 'app/assets/images/icons/google.png';
 import styles from './style';
 import MTextField from 'mui/MTextField';
-import {PersonOutlined, Visibility, VisibilityOff } from '@material-ui/icons';
+import { PersonOutlined, Visibility, VisibilityOff } from '@material-ui/icons';
 
 function LoginDialog(props) {
   const classes = styles();
@@ -123,10 +127,13 @@ function LoginDialog(props) {
             </MButton>
           </div>
           <div className={classes.registerLinkContain}>
-            عضو کارهاب نیستم!{' '}
-            <Link href="#/register" className={classes.registerLink}>
+            عضو کارهاب نیستم!
+            <MButton
+              onClick={props.showRegister}
+              className={classes.registerLink}
+            >
               ثبت نام
-            </Link>
+            </MButton>
           </div>
         </form>
       </MDialogContent>
@@ -138,6 +145,7 @@ LoginDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   handleLogin: PropTypes.func.isRequired,
+  showRegister: PropTypes.func.isRequired,
 };
 
 export default LoginDialog;

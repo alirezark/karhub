@@ -9,6 +9,7 @@ import * as actions from './constants';
 export const initialState = {
   isLogin: false,
   showLoginDialog: false,
+  showRegisterDialog: true,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -29,11 +30,23 @@ const globalHeaderReducer = (state = initialState, action) =>
         return {
           ...state,
           showLoginDialog: true,
+          showRegisterDialog: false,
         };
       case actions.CLOSE_LOGIN_DIALOG:
         return {
           ...state,
           showLoginDialog: false,
+        };
+      case actions.OPEN_REGISTER_DIALOG:
+        return {
+          ...state,
+          showLoginDialog: false,
+          showRegisterDialog: true,
+        };
+      case actions.CLOSE_REGISTER_DIALOG:
+        return {
+          ...state,
+          showRegisterDialog: false,
         };
     }
   });
