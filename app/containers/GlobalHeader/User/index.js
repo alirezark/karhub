@@ -24,6 +24,7 @@ function User(props) {
 
   function handleClose() {
     setAnchorEl(null);
+    props.onLogout();
   }
 
   return (
@@ -63,6 +64,10 @@ function User(props) {
       </Menu>
     </div>
   );
+};
+
+User.propTypes = {
+  onLogout: PropTypes.func.isRequired,
 }
 
 export default User;

@@ -18,6 +18,12 @@ export function setUserLoginAction() {
   };
 }
 
+export function setUserLogoutAction() {
+  return {
+    type: actions.SET_USER_LOGOUT,
+  };
+}
+
 export function openLoginDialogAction() {
   return {
     type: actions.OPEN_LOGIN_DIALOG,

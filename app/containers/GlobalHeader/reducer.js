@@ -20,6 +20,11 @@ const globalHeaderReducer = (state = initialState, action) =>
           ...state,
           isLogin: true,
         };
+      case actions.SET_USER_LOGOUT:
+        return {
+          ...state,
+          isLogin: false,
+        };
       case actions.OPEN_LOGIN_DIALOG:
         return {
           ...state,
