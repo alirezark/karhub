@@ -17,6 +17,7 @@ import GlobalFooter from 'components/GlobalFooter';
 import HomePage from 'containers/HomePage/Loadable';
 import Jobs from 'containers/Jobs/Loadable';
 import Categories from 'containers/Categories';
+import SendSVDialog from 'containers/SendCvDialog';
 
 import '../../assets/style.scss';
 
@@ -71,6 +72,7 @@ export default function App() {
           <Route exact path="/Jobs" component={Jobs} />
           <Route exact path="/Categories" component={Categories} />
         </Switch>
+        <Route exact path="/Jobs" component={SendSVDialog} />
         <GlobalFooter />
       </ThemeProvider>
     </Rtl>

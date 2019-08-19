@@ -59,7 +59,7 @@ const styles = makeStyles(theme => ({
     fontSize: 14,
     color: '#818181',
     lineHeight: '3rem',
-    '& h2': {
+    '& div': {
       fontSize: 14,
       fontWeight: 900,
       float: 'right',

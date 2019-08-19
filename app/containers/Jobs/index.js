@@ -18,23 +18,28 @@ import saga from './saga';
 import SearchPanel from './SearchPanel';
 import Filters from './Filters';
 import JobsList from './JobsList';
+import * as CVDialogActions from 'containers/SendCvDialog/actions';
 
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
-  console.log(props);
+
+  const showSendCVDialog = function(job) {
+    props.dispatch(CVDialogActions.openSendCVAction(job));
+  };
+
   return (
     <div>
       <SearchPanel />
       <Filters />
-      <JobsList />
+      <JobsList showSendCVDialog={showSendCVDialog} />
     </div>
   );
 }
 
 Jobs.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  history: PropTypes.shape.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

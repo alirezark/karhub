@@ -31,6 +31,7 @@ const styles = makeStyles(() => ({
     color: '#9B9B9B',
     fontSize: '.75rem',
     marginTop: '.5rem',
+    maxWidth: 300,
     '& i': {
       margin: '0 .5rem',
     },

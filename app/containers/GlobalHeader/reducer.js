@@ -9,7 +9,7 @@ import * as actions from './constants';
 export const initialState = {
   isLogin: false,
   showLoginDialog: false,
-  showRegisterDialog: true,
+  showRegisterDialog: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */

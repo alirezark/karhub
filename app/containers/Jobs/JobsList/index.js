@@ -34,42 +34,48 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function JobsList() {
+function JobsList(props) {
   const classes = styles();
   const [tab, setTab] = useState('1');
 
   const jobs = [
     {
+      id: 1,
       title: 'مدیر فنی و پشتیبانی',
       company: 'ایرانسل',
       location: 'تهران',
       icon: 1,
     },
     {
+      id: 2,
       title: 'استخدام برنامه نویس',
       company: 'ایرانسل',
       location: 'تهران',
       icon: 2,
     },
     {
+      id: 3,
       title: 'طراح و برنامه نویس موبایل',
       company: 'ایرانسل',
       location: 'تهران',
       icon: 3,
     },
     {
+      id: 4,
       title: 'استخدام دیجتال مارکتینگ',
       company: 'ایرانسل',
       location: 'تهران',
       icon: 1,
     },
     {
+      id: 5,
       title: 'طراح و برنامه نویس موبایل',
       company: 'ایرانسل',
       location: 'تهران',
       icon: 3,
     },
     {
+      id: 6,
       title: 'استخدام برنامه نویس',
       company: 'ایرانسل',
       location: 'تهران',
@@ -87,10 +93,10 @@ function JobsList() {
         <Grid item md={4}>
           <Typography variant="h2" component="h2" className={classes.head}>
             برنامه نویس و مدیر فنی
-            <h2 className={classes.headInfo}>423 مورد</h2>
+            <div className={classes.headInfo}>423 مورد</div>
           </Typography>
           {jobs.map(job => (
-            <JobCard job={job} />
+            <JobCard key={job.id} job={job} />
           ))}
         </Grid>
         <Grid item md={8}>
@@ -101,7 +107,11 @@ function JobsList() {
               className={classes.panelHead}
             >
               مدیر فنی و پشتیبانی
-              <MButton className={classes.btnBlue} variant="contained">
+              <MButton
+                className={classes.btnBlue}
+                onClick={() => props.showSendCVDialog(jobs[0])}
+                variant="contained"
+              >
                 ارسال رزومه
               </MButton>
             </Typography>
@@ -134,7 +144,7 @@ function JobsList() {
 
             <Typography variant="h5" component="h5" className={classes.rowInfo}>
               ۴۸ نفر برای این موقعیت شغلی رزومه خود را ارسال کرد‌ه‌اند
-              <h2>محدوده حقوق: ۲ میلیون تا ۴ میلیون تومان</h2>
+              <div>محدوده حقوق: ۲ میلیون تا ۴ میلیون تومان</div>
             </Typography>
 
             <div className={classes.panelLine} />
@@ -226,14 +236,14 @@ function JobsList() {
                 variant="h5"
                 component="h5"
                 className={classes.panelHead}
-                style={{margin: 0}}
+                style={{ margin: 0 }}
               >
                 چرا ما؟
                 <MButton className={classes.btnGreenLink} variant="contained">
                   مشاهده پروفایل شرکت
                 </MButton>
               </Typography>
-              <Typography variant="p" component='p' className={classes.tabInfo}>
+              <Typography className={classes.tabInfo}>
                 {
                   'با توجه به محدودیت‌های مختلف در حوزه مبادلات و پرداخت‌های بین‌المللی و همچنین توسعه تکنولوژی‌های نوین دنیا، سپهر به عنوان پیشگام در توسعه کسب و کارهای نوین و روشهای مبادلات نوین می‌باشد. تیم ما در ارائه محصولات جهت تسهیل مبادلات صنایع مختلف تمرکز دارد.ما همچنین در توسعه و نگهداری محصولات نرم‌افزاری، پورتال‌های تجارت الکترونیک، بازار، تجزیه و تحلیل کسب و کار تجارب زیادی داریم. '
                 }
@@ -245,5 +255,9 @@ function JobsList() {
     </MContainer>
   );
 }
+
+JobsList.propTypes = {
+  showSendCVDialog: PropTypes.func.isRequired,
+};
 
 export default JobsList;

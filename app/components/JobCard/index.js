@@ -5,6 +5,7 @@
  */
 
 import React from 'react';
+import classNames from 'classnames';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import icon1 from 'app/assets/images/icon-1.png';
@@ -24,10 +25,10 @@ const selectIcon = icon => {
 
 function JobCard(props) {
   const classes = styles();
-  const { job } = props;
-
+  const { job, hideNavigation, className } = props;
+  const cardClasses = classNames(classes.card, className);
   return (
-    <Card className={classes.card} raised>
+    <Card className={cardClasses} raised>
       <CardMedia
         className={classes.cover}
         image={selectIcon(job.icon)}
@@ -49,9 +50,11 @@ function JobCard(props) {
             </Grid>
           </Grid>
         </CardContent>
-        <div className={classes.arrow}>
-          <i className="i-arrow-left" />
-        </div>
+        {!hideNavigation &&
+          <div className={classes.arrow}>
+            <i className="i-arrow-left" />
+          </div>
+        }
       </div>
     </Card>
   );
@@ -59,6 +62,8 @@ function JobCard(props) {
 
 JobCard.propTypes = {
   job: PropTypes.object.isRequired,
+  hideNavigation: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default JobCard;

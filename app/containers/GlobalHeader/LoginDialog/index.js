@@ -50,8 +50,8 @@ function LoginDialog(props) {
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <MButton
+              fullWidth
               variant="outlined"
-              size="fullWidth"
               aria-label="add"
               className={classes.iconButton}
             >
@@ -63,8 +63,8 @@ function LoginDialog(props) {
           </Grid>
           <Grid item xs={6}>
             <MButton
+              fullWidth
               variant="outlined"
-              size="fullWidth"
               aria-label="add"
               className={classes.iconButton}
             >
