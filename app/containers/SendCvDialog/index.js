@@ -20,6 +20,8 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 import GuestCVDialog from './GuestCVDialog';
+import UserCVDialog from './UserCVDialog';
+import SuccessDialog from './SuccessDialog';
 import * as actions from './actions';
 import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
 

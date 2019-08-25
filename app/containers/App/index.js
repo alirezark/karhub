@@ -33,6 +33,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ['iranyekan', 'Segoe UI'].join(','),
     fontSize: 14,
+    color: '#4A4A4A',
     h1: {
       fontSize: '1.63rem',
       color: '#4A4A4A',

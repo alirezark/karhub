@@ -1,24 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/styles';
-import {
-  Typography,
-  Grid,
-  InputAdornment,
-  IconButton,
-  DialogActions,
-} from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import { MDialog, MDialogTitle, MDialogContent } from 'mui/MDialog';
 import MButton from 'mui/MButton';
 // import messages from './messages';
 import MTextField from 'mui/MTextField';
-import {
-  PersonOutlined,
-  Visibility,
-  VisibilityOff,
-  Done,
-} from '@material-ui/icons';
+import { PersonOutlined } from '@material-ui/icons';
 import JobCard from 'components/JobCard';
 import FileUpload from 'components/FileUpload';
 import creatCVIcon from 'app/assets/images/icons/create_cv.png';
@@ -110,7 +98,9 @@ function GuestCVDialog(props) {
         </div>
         <div className={classes.loginLinkContain}>
           قبلا عضو کارهاب شده‌ام!
-          <MButton className={classes.loginLink} onClick={showLogin}>ورود به حساب کاری</MButton>
+          <MButton className={classes.loginLink} onClick={showLogin}>
+            ورود به حساب کاری
+          </MButton>
         </div>
       </MDialogContent>
     </MDialog>
