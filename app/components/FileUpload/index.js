@@ -9,7 +9,6 @@ import MButton from 'mui/MButton';
 import { withStyles, makeStyles, IconButton } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { Edit, Close } from '@material-ui/icons';
-// import styled from 'styled-components';
 
 const fileInfoStyle = makeStyles(theme => ({
   root: {

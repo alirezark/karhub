@@ -21,6 +21,7 @@ import saga from './saga';
 import messages from './messages';
 import GuestCVDialog from './GuestCVDialog';
 import * as actions from './actions';
+import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
 
 export function SendCvDialog(props) {
   useInjectReducer({ key: 'sendCvDialog', reducer });
@@ -39,9 +40,13 @@ export function SendCvDialog(props) {
     props.dispatch(actions.sendCVAction());
   };
 
+  const showLogin = function() {
+    props.dispatch(openLoginDialogAction());
+  };
+
   return (
     <div>
-      <GuestCVDialog job={job} open={showGuestDialog} handleClose={handleClose} handleSendCV={handleSendCV}/>
+      <GuestCVDialog job={job} open={showGuestDialog} handleClose={handleClose} handleSendCV={handleSendCV} showLogin={showLogin}/>
     </div>
   );
 }
