@@ -24,3 +24,9 @@ export function sendCVAction() {
     type: actions.SEND_CV,
   };
 }
+
+export function closeSuccessDialogAction() {
+  return {
+    type: actions.CLOSE_SUCCESS_SEND_CV,
+  };
+}

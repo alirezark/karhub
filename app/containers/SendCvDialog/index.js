@@ -32,6 +32,7 @@ export function SendCvDialog(props) {
   const { job, sendCvDialog } = props;
   const showGuestDialog = sendCvDialog.showSendCVDialog && !props.user.isLogin;
   const showUserDialog = sendCvDialog.showSendCVDialog && props.user.isLogin;
+  const showSuccessDialog = sendCvDialog.showSuccessDialog;
   console.log(props);
 
   const handleClose = function() {
@@ -46,9 +47,15 @@ export function SendCvDialog(props) {
     props.dispatch(openLoginDialogAction());
   };
 
+  const handleCloseSuccess = function() {
+    props.dispatch(actions.closeSuccessDialogAction());
+  }
+
   return (
     <div>
       <GuestCVDialog job={job} open={showGuestDialog} handleClose={handleClose} handleSendCV={handleSendCV} showLogin={showLogin}/>
+      <UserCVDialog job={job} open={showUserDialog} handleClose={handleClose} handleSendCV={handleSendCV}/>
+      <SuccessDialog open={showSuccessDialog} handleClose={handleCloseSuccess} job={job}/>
     </div>
   );
 }

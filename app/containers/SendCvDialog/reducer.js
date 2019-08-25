@@ -8,6 +8,7 @@ import * as actions from './constants';
 
 export const initialState = {
   showSendCVDialog: false,
+  showSuccessDialog: false,
   job: {},
 };
 
@@ -30,7 +31,13 @@ const sendCvDialogReducer = (state = initialState, action) =>
         return {
           ...state,
           showSendCVDialog: false,
-          showSuccess: true,
+          showSuccessDialog: true,
+        };
+      case actions.CLOSE_SUCCESS_SEND_CV:
+        return {
+          ...state,
+          showSendCVDialog: false,
+          showSuccessDialog: false,
         };
     }
   });
