@@ -28,6 +28,7 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#4BBB81',
+      light: '#79CCA1',
     },
   },
   direction: 'rtl',

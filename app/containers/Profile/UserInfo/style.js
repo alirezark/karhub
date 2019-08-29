@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles(theme => ({
   greyContainer: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#F9F9F9',
     padding: '5px 0',
     marginBottom: '-5rem',
   },
@@ -21,6 +21,31 @@ const styles = makeStyles(theme => ({
       cursor: 'default',
     },
   },
+
+  panel: {
+    background: '#fff',
+    boxShadow: '0 0 14px 0 rgba(178,178,178,0.5)',
+    borderRadius: 8,
+    position: 'relative',
+    marginTop: '2.5rem',
+    color: '#9B9B9B',
+    fontSize: 12,
+  },
+  avatar: {
+    width: 114,
+    height: 114,
+    position: 'absolute',
+    right: '50%',
+    margin: '-57px',
+    padding: 7,
+    border: '1px solid',
+    background: '#fff',
+    borderColor: theme.palette.primary.main,
+    '& img': {
+      borderRadius: '100%',
+    },
+  },
+
   sectionHead: {
     marginTop: '2rem',
     marginBottom: '1rem',
