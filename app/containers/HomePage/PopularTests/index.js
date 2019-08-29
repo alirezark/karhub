@@ -10,8 +10,6 @@ import messages from './messages';
 import styles from './style';
 import imgTests from '../../../assets/images/most_test_h.png';
 import icon1 from '../../../assets/images/icons/tests.png';
-import icon2 from '../../../assets/images/icons/Aptitude Test.png';
-import icon3 from '../../../assets/images/icons/bar_on test.png';
 
 function PopularTests() {
   const classes = styles();
@@ -20,10 +18,18 @@ function PopularTests() {
     <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Grid container>
         <Grid item md={9}>
-          <Typography variant="h1" component="h1" className={classes.sectionHead}>
+          <Typography
+            variant="h1"
+            component="h1"
+            className={classes.sectionHead}
+          >
             <FormattedMessage {...messages.title} />
           </Typography>
-          <Typography variant="subtitle1" component="p" className={classes.subTitle}>
+          <Typography
+            variant="subtitle1"
+            component="p"
+            className={classes.subTitle}
+          >
             <FormattedMessage {...messages.sub_head} />
           </Typography>
           <Grid container spacing={4}>
@@ -40,8 +46,7 @@ function PopularTests() {
                     variant="h6"
                     className={classes.cardTitle}
                   >
-                    آزمون هوش‌های چندگانه
-                    Aptitude Test
+                    آزمون هوش‌های چندگانه Aptitude Test
                   </Typography>
                   <div className={classes.cardFooter}>
                     <span>سوال: ۳۰</span>
@@ -63,8 +68,7 @@ function PopularTests() {
                     variant="h6"
                     className={classes.cardTitle}
                   >
-                    آزمون هوش‌های چندگانه
-                    Aptitude Test
+                    آزمون هوش‌های چندگانه Aptitude Test
                   </Typography>
                   <div className={classes.cardFooter}>
                     <span>سوال: ۳۰</span>
@@ -86,8 +90,7 @@ function PopularTests() {
                     variant="h6"
                     className={classes.cardTitle}
                   >
-                    آزمون هوش‌های چندگانه
-                    Aptitude Test
+                    آزمون هوش‌های چندگانه Aptitude Test
                   </Typography>
                   <div className={classes.cardFooter}>
                     <span>سوال: ۳۰</span>

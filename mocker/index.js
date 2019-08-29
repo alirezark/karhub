@@ -1,3 +1,4 @@
+/* eslint-disable */
 const proxy = {
   // Priority processing.
   // apiMocker(app, path, option)
@@ -64,6 +65,17 @@ const proxy = {
     { id: 19, title: 'مهندسی، برنامه نویسی و طراحی وب', icon: 'icon-1'},
     { id: 20, title: 'مهندسی، برنامه نویسی و طراحی وب', icon: 'icon-1'},
   ],
+  'GET /rest/user/profile': {
+    name: 'مانکی دی لوفی',
+    website: 'www.farhadjafari.ir',
+    job: 'مدیر محصول و طراح تجربه کاربری و رابط کاربری',
+    company: 'ایرانسل',
+    city: 'تهران',
+    mobile: '۰۹۱۲۳۴۵۶۷۸۹',
+    email: 'alavi.ali@gmail.com',
+    address: 'alavi.ali@gmail.com',
+    birthDate: '۱۳۶۸/۱۲/۱۵',
+  },
 };
 
 module.exports = proxy;

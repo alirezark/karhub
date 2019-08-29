@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
-const DialogTitleStyle = makeStyles((theme) => ({
+const DialogTitleStyle = makeStyles(theme => ({
   root: {
     margin: 0,
     padding: '24px 32px 0',
@@ -35,12 +35,14 @@ const MDialog = withStyles(() => ({
   },
 }))(Dialog);
 
-const MDialogTitle = withStyles()(props => {
+const MDialogTitle = withStyles(() => ({}))(props => {
   const classes = DialogTitleStyle();
   const { children, onClose } = props;
   return (
     <DialogTitle disableTypography className={classes.root}>
-      <Typography variant="h2" className={classes.title}>{children}</Typography>
+      <Typography variant="h2" className={classes.title}>
+        {children}
+      </Typography>
       {onClose ? (
         <IconButton
           aria-label="close"

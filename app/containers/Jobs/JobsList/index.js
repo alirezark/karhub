@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box } from '@material-ui/core';
 import JobCard from 'components/JobCard';
 import MButton from 'mui/MButton';
 import { MTab, MTabs } from 'mui/MTabs';
-import { InputBaseProps as margin } from '@material-ui/core/InputBase/InputBase';
 import MChip from 'mui/MChip';
-import messages from './messages';
+// import messages from './messages';
 import styles from './style';
 
 function TabPanel(props) {

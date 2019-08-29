@@ -8,16 +8,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import * as actions from './actions';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import { makeSelectCategories, makeSelectTopCategories, makeSelectSelectedCategories } from './selectors';
+import * as actions from './actions';
+import {
+  makeSelectCategories,
+  makeSelectTopCategories,
+  makeSelectSelectedCategories,
+} from './selectors';
 import reducer from './reducer';
-import { fetchCategories, fetchTopCategories, fetchSelectedCategory } from './saga';
-import messages from './messages';
+import {
+  fetchCategories,
+  fetchTopCategories,
+  fetchSelectedCategory,
+} from './saga';
 import TopCategories from './TopCategories';
 import CategoryList from './CategoryList';
 
@@ -27,17 +33,25 @@ export function Categories(props) {
   useInjectSaga({ key: 'topCategories', saga: fetchTopCategories });
   useInjectSaga({ key: 'selectedCategory', saga: fetchSelectedCategory });
 
-  const categorySelect = function (cat) {
+  const { selectedCategories, topCategories, categories } = props;
+
+  const categorySelect = cat => {
     props.dispatch(actions.pushSelecteCategoryAction(cat));
     props.dispatch(actions.requestSelectedCategory(cat));
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   };
 
-  const popCategorySelected = function (count) {
+  const popCategorySelected = count => {
     props.dispatch(actions.popSelectedCategoryAction(count));
-    props.dispatch(actions.requestSelectedCategory(props.selectedCategories.length > 0 ? [...props.selectedCategories].pop() : null));
+    props.dispatch(
+      actions.requestSelectedCategory(
+        props.selectedCategories.length > 0
+          ? [...props.selectedCategories].pop()
+          : null,
+      ),
+    );
   };
-  console.log(props);
+
   return (
     <div>
       <Helmet>
@@ -45,18 +59,28 @@ export function Categories(props) {
         <meta name="description" content="Jobs Categories" />
       </Helmet>
       <TopCategories
-        categories={props.topCategories}
-        selectedCategories={props.selectedCategories}
-        onSelectCategory={categorySelect} unSelectCategory={popCategorySelected}/>
-      {props.selectedCategories.length === 0 ? (
-        <CategoryList categories={props.categories} onSelectCategory={categorySelect} />
-      ) : ''}
+        categories={topCategories}
+        selectedCategories={selectedCategories}
+        onSelectCategory={categorySelect}
+        unSelectCategory={popCategorySelected}
+      />
+      {selectedCategories.length === 0 ? (
+        <CategoryList
+          categories={categories}
+          onSelectCategory={categorySelect}
+        />
+      ) : (
+        ''
+      )}
     </div>
   );
 }
 
 Categories.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  selectedCategories: PropTypes.array,
+  topCategories: PropTypes.object,
+  categories: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({

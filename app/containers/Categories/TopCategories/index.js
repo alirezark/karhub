@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import PropTypes from 'prop-types';
-import { Typography, Grid, Breadcrumbs, Link } from '@material-ui/core';
+import { Typography, Grid, Breadcrumbs } from '@material-ui/core';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import CategoryCard from 'components/CategoryCard';
 import imgCategory from 'app/assets/images/category_page.png';
@@ -31,7 +31,7 @@ function TopCategories(props) {
       props.unSelectCategory(props.selectedCategories.length - index - 1);
   };
 
-  const removeSelecteds = function() {
+  const removeSelected = () => {
     props.unSelectCategory(props.selectedCategories.length);
   };
 
@@ -46,9 +46,12 @@ function TopCategories(props) {
               className={classes.breadcrumb}
             >
               <Typography>خانه</Typography>
-              <Typography onClick={removeSelecteds}>دسته بندی شغلی</Typography>
+              <Typography onClick={removeSelected}>دسته بندی شغلی</Typography>
               {props.selectedCategories.map((category, index) => (
-                <Typography onClick={() => handleBreadcrumbsClick(index)}>
+                <Typography
+                  key={category.id}
+                  onClick={() => handleBreadcrumbsClick(index)}
+                >
                   {category.title}
                 </Typography>
               ))}
@@ -76,7 +79,7 @@ function TopCategories(props) {
             </Typography>
             <Grid container spacing={4} className={cardContainerClassnames}>
               {props.categories.items.map(category => (
-                <Grid item md={3}>
+                <Grid key={category.id} item md={3}>
                   <CategoryCard
                     title={category.title}
                     icon={isTopCategories(props) ? iconData : undefined}

@@ -10,21 +10,21 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import * as actions from './actions';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectGlobalHeader from './selectors';
-import reducer from './reducer';
-import saga from './saga';
-import messages from './messages';
 import MAppBar from 'mui/MAppBar';
 import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Link from '@material-ui/core/Link';
 import logo from 'app/assets/images/logo.png';
-import Navigations from './Navigations';
 import Button from '@material-ui/core/Button';
+import Navigations from './Navigations';
+import messages from './messages';
+import saga from './saga';
+import reducer from './reducer';
+import makeSelectGlobalHeader from './selectors';
+import * as actions from './actions';
 import User from './User';
 import LoginDialog from './LoginDialog';
 import RegisterDialog from './RegisterDialog';
@@ -33,36 +33,35 @@ import styles from './style';
 export function GlobalHeader(props) {
   useInjectReducer({ key: 'globalHeader', reducer });
   useInjectSaga({ key: 'globalHeader', saga });
-  console.log(props);
+  const { history, user, dispatch } = props;
 
-  const openLoginDialog = function() {
-    props.dispatch(actions.openLoginDialogAction());
+  const openLoginDialog = () => {
+    dispatch(actions.openLoginDialogAction());
   };
 
-  const closeLoginDialog = function() {
-    props.dispatch(actions.closeLoginDialogAction());
+  const closeLoginDialog = () => {
+    dispatch(actions.closeLoginDialogAction());
   };
 
-  const handleLogin = function() {
-    props.dispatch(actions.setUserLoginAction());
+  const handleLogin = () => {
+    dispatch(actions.setUserLoginAction());
     closeLoginDialog();
   };
 
-  const handleLogout = function() {
-    props.dispatch(actions.setUserLogoutAction());
+  const handleLogout = () => {
+    dispatch(actions.setUserLogoutAction());
   };
 
-
-  const openRegisterDialog = function() {
-    props.dispatch(actions.openRegisterDialogAction());
+  const openRegisterDialog = () => {
+    dispatch(actions.openRegisterDialogAction());
   };
 
-  const closeRegisterDialog = function() {
-    props.dispatch(actions.closeRegisterDialogAction());
+  const closeRegisterDialog = () => {
+    dispatch(actions.closeRegisterDialogAction());
   };
 
-  const handleRegister = function() {
-    props.dispatch(actions.setUserLoginAction());
+  const handleRegister = () => {
+    dispatch(actions.setUserLoginAction());
     closeRegisterDialog();
   };
 
@@ -72,11 +71,11 @@ export function GlobalHeader(props) {
       <MAppBar position="static">
         <Container>
           <Toolbar>
-            <Link to="/">
+            <Link to="/" component="a">
               <img src={logo} alt="t" />
             </Link>
 
-            <Navigations history={props.history} />
+            <Navigations history={history} />
 
             <Button
               aria-label="Account of current user"
@@ -85,8 +84,9 @@ export function GlobalHeader(props) {
             >
               <FormattedMessage {...messages.search_csv} />
             </Button>
-            {props.user.isLogin ?
-              <User user={props.user} history={props.history} onLogout={handleLogout}/> :
+            {user.isLogin ? (
+              <User user={user} history={history} onLogout={handleLogout} />
+            ) : (
               <Button
                 aria-label="Account of current user"
                 aria-controls="menu-appbar"
@@ -95,9 +95,19 @@ export function GlobalHeader(props) {
               >
                 ورود
               </Button>
-            }
-            <LoginDialog open={props.user.showLoginDialog} handleClose={closeLoginDialog} handleLogin={handleLogin} showRegister={openRegisterDialog}/>
-            <RegisterDialog open={props.user.showRegisterDialog} handleClose={closeRegisterDialog} handleRegister={handleRegister} showLogin={openLoginDialog}/>
+            )}
+            <LoginDialog
+              open={user.showLoginDialog}
+              handleClose={closeLoginDialog}
+              handleLogin={handleLogin}
+              showRegister={openRegisterDialog}
+            />
+            <RegisterDialog
+              open={user.showRegisterDialog}
+              handleClose={closeRegisterDialog}
+              handleRegister={handleRegister}
+              showLogin={openLoginDialog}
+            />
           </Toolbar>
         </Container>
       </MAppBar>
@@ -107,6 +117,8 @@ export function GlobalHeader(props) {
 
 GlobalHeader.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

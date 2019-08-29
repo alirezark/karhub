@@ -23,7 +23,11 @@ function PopularJobs() {
           <img alt="Tests" className={classes.section_img} src={imgJobs} />
         </Grid>
         <Grid item md={9}>
-          <Typography variant="h1" component="h1" className={classes.sectionHead}>
+          <Typography
+            variant="h1"
+            component="h1"
+            className={classes.sectionHead}
+          >
             <FormattedMessage {...messages.title} />
           </Typography>
           <Typography variant="subtitle1" component="p">

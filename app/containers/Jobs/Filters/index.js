@@ -35,7 +35,9 @@ function Filters() {
     <MContainer maxWidth="md" mt={6} className={classes.root}>
       <div className={classes.filters}>
         <div className={classes.filter}>
-          <div className={classes.filterTitle}><FormattedMessage {...messages.job_category} /></div>
+          <div className={classes.filterTitle}>
+            <FormattedMessage {...messages.job_category} />
+          </div>
           <MSelect
             value={values.job_category}
             onChange={handleChange}
@@ -55,7 +57,9 @@ function Filters() {
           </MSelect>
         </div>
         <div className={classes.filter}>
-          <div className={classes.filterTitle}><FormattedMessage {...messages.worked_year} /></div>
+          <div className={classes.filterTitle}>
+            <FormattedMessage {...messages.worked_year} />
+          </div>
           <MSelect
             value={values.worked_year}
             onChange={handleChange}
@@ -75,7 +79,9 @@ function Filters() {
           </MSelect>
         </div>
         <div className={classes.filter}>
-          <div className={classes.filterTitle}><FormattedMessage {...messages.job_type} /></div>
+          <div className={classes.filterTitle}>
+            <FormattedMessage {...messages.job_type} />
+          </div>
           <MSelect
             value={values.job_type}
             onChange={handleChange}
@@ -95,7 +101,9 @@ function Filters() {
           </MSelect>
         </div>
         <div className={classes.filter}>
-          <div className={classes.filterTitle}><FormattedMessage {...messages.edu} /></div>
+          <div className={classes.filterTitle}>
+            <FormattedMessage {...messages.edu} />
+          </div>
           <MSelect
             value={values.edu}
             onChange={handleChange}
@@ -115,7 +123,9 @@ function Filters() {
           </MSelect>
         </div>
         <div className={classes.filter}>
-          <div className={classes.filterTitle}><FormattedMessage {...messages.price} /></div>
+          <div className={classes.filterTitle}>
+            <FormattedMessage {...messages.price} />
+          </div>
           <MSelect
             value={values.price}
             onChange={handleChange}

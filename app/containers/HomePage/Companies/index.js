@@ -12,9 +12,7 @@ function Companies() {
   return (
     <MContainer maxWidth="md" mt={6} className={classes.root}>
       <Typography variant="h2" gutterBottom className={classes.numContain}>
-        <span className={classes.numText}>
-          23{' '}
-        </span>
+        <span className={classes.numText}>23 </span>
         <FormattedMessage {...messages.thousand} />
       </Typography>
       <Typography component="h2" variant="h2" className={classes.title}>

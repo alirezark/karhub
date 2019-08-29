@@ -32,13 +32,23 @@ function SearchContainer() {
         <MChip label="طراح یوآی" />
         <MChip label="طراح گرافیک" />
         <MChip label="طراح محصول" />
-        <Link className={classes.greyLink} onClick={foo} component="button">
+        <Link
+          to="/"
+          className={classes.greyLink}
+          onClick={foo}
+          component="button"
+        >
           <FormattedMessage {...messages.delete_all} />
         </Link>
       </div>
       <Typography variant="h2" gutterBottom className={classes.head2}>
         <FormattedMessage {...messages.head2} />
-        <Link className={classes.blueLink} onClick={foo} component="button">
+        <Link
+          to="/"
+          className={classes.blueLink}
+          onClick={foo}
+          component="button"
+        >
           <FormattedMessage {...messages.employment_ad} />
         </Link>
       </Typography>
@@ -48,6 +58,7 @@ function SearchContainer() {
           <Typography variant="subtitle2" className={classes.subtitle2}>
             <FormattedMessage {...messages.sub_head1} />
             <Link
+              to="/"
               className={classes.greenLink}
               onClick={foo}
               component="button"
@@ -64,7 +75,7 @@ function SearchContainer() {
           </div>
         </Grid>
         <Grid item md={6}>
-          <img className={classes.intro_img} src={introImg} />
+          <img alt="Intro" className={classes.intro_img} src={introImg} />
         </Grid>
       </Grid>
     </MContainer>

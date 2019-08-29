@@ -1,9 +1,7 @@
 import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import {
-  Typography,
-} from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { MDialog, MDialogTitle, MDialogContent } from 'mui/MDialog';
 import MButton from 'mui/MButton';
 // import messages from './messages';

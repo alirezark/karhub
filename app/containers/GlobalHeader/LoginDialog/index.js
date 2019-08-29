@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import {
   Typography,
@@ -8,18 +8,14 @@ import {
   IconButton,
   Link,
 } from '@material-ui/core';
-import {
-  MDialog,
-  MDialogTitle,
-  MDialogContent,
-} from 'mui/MDialog';
+import { MDialog, MDialogTitle, MDialogContent } from 'mui/MDialog';
 import MButton from 'mui/MButton';
 // import messages from './messages';
 import iconLinkedin from 'app/assets/images/icons/linkedin.png';
 import iconGoogle from 'app/assets/images/icons/google.png';
-import styles from './style';
 import MTextField from 'mui/MTextField';
 import { PersonOutlined, Visibility, VisibilityOff } from '@material-ui/icons';
+import styles from './style';
 
 function LoginDialog(props) {
   const classes = styles();

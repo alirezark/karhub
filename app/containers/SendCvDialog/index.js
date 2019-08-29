@@ -7,65 +7,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import user from 'app/selectors/user';
-import makeSelectSendCvDialog from './selectors';
-import { makeSelectJob } from './selectors';
+import User from 'app/selectors/user';
+import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
+import makeSelectSendCvDialog, { makeSelectJob } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
+// import messages from './messages';
 import GuestCVDialog from './GuestCVDialog';
 import UserCVDialog from './UserCVDialog';
 import SuccessDialog from './SuccessDialog';
 import * as actions from './actions';
-import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
 
 export function SendCvDialog(props) {
   useInjectReducer({ key: 'sendCvDialog', reducer });
   useInjectSaga({ key: 'sendCvDialog', saga });
 
-  const { job, sendCvDialog } = props;
-  const showGuestDialog = sendCvDialog.showSendCVDialog && !props.user.isLogin;
-  const showUserDialog = sendCvDialog.showSendCVDialog && props.user.isLogin;
-  const showSuccessDialog = sendCvDialog.showSuccessDialog;
+  const { job, sendCvDialog, user } = props;
+  const showGuestDialog = sendCvDialog.showSendCVDialog && !user.isLogin;
+  const showUserDialog = sendCvDialog.showSendCVDialog && user.isLogin;
+  const { showSuccessDialog } = sendCvDialog;
 
-  const handleClose = function() {
+  const handleClose = () => {
     props.dispatch(actions.closeSendCVAction());
   };
 
-  const handleSendCV = function() {
+  const handleSendCV = () => {
     props.dispatch(actions.sendCVAction());
   };
 
-  const showLogin = function() {
+  const showLogin = () => {
     props.dispatch(openLoginDialogAction());
   };
 
-  const handleCloseSuccess = function() {
+  const handleCloseSuccess = () => {
     props.dispatch(actions.closeSuccessDialogAction());
   };
 
   return (
     <div>
-      <GuestCVDialog job={job} open={showGuestDialog} handleClose={handleClose} handleSendCV={handleSendCV} showLogin={showLogin}/>
-      <UserCVDialog job={job} open={showUserDialog} handleClose={handleClose} handleSendCV={handleSendCV}/>
-      <SuccessDialog open={showSuccessDialog} handleClose={handleCloseSuccess} job={job}/>
+      <GuestCVDialog
+        job={job}
+        open={showGuestDialog}
+        handleClose={handleClose}
+        handleSendCV={handleSendCV}
+        showLogin={showLogin}
+      />
+      <UserCVDialog
+        job={job}
+        open={showUserDialog}
+        handleClose={handleClose}
+        handleSendCV={handleSendCV}
+      />
+      <SuccessDialog
+        open={showSuccessDialog}
+        handleClose={handleCloseSuccess}
+        job={job}
+      />
     </div>
   );
 }
 
 SendCvDialog.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  job: PropTypes.object,
+  sendCvDialog: PropTypes.object,
+  user: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   sendCvDialog: makeSelectSendCvDialog(),
-  user: user(),
+  user: User(),
   job: makeSelectJob(),
 });
 

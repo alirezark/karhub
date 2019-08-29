@@ -20,7 +20,7 @@ function CategoryList(props) {
           </Typography>
           <Grid container spacing={4} className={classes.cardsContainer}>
             {props.categories.items.map(category => (
-              <Grid item md={3}>
+              <Grid key={category.id} item md={3}>
                 <CategoryCard
                   title={category.title}
                   onClick={() => props.onSelectCategory(category)}

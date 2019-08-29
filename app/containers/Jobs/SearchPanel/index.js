@@ -3,10 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import messages from './messages';
-import styles from './style';
 import JobSearch from 'components/JobSearch';
 import IconNotify from 'assets/images/icons/notification.png';
+import messages from './messages';
+import styles from './style';
 
 function SearchPanel() {
   const classes = styles();
