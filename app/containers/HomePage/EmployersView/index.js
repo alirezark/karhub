@@ -12,7 +12,7 @@ import imgTestmonial from '../../../assets/images/icons/testmonial_h.png';
 import icon1 from '../../../assets/images/icons/chim_job.png';
 import icon2 from '../../../assets/images/icons/digital_marketer.png';
 import icon3 from '../../../assets/images/icons/web_developer.png';
-import Avatar from '@material-ui/core/Avatar';
+import MAvatar from 'mui/MAvatar';
 import imgAvatar1 from '../../../assets/images/avatar_grey_1.jpg';
 import imgAvatar2 from '../../../assets/images/avatar_grey_2.jpg';
 import imgQuote from '../../../assets/images/icons/qoute.png';
@@ -33,10 +33,9 @@ function EmployersView() {
           <Grid container>
             <Grid item md={6}>
               <Card className={classes.card} raised>
-                <Avatar
+                <MAvatar
                   src={imgAvatar2}
                   alt="user name"
-                  className={classes.avatar}
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography
@@ -67,10 +66,9 @@ function EmployersView() {
             </Grid>
             <Grid item md={6}>
               <Card className={classes.card} raised>
-                <Avatar
+                <MAvatar
                   src={imgAvatar1}
                   alt="user name"
-                  className={classes.avatar}
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography
