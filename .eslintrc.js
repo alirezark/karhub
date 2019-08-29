@@ -83,7 +83,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       webpack: {
-        config: './internals/webpack/webpack.base.babel.js',
+        config: './internals/webpack/webpack.dev.babel.js',
       },
     },
   },
