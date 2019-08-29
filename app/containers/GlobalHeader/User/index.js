@@ -2,12 +2,12 @@ import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 // import messages from './messages';
-import styles from './style';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import avatar from 'app/assets/images/avatar.jpeg';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import styles from './style';
 
 function User(props) {
   const classes = styles();
@@ -21,7 +21,16 @@ function User(props) {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  function handleLogout() {
+    handleClose();
     props.onLogout();
+  }
+
+  function showProfile() {
+    handleClose();
+    props.history.push('/Profile');
   }
 
   return (
@@ -52,8 +61,8 @@ function User(props) {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>پروفایل</MenuItem>
-        <MenuItem onClick={handleClose}>خروج</MenuItem>
+        <MenuItem onClick={showProfile}>پروفایل</MenuItem>
+        <MenuItem onClick={handleLogout}>خروج</MenuItem>
       </Menu>
     </div>
   );
@@ -61,6 +70,7 @@ function User(props) {
 
 User.propTypes = {
   onLogout: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 export default User;

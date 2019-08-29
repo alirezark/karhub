@@ -6,7 +6,7 @@ import { MTabs, MTab } from 'mui/MTabs';
 import messages from './messages';
 import styles from './style';
 
-const HOME_LOCATIONS = ['/', '/Categories']
+const HOME_LOCATIONS = ['/', '/Categories', '/Profile'];
 const JOB_LOCATIONS = ['/Jobs'];
 
 function locationToNav(location) {

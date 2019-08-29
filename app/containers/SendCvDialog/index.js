@@ -33,7 +33,6 @@ export function SendCvDialog(props) {
   const showGuestDialog = sendCvDialog.showSendCVDialog && !props.user.isLogin;
   const showUserDialog = sendCvDialog.showSendCVDialog && props.user.isLogin;
   const showSuccessDialog = sendCvDialog.showSuccessDialog;
-  console.log(props);
 
   const handleClose = function() {
     props.dispatch(actions.closeSendCVAction());
@@ -49,7 +48,7 @@ export function SendCvDialog(props) {
 
   const handleCloseSuccess = function() {
     props.dispatch(actions.closeSuccessDialogAction());
-  }
+  };
 
   return (
     <div>

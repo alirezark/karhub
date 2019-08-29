@@ -86,7 +86,7 @@ export function GlobalHeader(props) {
               <FormattedMessage {...messages.search_csv} />
             </Button>
             {props.user.isLogin ?
-              <User user={props.user} onLogout={handleLogout}/> :
+              <User user={props.user} history={props.history} onLogout={handleLogout}/> :
               <Button
                 aria-label="Account of current user"
                 aria-controls="menu-appbar"
