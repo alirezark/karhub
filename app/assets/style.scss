@@ -1,4 +1,5 @@
 @import 'fonts/iranyekan/css/fontiran.css';
+@import 'fonts/flaticon/flaticon.css';
 @import 'scss/layout';
 
 body {
@@ -10,4 +11,8 @@ body {
 
 #app {
   overflow: hidden;
+}
+
+[class^="flaticon-"] {
+  line-height: initial;
 }
