@@ -19,6 +19,7 @@ import reducer from './reducer';
 import saga from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
+import Settings from './Settings';
 
 export function Profile(props) {
   const [selectedTab, setSelectedTab] = useState(0);
@@ -39,6 +40,7 @@ export function Profile(props) {
       </Helmet>
       <UserInfo user={profile.profile} />
       <MainTabs selected={selectedTab} setSelected={handleSetSelectedTab} />
+      {selectedTab === 0 && <Settings user={profile.profile} />}
     </div>
   );
 }

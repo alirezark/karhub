@@ -16,3 +16,12 @@ body {
 [class^="flaticon-"] {
   line-height: initial;
 }
+
+.text-left input {
+  text-align: right;
+  direction: rtl;
+  /* webkit solution */
+  &::-webkit-input-placeholder { text-align:left; }
+  /* mozilla solution */
+  &input:-moz-placeholder { text-align:left; }
+}

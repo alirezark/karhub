@@ -8,8 +8,8 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import MAvatar from 'mui/MAvatar';
 import imgAvatar2 from 'app/assets/images/avatar.jpeg';
 import styles from './style';
-import TopInfo from './TopInfo';
-import MainInfo from './MainInfo';
+import TopInfo from './topInfo';
+import MainInfo from './mainInfo';
 
 function UserInfo(props) {
   const classes = styles();

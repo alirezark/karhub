@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 // import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import PropTypes from 'prop-types';
@@ -24,7 +24,7 @@ function MainTabs(props) {
             <Grid container spacing={3}>
               <Grid item xs={3}>
                 <div
-                  className={classnames([classes.tab], {
+                  className={classNames([classes.tab], {
                     selected: selected === 0,
                   })}
                   onClick={() => setSelected(0)}
@@ -35,7 +35,7 @@ function MainTabs(props) {
               </Grid>
               <Grid item xs={3}>
                 <div
-                  className={classnames([classes.tab], {
+                  className={classNames([classes.tab], {
                     selected: selected === 1,
                   })}
                   onClick={() => setSelected(1)}
@@ -46,7 +46,7 @@ function MainTabs(props) {
               </Grid>
               <Grid item xs={3}>
                 <div
-                  className={classnames([classes.tab], {
+                  className={classNames([classes.tab], {
                     selected: selected === 2,
                   })}
                   onClick={() => setSelected(2)}
@@ -57,7 +57,7 @@ function MainTabs(props) {
               </Grid>
               <Grid item xs={3}>
                 <div
-                  className={classnames([classes.tab], {
+                  className={classNames([classes.tab], {
                     selected: selected === 3,
                   })}
                   onClick={() => setSelected(3)}
