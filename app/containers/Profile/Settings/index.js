@@ -7,6 +7,7 @@ import { MTab, MTabs } from 'mui/MTabs';
 // import messages from './messages';
 import styles from './style';
 import AccountSetting from './accountSetting';
+import PaymentHistory from './paymentHistory';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -34,10 +35,11 @@ TabPanel.propTypes = {
 function JobsList(props) {
   const classes = styles();
   const [tab, setTab] = useState('1');
-  const { user } = props;
+  const { user, loadPaymentHistory, paymentHistory } = props;
 
   const handleTabChange = (e, val) => {
     setTab(val);
+    if (val === '2' && paymentHistory.length === 0) loadPaymentHistory();
   };
 
   return (
@@ -60,7 +62,7 @@ function JobsList(props) {
                 <AccountSetting user={user} />
               </TabPanel>
               <TabPanel value={tab} index="2" className={classes.tabContent}>
-                Tab 2
+                <PaymentHistory paymentHistory={paymentHistory} />
               </TabPanel>
               <TabPanel value={tab} index="3" className={classes.tabContent}>
                 Tab ۳
@@ -75,6 +77,8 @@ function JobsList(props) {
 
 JobsList.propTypes = {
   user: PropTypes.object.isRequired,
+  loadPaymentHistory: PropTypes.func.isRequired,
+  paymentHistory: PropTypes.array,
 };
 
 export default JobsList;

@@ -19,3 +19,17 @@ export function responseProfileAction(profile) {
     profile,
   };
 }
+
+export function requestPaymentHistoryAction(userId) {
+  return {
+    type: actions.REQUEST_PAYEMENT_HISTORY,
+    userId,
+  };
+}
+
+export function responsePaymentHistoryAction(payments) {
+  return {
+    type: actions.RESPONSE_PAYEMENT_HISTORY,
+    payments,
+  };
+}

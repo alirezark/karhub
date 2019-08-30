@@ -76,6 +76,12 @@ const proxy = {
     address: ' تهران، شمس آباد',
     birthDate: '۱۳۶۸/۱۲/۱۵',
   },
+  'GET /rest/user/payment_history/:id': [
+    { id: '1', date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: '2', date: '98/03/10', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: '3', date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: '4', date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+  ],
 };
 
 module.exports = proxy;

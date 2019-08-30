@@ -49,6 +49,21 @@ const styles = makeStyles(theme => ({
   formRow: {
     marginBottom: '1.5rem',
   },
+  table: {
+    margin: '0 4%',
+    width: '92%',
+    '& th': {
+      color: '#818181',
+      borderBottom: '2px solid #c1c1c1',
+    },
+    '& td': {
+      color: '#818181',
+      borderBottom: 'none',
+    },
+  },
+  historyLabel: {
+    margin: '1rem 0 1rem -1rem !important',
+  },
 }));
 
 export default styles;

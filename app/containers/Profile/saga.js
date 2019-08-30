@@ -1,14 +1,28 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, take } from 'redux-saga/effects';
 import configs from 'app/config';
 import * as actions from './actions';
+import * as constants from './constants';
 
 const fetchProfile = userId =>
   fetch(`${configs.services.account.profile}/${userId}`).then(response =>
     response.json(),
   );
 
-export default function* profileSaga(userId) {
+const fetchPaymentHistory = userId =>
+  fetch(`${configs.services.account.paymentHistory}/${userId}`).then(response =>
+    response.json(),
+  );
+
+export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
   yield put(actions.responseProfileAction(profile));
+}
+
+export function* paymentHistorySaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_PAYEMENT_HISTORY);
+    const paymentHistory = yield call(() => fetchPaymentHistory(userId));
+    yield put(actions.responsePaymentHistoryAction(paymentHistory));
+  }
 }

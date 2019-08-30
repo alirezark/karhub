@@ -10,6 +10,7 @@ const configs = {
     },
     account: {
       profile: `${ACCOUNT_SERVER}/user`,
+      paymentHistory: `${ACCOUNT_SERVER}/user/payment_history`,
     },
   },
 };
