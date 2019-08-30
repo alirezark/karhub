@@ -13,6 +13,11 @@ const fetchPaymentHistory = userId =>
     response.json(),
   );
 
+const fetchAbstractCV = userId =>
+  fetch(`${configs.services.cv.abstract}/${userId}`).then(response =>
+    response.json(),
+  );
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -24,5 +29,13 @@ export function* paymentHistorySaga() {
     const { userId } = yield take(constants.REQUEST_PAYEMENT_HISTORY);
     const paymentHistory = yield call(() => fetchPaymentHistory(userId));
     yield put(actions.responsePaymentHistoryAction(paymentHistory));
+  }
+}
+
+export function* abstractCVSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_ABSTRACT_CV);
+    const abstractCV = yield call(() => fetchAbstractCV(userId));
+    yield put(actions.responseAbstractCVAction(abstractCV));
   }
 }

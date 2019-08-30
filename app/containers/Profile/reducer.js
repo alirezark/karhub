@@ -9,8 +9,10 @@ import * as actions from './constants';
 export const initialState = {
   profile: {},
   paymentHistory: [],
+  abstractCV: {},
   isLoading: false,
   isLoadingPeyment: false,
+  isLoadingAbstractCV: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -38,6 +40,17 @@ const profileReducer = (state = initialState, action) =>
           ...state,
           isLoadingPayment: false,
           paymentHistory: action.payments,
+        };
+      case actions.REQUEST_ABSTRACT_CV:
+        return {
+          ...state,
+          isLoadingAbstractCV: true,
+        };
+      case actions.RESPONSE_ABSTRACT_CV:
+        return {
+          ...state,
+          isLoadingAbstractCV: false,
+          abstractCV: action.abstractCV,
         };
     }
   });

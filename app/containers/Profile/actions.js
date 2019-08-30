@@ -33,3 +33,17 @@ export function responsePaymentHistoryAction(payments) {
     payments,
   };
 }
+
+export function requestAbstractCVAction(userId) {
+  return {
+    type: actions.REQUEST_ABSTRACT_CV,
+    userId,
+  };
+}
+
+export function responseAbstractCVAction(abstractCV) {
+  return {
+    type: actions.RESPONSE_ABSTRACT_CV,
+    abstractCV,
+  };
+}

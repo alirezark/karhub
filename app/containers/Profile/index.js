@@ -14,12 +14,14 @@ import { compose } from 'redux';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import User from 'app/selectors/user';
+import { isEmpty } from 'underscore';
 import makeSelectProfile from './selectors';
 import reducer from './reducer';
-import { profileSaga, paymentHistorySaga } from './saga';
+import { profileSaga, paymentHistorySaga, abstractCVSaga } from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
 import Settings from './Settings';
+import MyCV from './MyCV';
 import * as actions from './actions';
 
 export function Profile(props) {
@@ -29,9 +31,13 @@ export function Profile(props) {
   useInjectReducer({ key: 'profile', reducer });
   useInjectSaga({ key: 'profile', saga: () => profileSaga(user.id) });
   useInjectSaga({ key: 'profile_paymentHistory', saga: paymentHistorySaga });
+  useInjectSaga({ key: 'profile_abstractCV', saga: abstractCVSaga });
 
   const handleSetSelectedTab = selected => {
     setSelectedTab(selected);
+
+    if (selected === 1 && isEmpty(profile.abstractCV))
+      dispatch(actions.requestAbstractCVAction(user.id));
   };
 
   const loadPaymentHistory = () => {
@@ -52,6 +58,9 @@ export function Profile(props) {
           loadPaymentHistory={loadPaymentHistory}
           paymentHistory={profile.paymentHistory}
         />
+      )}
+      {selectedTab === 1 && (
+        <MyCV abstractCV={profile.abstractCV} user={user} />
       )}
     </div>
   );
