@@ -13,14 +13,17 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import User from 'app/selectors/user';
 import makeSelectProfile from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import UserInfo from './UserInfo';
 
-export function Profile() {
+export function Profile(props) {
+  const { user, profile } = props;
+
   useInjectReducer({ key: 'profile', reducer });
-  useInjectSaga({ key: 'profile', saga });
+  useInjectSaga({ key: 'profile', saga: () => saga(user.id) });
 
   return (
     <div>
@@ -28,17 +31,19 @@ export function Profile() {
         <title>Profile</title>
         <meta name="description" content="Description of Profile" />
       </Helmet>
-      <UserInfo />
+      <UserInfo user={profile.profile} />
     </div>
   );
 }
 
 Profile.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  user: PropTypes.object,
+  profile: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   profile: makeSelectProfile(),
+  user: User(),
 });
 
 function mapDispatchToProps(dispatch) {

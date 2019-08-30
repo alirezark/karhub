@@ -33,7 +33,7 @@ const styles = makeStyles(theme => ({
 
 function TopInfo(props) {
   const classes = styles();
-  const { viewCount, shareCV, downloadCV} = props;
+  const { viewCount, shareCV, downloadCV } = props;
 
   return (
     <div className={classes.root}>

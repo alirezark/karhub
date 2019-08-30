@@ -4,16 +4,27 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import * as actions from './constants';
 
-export const initialState = {};
+export const initialState = {
+  profile: {},
+  isLoading: false,
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const profileReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case DEFAULT_ACTION:
-        break;
+      case actions.REQUEST_PROFILE:
+        return {
+          ...state,
+          isLoading: true,
+        };
+      case actions.RESPONSE_PROFILE:
+        return {
+          ...state,
+          profile: action.profile,
+        };
     }
   });
 

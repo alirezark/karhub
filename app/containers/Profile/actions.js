@@ -4,10 +4,18 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import * as actions from './constants';
 
-export function defaultAction() {
+export function requestProfileAction(userId) {
   return {
-    type: DEFAULT_ACTION,
+    type: actions.REQUEST_PROFILE,
+    userId,
+  };
+}
+
+export function responseProfileAction(profile) {
+  return {
+    type: actions.RESPONSE_PROFILE,
+    profile,
   };
 }

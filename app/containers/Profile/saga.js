@@ -1,6 +1,14 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
+import configs from 'app/config';
+import * as actions from './actions';
 
-// Individual exports for testing
-export default function* profileSaga() {
-  // See example in containers/HomePage/saga.js
+const fetchProfile = userId =>
+  fetch(`${configs.services.account.profile}/${userId}`).then(response =>
+    response.json(),
+  );
+
+export default function* profileSaga(userId) {
+  yield put(actions.requestProfileAction(userId));
+  const profile = yield call(() => fetchProfile(userId));
+  yield put(actions.responseProfileAction(profile));
 }

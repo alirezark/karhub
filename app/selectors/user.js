@@ -20,6 +20,7 @@ const user = () =>
     selectGlobalHeaderDomain,
     substate => ({
       isLogin: substate.isLogin,
+      id: substate.id,
     }),
   );
 

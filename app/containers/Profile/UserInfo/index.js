@@ -1,17 +1,19 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import PropTypes from 'prop-types';
-import { Typography, Grid, Breadcrumbs, Link } from '@material-ui/core';
-import messages from './messages';
-import styles from './style';
+import { Typography, Grid, Breadcrumbs } from '@material-ui/core';
+// import messages from './messages';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import MAvatar from 'mui/MAvatar';
 import imgAvatar2 from 'app/assets/images/avatar.jpeg';
+import styles from './style';
 import TopInfo from './TopInfo';
+import MainInfo from './MainInfo';
 
-function UserInfo() {
+function UserInfo(props) {
   const classes = styles();
+  const { user } = props;
 
   const handleClick = function() {};
 
@@ -35,7 +37,12 @@ function UserInfo() {
           <Grid item md={10}>
             <div className={classes.panel}>
               <MAvatar src={imgAvatar2} alt="user name" />
-              <TopInfo viewCount={28} shareCV={handleClick} downloadCV={handleClick}/>
+              <TopInfo
+                viewCount={28}
+                shareCV={() => handleClick()}
+                downloadCV={() => handleClick()}
+              />
+              <MainInfo user={user} />
             </div>
           </Grid>
         </Grid>

@@ -7,6 +7,7 @@ import produce from 'immer';
 import * as actions from './constants';
 
 export const initialState = {
+  id: 0,
   isLogin: false,
   showLoginDialog: false,
   showRegisterDialog: false,
@@ -19,11 +20,13 @@ const globalHeaderReducer = (state = initialState, action) =>
       case actions.SET_USER_LOGIN:
         return {
           ...state,
+          id: 1,
           isLogin: true,
         };
       case actions.SET_USER_LOGOUT:
         return {
           ...state,
+          id: 0,
           isLogin: false,
         };
       case actions.OPEN_LOGIN_DIALOG:

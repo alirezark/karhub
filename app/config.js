@@ -9,7 +9,7 @@ const configs = {
       categories: `${JOBS_SERVER}/jobs/categories`,
     },
     account: {
-      profile: `${ACCOUNT_SERVER}/user/profile`,
+      profile: `${ACCOUNT_SERVER}/user`,
     },
   },
 };
