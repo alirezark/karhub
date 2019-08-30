@@ -81,10 +81,10 @@ const proxy = {
     birthDate: '۱۳۶۸/۱۲/۱۵',
   },
   'GET /rest/user/payment_history/:id': [
-    { id: '1', date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: '2', date: '98/03/10', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: '3', date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: '4', date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 1, date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 2, date: '98/03/10', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 3, date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 4, date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
   ],
   'GET /rest/cv/abstract/:id': {
     country: 'ایران',
@@ -103,6 +103,11 @@ const proxy = {
       duration: '۱۳۹۳  -  ۱۳۸۹',
     },
   },
+  'GET /rest/cv/uploaded/:id': [
+    { id: 0, title: 'رزومه شماره ۱.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۱۸'},
+    { id: 1, title: 'رزومه شماره ۲.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۱۹'},
+    { id: 2, title: 'رزومه شماره ۳.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۲۲'},
+  ]
 };
 
 module.exports = proxy;

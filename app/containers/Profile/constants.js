@@ -16,3 +16,7 @@ export const RESPONSE_PAYEMENT_HISTORY =
 export const REQUEST_ABSTRACT_CV = 'app/Profile/REQUEST_ABSTRACT_CV';
 
 export const RESPONSE_ABSTRACT_CV = 'app/Profile/RESPONSE_ABSTRACT_CV';
+
+export const REQUEST_UPLOADED_CV = 'app/Profile/REQUEST_UPLOADED_CV';
+
+export const RESPONSE_UPLOADED_CV = 'app/Profile/RESPONSE_UPLOADED_CV';

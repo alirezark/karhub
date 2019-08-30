@@ -16,6 +16,7 @@ const configs = {
     },
     cv: {
       abstract: `${CV_SERVER}/abstract`,
+      uploaded: `${CV_SERVER}/uploaded`,
     },
   },
 };

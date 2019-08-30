@@ -4,6 +4,8 @@ import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 import AbstractCV from 'components/AbstractCv';
+import { isEmpty } from 'underscore';
+import CVList from './CVList';
 import styles from './style';
 
 function TabPanel(props) {
@@ -31,11 +33,12 @@ TabPanel.propTypes = {
 
 function JobsList(props) {
   const classes = styles();
-  const [tab, setTab] = useState('1');
-  const { abstractCV, user } = props;
+  const [tab, setTab] = useState(1);
+  const { abstractCV, user, uploadedCV, loadUploadedCV } = props;
 
   const handleTabChange = (e, val) => {
     setTab(val);
+    if (val === 2 && isEmpty(uploadedCV)) loadUploadedCV();
   };
 
   return (
@@ -50,14 +53,14 @@ function JobsList(props) {
                 className={classes.tabs}
                 onChange={handleTabChange}
               >
-                <MTab label="رزومه‌ی کارهاب" value="1" />
-                <MTab label="رزومه‌های آپلود شده" value="2" />
+                <MTab label="رزومه‌ی کارهاب" value={1} />
+                <MTab label="رزومه‌های آپلود شده" value={2} />
               </MTabs>
-              <TabPanel value={tab} index="1" className={classes.tabContent}>
+              <TabPanel value={tab} index={1} className={classes.tabContent}>
                 <AbstractCV cv={abstractCV} user={user} />
               </TabPanel>
-              <TabPanel value={tab} index="2" className={classes.tabContent}>
-                13
+              <TabPanel value={tab} index={2} className={classes.tabContent}>
+                <CVList uploadedCV={uploadedCV} />
               </TabPanel>
             </div>
           </Grid>
@@ -70,6 +73,8 @@ function JobsList(props) {
 JobsList.propTypes = {
   abstractCV: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
+  loadUploadedCV: PropTypes.func.isRequired,
+  uploadedCV: PropTypes.array.isRequired,
 };
 
 export default JobsList;

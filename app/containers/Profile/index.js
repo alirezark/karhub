@@ -17,7 +17,12 @@ import User from 'app/selectors/user';
 import { isEmpty } from 'underscore';
 import makeSelectProfile from './selectors';
 import reducer from './reducer';
-import { profileSaga, paymentHistorySaga, abstractCVSaga } from './saga';
+import {
+  profileSaga,
+  paymentHistorySaga,
+  abstractCVSaga,
+  uploadedCVSaga,
+} from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
 import Settings from './Settings';
@@ -32,6 +37,7 @@ export function Profile(props) {
   useInjectSaga({ key: 'profile', saga: () => profileSaga(user.id) });
   useInjectSaga({ key: 'profile_paymentHistory', saga: paymentHistorySaga });
   useInjectSaga({ key: 'profile_abstractCV', saga: abstractCVSaga });
+  useInjectSaga({ key: 'profile_uploadedCV', saga: uploadedCVSaga });
 
   const handleSetSelectedTab = selected => {
     setSelectedTab(selected);
@@ -42,6 +48,10 @@ export function Profile(props) {
 
   const loadPaymentHistory = () => {
     dispatch(actions.requestPaymentHistoryAction(user.id));
+  };
+
+  const loadUploadedCV = () => {
+    dispatch(actions.requestUploadedCVAction(user.id));
   };
 
   return (
@@ -60,7 +70,12 @@ export function Profile(props) {
         />
       )}
       {selectedTab === 1 && (
-        <MyCV abstractCV={profile.abstractCV} user={user} />
+        <MyCV
+          abstractCV={profile.abstractCV}
+          user={user}
+          loadUploadedCV={loadUploadedCV}
+          uploadedCV={profile.uploadedCV}
+        />
       )}
     </div>
   );

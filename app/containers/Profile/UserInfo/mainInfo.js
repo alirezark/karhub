@@ -87,7 +87,7 @@ function MainInfo(props) {
 
       <div className={classes.footerInfoContain}>
         <Grid container>
-          <Grid md={3}>
+          <Grid item md={3}>
             <div className={classes.footerInfo}>
               <i className="flaticon-telephone" />
               <div className={classes.footerInfoDetail}>
@@ -96,7 +96,7 @@ function MainInfo(props) {
               </div>
             </div>
           </Grid>
-          <Grid md={3}>
+          <Grid item md={3}>
             <div className={classes.footerInfo}>
               <i className="flaticon-e-mail" />
               <div className={classes.footerInfoDetail}>
@@ -105,7 +105,7 @@ function MainInfo(props) {
               </div>
             </div>
           </Grid>
-          <Grid md={3}>
+          <Grid item md={3}>
             <div className={classes.footerInfo}>
               <i className="flaticon-location" />
               <div className={classes.footerInfoDetail}>
@@ -114,7 +114,7 @@ function MainInfo(props) {
               </div>
             </div>
           </Grid>
-          <Grid md={3}>
+          <Grid item md={3}>
             <div className={classes.footerInfo}>
               <i className="flaticon-calendar" />
               <div className={classes.footerInfoDetail}>

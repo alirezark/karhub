@@ -47,3 +47,17 @@ export function responseAbstractCVAction(abstractCV) {
     abstractCV,
   };
 }
+
+export function requestUploadedCVAction(userId) {
+  return {
+    type: actions.REQUEST_UPLOADED_CV,
+    userId,
+  };
+}
+
+export function responseUploadedCVAction(uploadedCV) {
+  return {
+    type: actions.RESPONSE_UPLOADED_CV,
+    uploadedCV,
+  };
+}

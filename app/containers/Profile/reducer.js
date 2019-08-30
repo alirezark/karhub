@@ -10,8 +10,10 @@ export const initialState = {
   profile: {},
   paymentHistory: [],
   abstractCV: {},
+  uploadedCV: [],
   isLoading: false,
-  isLoadingPeyment: false,
+  isLoadingPayment: false,
+  isLoadingUploadedCV: false,
   isLoadingAbstractCV: false,
 };
 
@@ -51,6 +53,17 @@ const profileReducer = (state = initialState, action) =>
           ...state,
           isLoadingAbstractCV: false,
           abstractCV: action.abstractCV,
+        };
+      case actions.REQUEST_UPLOADED_CV:
+        return {
+          ...state,
+          isLoadingUploadedCV: true,
+        };
+      case actions.RESPONSE_UPLOADED_CV:
+        return {
+          ...state,
+          isLoadingUploadedCV: false,
+          uploadedCV: action.uploadedCV,
         };
     }
   });

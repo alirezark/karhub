@@ -18,6 +18,11 @@ const fetchAbstractCV = userId =>
     response.json(),
   );
 
+const fetchUploadedCV = userId =>
+  fetch(`${configs.services.cv.uploaded}/${userId}`).then(response =>
+    response.json(),
+  );
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -37,5 +42,13 @@ export function* abstractCVSaga() {
     const { userId } = yield take(constants.REQUEST_ABSTRACT_CV);
     const abstractCV = yield call(() => fetchAbstractCV(userId));
     yield put(actions.responseAbstractCVAction(abstractCV));
+  }
+}
+
+export function* uploadedCVSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_UPLOADED_CV);
+    const uploadedCV = yield call(() => fetchUploadedCV(userId));
+    yield put(actions.responseUploadedCVAction(uploadedCV));
   }
 }
