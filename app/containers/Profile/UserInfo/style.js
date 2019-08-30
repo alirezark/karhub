@@ -4,7 +4,6 @@ const styles = makeStyles(theme => ({
   greyContainer: {
     backgroundColor: '#F9F9F9',
     padding: '5px 0',
-    marginBottom: '-5rem',
   },
   root: {
     marginTop: '1rem',
