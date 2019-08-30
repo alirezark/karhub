@@ -8,6 +8,7 @@ import { MTab, MTabs } from 'mui/MTabs';
 import styles from './style';
 import AccountSetting from './accountSetting';
 import PaymentHistory from './paymentHistory';
+import CloseAccount from './closeAccount';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -65,7 +66,7 @@ function JobsList(props) {
                 <PaymentHistory paymentHistory={paymentHistory} />
               </TabPanel>
               <TabPanel value={tab} index="3" className={classes.tabContent}>
-                Tab ۳
+                <CloseAccount />
               </TabPanel>
             </div>
           </Grid>

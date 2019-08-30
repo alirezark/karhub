@@ -30,6 +30,9 @@ const theme = createMuiTheme({
       main: '#4BBB81',
       light: '#79CCA1',
     },
+    secondary: {
+      main: '#4980FF',
+    },
   },
   direction: 'rtl',
   typography: {

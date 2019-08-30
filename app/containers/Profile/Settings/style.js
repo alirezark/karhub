@@ -33,8 +33,9 @@ const styles = makeStyles(theme => ({
     },
   },
   tabContent: {
-    padding: '10px 40px 50px',
+    padding: '10px 40px 30px',
     fontSize: 14,
+    minHeight: 442,
     '& label': {
       display: 'block',
       margin: '3rem 0 1.5rem',
@@ -60,9 +61,6 @@ const styles = makeStyles(theme => ({
       color: '#818181',
       borderBottom: 'none',
     },
-  },
-  historyLabel: {
-    margin: '1rem 0 1rem -1rem !important',
   },
 }));
 
