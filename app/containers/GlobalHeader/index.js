@@ -21,7 +21,7 @@ import logo from 'app/assets/images/logo.png';
 import Button from '@material-ui/core/Button';
 import Navigations from './Navigations';
 import messages from './messages';
-import saga from './saga';
+import { loginSaga } from './saga';
 import reducer from './reducer';
 import makeSelectGlobalHeader from './selectors';
 import * as actions from './actions';
@@ -32,8 +32,8 @@ import styles from './style';
 
 export function GlobalHeader(props) {
   useInjectReducer({ key: 'globalHeader', reducer });
-  useInjectSaga({ key: 'globalHeader', saga });
-  const { history, user, dispatch } = props;
+  useInjectSaga({ key: 'globalHeader', saga: loginSaga });
+  const { history, globalHeader, dispatch } = props;
 
   const openLoginDialog = () => {
     dispatch(actions.openLoginDialogAction());
@@ -43,8 +43,8 @@ export function GlobalHeader(props) {
     dispatch(actions.closeLoginDialogAction());
   };
 
-  const handleLogin = () => {
-    dispatch(actions.setUserLoginAction());
+  const handleLogin = (username, password) => {
+    dispatch(actions.requestUserLoginAction(username, password));
     closeLoginDialog();
   };
 
@@ -84,8 +84,12 @@ export function GlobalHeader(props) {
             >
               <FormattedMessage {...messages.search_csv} />
             </Button>
-            {user.isLogin ? (
-              <User user={user} history={history} onLogout={handleLogout} />
+            {globalHeader.user.isLogin ? (
+              <User
+                user={globalHeader.user}
+                history={history}
+                onLogout={handleLogout}
+              />
             ) : (
               <Button
                 aria-label="Account of current user"
@@ -97,13 +101,13 @@ export function GlobalHeader(props) {
               </Button>
             )}
             <LoginDialog
-              open={user.showLoginDialog}
+              open={globalHeader.showLoginDialog}
               handleClose={closeLoginDialog}
               handleLogin={handleLogin}
               showRegister={openRegisterDialog}
             />
             <RegisterDialog
-              open={user.showRegisterDialog}
+              open={globalHeader.showRegisterDialog}
               handleClose={closeRegisterDialog}
               handleRegister={handleRegister}
               showLogin={openLoginDialog}
@@ -117,12 +121,12 @@ export function GlobalHeader(props) {
 
 GlobalHeader.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
+  globalHeader: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  user: makeSelectGlobalHeader(),
+  globalHeader: makeSelectGlobalHeader(),
 });
 
 function mapDispatchToProps(dispatch) {

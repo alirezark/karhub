@@ -18,6 +18,11 @@ import { PersonOutlined, Visibility, VisibilityOff } from '@material-ui/icons';
 import styles from './style';
 
 function LoginDialog(props) {
+  const { handleLogin } = props;
+  const [account, setAccount] = useState({
+    username: '',
+    password: '',
+  });
   const classes = styles();
   const [showPass, setShowPass] = useState(false);
 
@@ -28,6 +33,17 @@ function LoginDialog(props) {
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+
+  const handleChange = e => {
+    setAccount({
+      ...account,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const submitLogin = () => {
+    handleLogin(account.username, account.password);
+  }
 
   return (
     <MDialog
@@ -78,17 +94,23 @@ function LoginDialog(props) {
           <div>
             <MTextField
               fullWidth
+              name="username"
               className="outlined-strong"
               placeholder="ایمیل یا شماره موبایل"
               InputProps={{ startAdornment: <PersonOutlined /> }}
+              value={account.username}
+              onChange={handleChange}
             />
           </div>
           <div>
             <MTextField
               fullWidth
+              name="password"
               className="outlined-strong"
               placeholder="کلمه عبور"
               type={showPass ? 'text' : 'password'}
+              value={account.password}
+              onChange={handleChange}
               InputProps={{
                 startAdornment: <PersonOutlined />,
                 endAdornment: (
@@ -117,7 +139,7 @@ function LoginDialog(props) {
               variant="contained"
               color="primary"
               className={classes.btnLogin}
-              onClick={props.handleLogin}
+              onClick={submitLogin}
             >
               ورود
             </MButton>

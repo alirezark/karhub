@@ -47,3 +47,18 @@ export function closeRegisterDialogAction() {
     type: actions.CLOSE_REGISTER_DIALOG,
   };
 }
+
+export function requestUserLoginAction(username, password) {
+  return {
+    type: actions.REQUEST_USER_LOGIN,
+    username,
+    password,
+  };
+}
+
+export function responseUserLoginAction(user) {
+  return {
+    type: actions.RESPONSE_USER_LOGIN,
+    user,
+  };
+}

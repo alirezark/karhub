@@ -27,6 +27,10 @@ const proxy = {
     username: 'kenny',
     sex: 6,
   },
+  'POST /rest/user/login': {
+    id: 2,
+    name: 'مانکی دی لوفی',
+  },
   'GET /rest/jobs': [
     { id:1, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران' },
     { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران' },
@@ -82,6 +86,23 @@ const proxy = {
     { id: '3', date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
     { id: '4', date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
   ],
+  'GET /rest/cv/abstract/:id': {
+    country: 'ایران',
+    city: 'تهران',
+    mobile: '۰۹۳۶۸۶۷۵۲۰۵',
+    email: 'farhad.7431@gmail.com',
+    birthDate: '۱۳۶۸/۱۲/۱۵',
+    job: {
+      title: 'مدیر فنی و بک اند دولوپر',
+      company: 'بامیلو',
+      duration: 'از خرداد ۹۶ - تا کنون',
+    },
+    education: {
+      title: 'کارشناسی مهندسی کامپیوتر',
+      place: 'دانشگاه امیر کبیر',
+      duration: '۱۳۹۳  -  ۱۳۸۹',
+    },
+  },
 };
 
 module.exports = proxy;

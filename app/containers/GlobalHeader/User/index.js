@@ -11,6 +11,7 @@ import styles from './style';
 
 function User(props) {
   const classes = styles();
+  const { user } = props;
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -43,7 +44,7 @@ function User(props) {
         color="inherit"
       >
         <Avatar src={avatar} alt="user name" className={classes.avatar} />
-        مانکی دی لوفی
+        {user.name}
       </Button>
       <Menu
         id="menu-appbar"
@@ -71,6 +72,7 @@ function User(props) {
 User.propTypes = {
   onLogout: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default User;

@@ -1,6 +1,22 @@
-// import { take, call, put, select } from 'redux-saga/effects';
+import { take, call, put } from 'redux-saga/effects';
+import configs from 'app/config';
+import * as actions from './actions';
+import * as constants from './constants';
+
+const loginRequest = (username, password) =>
+  fetch(configs.services.account.login, {
+    method: 'POST',
+    body: JSON.stringify({
+      username,
+      password,
+    }),
+  }).then(response => response.json());
 
 // Individual exports for testing
-export default function* globalHeaderSaga() {
-  // See example in containers/HomePage/saga.js
+export function* loginSaga() {
+  while (true) {
+    const { username, password } = yield take(constants.REQUEST_USER_LOGIN);
+    const user = yield call(() => loginRequest(username, password));
+    yield put(actions.responseUserLoginAction(user));
+  }
 }

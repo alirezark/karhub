@@ -18,10 +18,7 @@ const selectGlobalHeaderDomain = state => state.globalHeader || initialState;
 const user = () =>
   createSelector(
     selectGlobalHeaderDomain,
-    substate => ({
-      isLogin: substate.isLogin,
-      id: substate.id,
-    }),
+    substate => substate.user,
   );
 
 export default user;
