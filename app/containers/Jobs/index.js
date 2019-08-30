@@ -12,19 +12,19 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import * as CVDialogActions from 'containers/SendCvDialog/actions';
 import makeSelectJobs from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import SearchPanel from './SearchPanel';
 import Filters from './Filters';
 import JobsList from './JobsList';
-import * as CVDialogActions from 'containers/SendCvDialog/actions';
 
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
 
-  const showSendCVDialog = function(job) {
+  const showSendCVDialog = job => {
     props.dispatch(CVDialogActions.openSendCVAction(job));
   };
 
@@ -39,7 +39,6 @@ export function Jobs(props) {
 
 Jobs.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

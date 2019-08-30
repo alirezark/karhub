@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
@@ -15,6 +15,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import User from 'app/selectors/user';
 import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
+import { isEmpty } from 'underscore';
 import makeSelectSendCvDialog, { makeSelectJob } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -28,10 +29,20 @@ export function SendCvDialog(props) {
   useInjectReducer({ key: 'sendCvDialog', reducer });
   useInjectSaga({ key: 'sendCvDialog', saga });
 
-  const { job, sendCvDialog, user } = props;
+  const { job, sendCvDialog, user, dispatch } = props;
   const showGuestDialog = sendCvDialog.showSendCVDialog && !user.isLogin;
   const showUserDialog = sendCvDialog.showSendCVDialog && user.isLogin;
   const { showSuccessDialog } = sendCvDialog;
+
+  useEffect(() => {
+    if (
+      showUserDialog &&
+      isEmpty(sendCvDialog.abstractCV) &&
+      !sendCvDialog.isLoadingCV
+    ) {
+      dispatch(actions.requestAbstractCVAction(user));
+    }
+  });
 
   const handleClose = () => {
     props.dispatch(actions.closeSendCVAction());
@@ -61,6 +72,8 @@ export function SendCvDialog(props) {
       <UserCVDialog
         job={job}
         open={showUserDialog}
+        abstractCV={sendCvDialog.abstractCV}
+        user={user}
         handleClose={handleClose}
         handleSendCV={handleSendCV}
       />

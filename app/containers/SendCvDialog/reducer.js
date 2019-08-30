@@ -9,7 +9,9 @@ import * as actions from './constants';
 export const initialState = {
   showSendCVDialog: false,
   showSuccessDialog: false,
+  isLoadingCV: false,
   job: {},
+  abstractCV: {},
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -38,6 +40,17 @@ const sendCvDialogReducer = (state = initialState, action) =>
           ...state,
           showSendCVDialog: false,
           showSuccessDialog: false,
+        };
+      case actions.REQUEST_ABSTRACT_CV:
+        return {
+          ...state,
+          isLoadingCV: true,
+        };
+      case actions.RESPONSE_ABSTRACT_CV:
+        return {
+          ...state,
+          isLoadingCV: true,
+          abstractCV: action.abstractCV,
         };
     }
   });

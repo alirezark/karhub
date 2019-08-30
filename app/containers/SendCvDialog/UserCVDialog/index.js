@@ -1,16 +1,16 @@
 import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
-import { Typography } from '@material-ui/core';
 import { MDialog, MDialogTitle, MDialogContent } from 'mui/MDialog';
 import MButton from 'mui/MButton';
 // import messages from './messages';
 import JobCard from 'components/JobCard';
+import AbstractCV from 'components/AbstractCv';
 import styles from './style';
 
 function UserCVDialog(props) {
   const classes = styles();
-  const { job, handleSendCV } = props;
+  const { job, handleSendCV, abstractCV, user } = props;
 
   return (
     <MDialog
@@ -27,11 +27,7 @@ function UserCVDialog(props) {
         <JobCard className={classes.jobCard} job={job} hideNavigation />
 
         <div className={classes.cvPreview}>
-          <Typography variant="h5" component="h5" className={classes.panelHead}>
-            خلاصه رزومه شما
-            <MButton className={classes.btnEditCV}>ویرایش رزومه</MButton>
-          </Typography>
-          <Typography variant="h3">فرهاد جعفری</Typography> ...
+          <AbstractCV user={user} cv={abstractCV} />
         </div>
         <div className={classes.txtSelectCV}>
           درخواست برای این شغل با رزومه دیگر
@@ -65,6 +61,8 @@ UserCVDialog.propTypes = {
   handleClose: PropTypes.func.isRequired,
   handleSendCV: PropTypes.func.isRequired,
   job: PropTypes.object.isRequired,
+  abstractCV: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default UserCVDialog;
