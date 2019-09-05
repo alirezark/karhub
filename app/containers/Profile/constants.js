@@ -28,3 +28,9 @@ export const RESPONSE_FAVORITE_JOBS = 'app/Profile/RESPONSE_FAVORITE_JOBS';
 export const REQUEST_SENT_CV = 'app/Profile/REQUEST_SENT_CV';
 
 export const RESPONSE_SENT_CV = 'app/Profile/RESPONSE_SENT_CV';
+
+export const REQUEST_FAVORITE_COMPANIES =
+  'app/Profile/REQUEST_FAVORITE_COMPANIES';
+
+export const RESPONSE_FAVORITE_COMPANIES =
+  'app/Profile/RESPONSE_FAVORITE_COMPANIES';

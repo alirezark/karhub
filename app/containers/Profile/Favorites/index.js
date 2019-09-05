@@ -5,9 +5,11 @@ import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 // import messages from './messages';
+import { isEmpty } from 'underscore';
 import styles from './style';
 import FavoriteJobs from './favoriteJobs';
 import SentCV from './sentCV';
+import FavoriteCompanies from './favoriteCompanies';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,11 +37,18 @@ TabPanel.propTypes = {
 function Favorites(props) {
   const classes = styles();
   const [tab, setTab] = useState(1);
-  const { user, favoriteJobs, loadSentCV, sentCVs } = props;
+  const {
+    favoriteJobs,
+    loadSentCV,
+    sentCVs,
+    favoriteCompanies,
+    loadFavoriteCompanies,
+  } = props;
 
   const handleTabChange = (e, val) => {
     setTab(val);
-    if (val === 2) loadSentCV();
+    if (val === 2 && isEmpty(sentCVs)) loadSentCV();
+    else if (val === 3 && isEmpty(favoriteCompanies)) loadFavoriteCompanies();
   };
 
   return (
@@ -65,7 +74,7 @@ function Favorites(props) {
                 <SentCV CVs={sentCVs} />
               </TabPanel>
               <TabPanel value={tab} index={3} className={classes.tabContent}>
-                Tab 3
+                <FavoriteCompanies favoriteCompanies={favoriteCompanies} />
               </TabPanel>
             </div>
           </Grid>
@@ -76,10 +85,11 @@ function Favorites(props) {
 }
 
 Favorites.propTypes = {
-  user: PropTypes.object.isRequired,
   favoriteJobs: PropTypes.array.isRequired,
   loadSentCV: PropTypes.func.isRequired,
   sentCVs: PropTypes.array,
+  favoriteCompanies: PropTypes.array,
+  loadFavoriteCompanies: PropTypes.func.isRequired,
 };
 
 export default Favorites;

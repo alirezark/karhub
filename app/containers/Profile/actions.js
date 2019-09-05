@@ -89,3 +89,17 @@ export function responseSentCVAction(cvList) {
     cvList,
   };
 }
+
+export function requestFavoriteCompaniesAction(userId) {
+  return {
+    type: actions.REQUEST_FAVORITE_COMPANIES,
+    userId,
+  };
+}
+
+export function responseFavoriteCompaniesAction(companies) {
+  return {
+    type: actions.RESPONSE_FAVORITE_COMPANIES,
+    companies,
+  };
+}

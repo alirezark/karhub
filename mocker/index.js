@@ -124,6 +124,18 @@ const proxy = {
     { id:3, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-2', date: '98/05/03', state: 'در انتظار تایید' },
   ],
   // =====================
+  // === Company Requests ===
+  'GET /rest/company/favorites/:userId': [
+    { id:1, name: 'ایرانسل', icon: 'icon-1' },
+    { id:2, name: 'اسنپ فود', icon: 'icon-3' },
+    { id:3, name: 'سن ایچ', icon: 'icon-2' },
+    { id:4, name: 'اسنپ فود', icon: 'icon-1' },
+    { id:5, name: 'ایرانسل', icon: 'icon-1' },
+    { id:6, name: 'اسنپ فود', icon: 'icon-3' },
+    { id:7, name: 'سن ایچ', icon: 'icon-2' },
+    { id:8, name: 'اسنپ فود', icon: 'icon-1' },
+  ],
+  // =====================
 };
 
 module.exports = proxy;

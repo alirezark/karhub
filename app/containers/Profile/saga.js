@@ -33,6 +33,11 @@ const fetchSentCV = userId =>
     response.json(),
   );
 
+const fetchFavoriteCompanies = userId =>
+  fetch(`${configs.services.company.favorite}/${userId}`).then(response =>
+    response.json(),
+  );
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -71,11 +76,18 @@ export function* favoriteJobsSaga() {
   }
 }
 
-
 export function* sentCVSaga() {
   while (true) {
     const { userId } = yield take(constants.REQUEST_SENT_CV);
     const cvList = yield call(() => fetchSentCV(userId));
     yield put(actions.responseSentCVAction(cvList));
+  }
+}
+
+export function* favoriteCompaniesSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_FAVORITE_COMPANIES);
+    const companies = yield call(() => fetchFavoriteCompanies(userId));
+    yield put(actions.responseFavoriteCompaniesAction(companies));
   }
 }

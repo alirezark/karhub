@@ -1,6 +1,7 @@
 const JOBS_SERVER = 'http://localhost:3721/rest/jobs';
 const ACCOUNT_SERVER = 'http://localhost:3721/rest/user';
 const CV_SERVER = 'http://localhost:3721/rest/cv';
+const COMPANY_SERVER = 'http://localhost:3721/rest/company';
 
 const configs = {
   services: {
@@ -19,6 +20,9 @@ const configs = {
       abstract: `${CV_SERVER}/abstract`,
       uploaded: `${CV_SERVER}/uploaded`,
       sent: `${CV_SERVER}/sent`,
+    },
+    company: {
+      favorite: `${COMPANY_SERVER}/favorites`,
     },
   },
 };

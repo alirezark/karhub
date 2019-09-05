@@ -12,6 +12,7 @@ export const initialState = {
   abstractCV: {},
   uploadedCV: [],
   favoriteJobs: [],
+  favoriteCompanies: [],
   sentCVs: [],
   isLoading: false,
   isLoadingPayment: false,
@@ -19,6 +20,7 @@ export const initialState = {
   isLoadingAbstractCV: false,
   isLoadingFavoritesJobs: false,
   isLoadingSentCV: false,
+  isLoadingFavoriteCompanies: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -90,6 +92,17 @@ const profileReducer = (state = initialState, action) =>
           ...state,
           isLoadingSentCV: false,
           sentCVs: action.cvList,
+        };
+      case actions.REQUEST_FAVORITE_COMPANIES:
+        return {
+          ...state,
+          isLoadingFavoriteCompanies: true,
+        };
+      case actions.RESPONSE_FAVORITE_COMPANIES:
+        return {
+          ...state,
+          isLoadingFavoriteCompanies: false,
+          favoriteCompanies: action.companies,
         };
     }
   });

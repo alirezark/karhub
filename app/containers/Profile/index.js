@@ -24,6 +24,7 @@ import {
   uploadedCVSaga,
   favoriteJobsSaga,
   sentCVSaga,
+  favoriteCompaniesSaga,
 } from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
@@ -43,6 +44,10 @@ export function Profile(props) {
   useInjectSaga({ key: 'profile_uploadedCV', saga: uploadedCVSaga });
   useInjectSaga({ key: 'profile_favoriteJobs', saga: favoriteJobsSaga });
   useInjectSaga({ key: 'profile_sentCV', saga: sentCVSaga });
+  useInjectSaga({
+    key: 'profile_favoriteCompanies',
+    saga: favoriteCompaniesSaga,
+  });
 
   const handleSetSelectedTab = selected => {
     setSelectedTab(selected);
@@ -60,6 +65,10 @@ export function Profile(props) {
 
   const loadSentCV = () => {
     dispatch(actions.requestSentCVAction(user.id));
+  };
+
+  const loadFavoriteCompanies = () => {
+    dispatch(actions.requestFavoriteCompaniesAction(user.id));
   };
 
   const loadUploadedCV = () => {
@@ -91,8 +100,9 @@ export function Profile(props) {
       )}
       {selectedTab === 2 && (
         <Favorites
-          user={user}
           favoriteJobs={profile.favoriteJobs}
+          favoriteCompanies={profile.favoriteCompanies}
+          loadFavoriteCompanies={loadFavoriteCompanies}
           sentCVs={profile.sentCVs}
           loadSentCV={loadSentCV}
         />
