@@ -31,6 +31,7 @@ import MainTabs from './MainTabs';
 import Settings from './Settings';
 import Favorites from './Favorites';
 import MyCV from './MyCV';
+import Notifications from './Notifications';
 import * as actions from './actions';
 
 export function Profile(props) {
@@ -57,6 +58,9 @@ export function Profile(props) {
 
     if (selected === 2 && isEmpty(profile.favoriteJobs))
       dispatch(actions.requestFavoriteJobsAction(user.id));
+
+    if (selected === 3 && isEmpty(profile.sentCVs))
+      dispatch(actions.requestSentCVAction(user.id));
   };
 
   const loadPaymentHistory = () => {
@@ -107,6 +111,7 @@ export function Profile(props) {
           loadSentCV={loadSentCV}
         />
       )}
+      {selectedTab === 3 && <Notifications notifications={profile.sentCVs} />}
     </div>
   );
 }

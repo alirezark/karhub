@@ -120,8 +120,8 @@ const proxy = {
   ],
   'GET /rest/cv/sent/:userId': [
     { id:1, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1', date: '98/05/03', state: 'در انتظار تایید' },
-    { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1', date: '98/05/03', state: 'در انتظار تایید' },
-    { id:3, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-2', date: '98/05/03', state: 'در انتظار تایید' },
+    { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1', date: '98/05/06', state: 'در انتظار تایید' },
+    { id:3, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-2', date: '98/06/12', state: 'در انتظار تایید' },
   ],
   // =====================
   // === Company Requests ===

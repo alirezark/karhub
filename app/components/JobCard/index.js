@@ -27,7 +27,6 @@ function JobCard(props) {
   const classes = styles();
   const { job, hideNavigation, className, onDelete, showSentDetails } = props;
   const cardClasses = classNames(classes.card, className);
-  console.log(showSentDetails);
   return (
     <Card className={cardClasses} raised>
       {onDelete && (
@@ -39,7 +38,7 @@ function JobCard(props) {
         </div>
       )}
       <CardMedia
-        className={classes.cover}
+        className={classNames(classes.cover, 'card-cover')}
         image={selectIcon(job.icon)}
         title="Live from space album cover"
       />
