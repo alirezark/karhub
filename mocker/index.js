@@ -22,6 +22,7 @@ const proxy = {
     },
   },
   // =====================
+  // === Users requests ===
   'GET /api/user': {
     id: 1,
     username: 'kenny',
@@ -31,6 +32,25 @@ const proxy = {
     id: 2,
     name: 'مانکی دی لوفی',
   },
+  'GET /rest/user/:id': {
+    name: 'مانکی دی لوفی',
+    website: 'www.farhadjafari.ir',
+    job: 'مدیر محصول و طراح تجربه کاربری و رابط کاربری',
+    company: 'ایرانسل',
+    city: 'تهران',
+    mobile: '۰۹۱۲۳۴۵۶۷۸۹',
+    email: 'alavi.ali@gmail.com',
+    address: ' تهران، شمس آباد',
+    birthDate: '۱۳۶۸/۱۲/۱۵',
+  },
+  'GET /rest/user/payment_history/:id': [
+    { id: 1, date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 2, date: '98/03/10', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 3, date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+    { id: 4, date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+  ],
+  // =====================
+  // === Jobs requests ===
   'GET /rest/jobs': [
     { id:1, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران' },
     { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران' },
@@ -69,23 +89,13 @@ const proxy = {
     { id: 19, title: 'مهندسی، برنامه نویسی و طراحی وب', icon: 'icon-1'},
     { id: 20, title: 'مهندسی، برنامه نویسی و طراحی وب', icon: 'icon-1'},
   ],
-  'GET /rest/user/:id': {
-    name: 'مانکی دی لوفی',
-    website: 'www.farhadjafari.ir',
-    job: 'مدیر محصول و طراح تجربه کاربری و رابط کاربری',
-    company: 'ایرانسل',
-    city: 'تهران',
-    mobile: '۰۹۱۲۳۴۵۶۷۸۹',
-    email: 'alavi.ali@gmail.com',
-    address: ' تهران، شمس آباد',
-    birthDate: '۱۳۶۸/۱۲/۱۵',
-  },
-  'GET /rest/user/payment_history/:id': [
-    { id: 1, date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: 2, date: '98/03/10', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: 3, date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
-    { id: 4, date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
+  'GET /rest/jobs/favorites/:userId': [
+    { id:1, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1' },
+    { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1' },
+    { id:3, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-2' },
   ],
+  // =====================
+  // === CV Requests ===
   'GET /rest/cv/abstract/:id': {
     country: 'ایران',
     city: 'تهران',
@@ -107,7 +117,13 @@ const proxy = {
     { id: 0, title: 'رزومه شماره ۱.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۱۸'},
     { id: 1, title: 'رزومه شماره ۲.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۱۹'},
     { id: 2, title: 'رزومه شماره ۳.pdf', date: 'تاریخ بارگذاری: ۹۸/۰۷/۲۲'},
-  ]
+  ],
+  'GET /rest/cv/sent/:userId': [
+    { id:1, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1', date: '98/05/03', state: 'در انتظار تایید' },
+    { id:2, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-1', date: '98/05/03', state: 'در انتظار تایید' },
+    { id:3, title: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', location: 'تهران', icon: 'icon-2', date: '98/05/03', state: 'در انتظار تایید' },
+  ],
+  // =====================
 };
 
 module.exports = proxy;

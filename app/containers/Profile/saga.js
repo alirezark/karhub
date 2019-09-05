@@ -23,6 +23,16 @@ const fetchUploadedCV = userId =>
     response.json(),
   );
 
+const fetchFavoriteJobs = userId =>
+  fetch(`${configs.services.jobs.favorites}/${userId}`).then(response =>
+    response.json(),
+  );
+
+const fetchSentCV = userId =>
+  fetch(`${configs.services.cv.sent}/${userId}`).then(response =>
+    response.json(),
+  );
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -50,5 +60,22 @@ export function* uploadedCVSaga() {
     const { userId } = yield take(constants.REQUEST_UPLOADED_CV);
     const uploadedCV = yield call(() => fetchUploadedCV(userId));
     yield put(actions.responseUploadedCVAction(uploadedCV));
+  }
+}
+
+export function* favoriteJobsSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_FAVORITE_JOBS);
+    const jobs = yield call(() => fetchFavoriteJobs(userId));
+    yield put(actions.responseFavoriteJobsAction(jobs));
+  }
+}
+
+
+export function* sentCVSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_SENT_CV);
+    const cvList = yield call(() => fetchSentCV(userId));
+    yield put(actions.responseSentCVAction(cvList));
   }
 }

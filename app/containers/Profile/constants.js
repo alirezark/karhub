@@ -20,3 +20,11 @@ export const RESPONSE_ABSTRACT_CV = 'app/Profile/RESPONSE_ABSTRACT_CV';
 export const REQUEST_UPLOADED_CV = 'app/Profile/REQUEST_UPLOADED_CV';
 
 export const RESPONSE_UPLOADED_CV = 'app/Profile/RESPONSE_UPLOADED_CV';
+
+export const REQUEST_FAVORITE_JOBS = 'app/Profile/REQUEST_FAVORITE_JOBS';
+
+export const RESPONSE_FAVORITE_JOBS = 'app/Profile/RESPONSE_FAVORITE_JOBS';
+
+export const REQUEST_SENT_CV = 'app/Profile/REQUEST_SENT_CV';
+
+export const RESPONSE_SENT_CV = 'app/Profile/RESPONSE_SENT_CV';

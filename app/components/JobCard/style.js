@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import cardBox from 'mui/MCard/cardBox';
 
-const styles = makeStyles(() => ({
+const styles = makeStyles(theme => ({
   root: {
     marginTop: '5rem',
   },
@@ -9,6 +9,13 @@ const styles = makeStyles(() => ({
     ...cardBox().panel,
     display: 'flex',
     marginBottom: '1rem',
+    position: 'relative',
+    '&:hover': {
+      boxShadow: '0 0 14px 0 rgba(75,187,129,0.5)',
+      '& .delete-icon': {
+        opacity: '.7',
+      },
+    },
   },
   details: {
     display: 'flex',
@@ -41,6 +48,36 @@ const styles = makeStyles(() => ({
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',
+  },
+  deleteIcon: {
+    position: 'absolute',
+    top: 5,
+    left: 5,
+    opacity: '0',
+    cursor: 'pointer',
+    transition: '200ms',
+    '& i:before': {
+      fontSize: 14,
+      color: '#9B9B9B',
+    },
+    '&:hover': {
+      opacity: '1!important',
+    },
+  },
+  sentDetail: {
+    color: '#9B9B9B',
+    fontSize: '.75rem',
+    display: 'flex',
+    padding: '1.6rem',
+    alignItems: 'flex-end',
+    flexDirection: 'column',
+    '& p': {
+      color: theme.palette.primary.main,
+      fontSize: 'inherit',
+      display: 'flex',
+      flexGrow: 1,
+      alignItems: 'flex-end',
+    },
   },
 }));
 

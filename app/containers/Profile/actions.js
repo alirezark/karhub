@@ -61,3 +61,31 @@ export function responseUploadedCVAction(uploadedCV) {
     uploadedCV,
   };
 }
+
+export function requestFavoriteJobsAction(userId) {
+  return {
+    type: actions.REQUEST_FAVORITE_JOBS,
+    userId,
+  };
+}
+
+export function responseFavoriteJobsAction(jobs) {
+  return {
+    type: actions.RESPONSE_FAVORITE_JOBS,
+    jobs,
+  };
+}
+
+export function requestSentCVAction(userId) {
+  return {
+    type: actions.REQUEST_SENT_CV,
+    userId,
+  };
+}
+
+export function responseSentCVAction(cvList) {
+  return {
+    type: actions.RESPONSE_SENT_CV,
+    cvList,
+  };
+}

@@ -22,10 +22,13 @@ import {
   paymentHistorySaga,
   abstractCVSaga,
   uploadedCVSaga,
+  favoriteJobsSaga,
+  sentCVSaga,
 } from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
 import Settings from './Settings';
+import Favorites from './Favorites';
 import MyCV from './MyCV';
 import * as actions from './actions';
 
@@ -38,16 +41,25 @@ export function Profile(props) {
   useInjectSaga({ key: 'profile_paymentHistory', saga: paymentHistorySaga });
   useInjectSaga({ key: 'profile_abstractCV', saga: abstractCVSaga });
   useInjectSaga({ key: 'profile_uploadedCV', saga: uploadedCVSaga });
+  useInjectSaga({ key: 'profile_favoriteJobs', saga: favoriteJobsSaga });
+  useInjectSaga({ key: 'profile_sentCV', saga: sentCVSaga });
 
   const handleSetSelectedTab = selected => {
     setSelectedTab(selected);
 
     if (selected === 1 && isEmpty(profile.abstractCV))
       dispatch(actions.requestAbstractCVAction(user.id));
+
+    if (selected === 2 && isEmpty(profile.favoriteJobs))
+      dispatch(actions.requestFavoriteJobsAction(user.id));
   };
 
   const loadPaymentHistory = () => {
     dispatch(actions.requestPaymentHistoryAction(user.id));
+  };
+
+  const loadSentCV = () => {
+    dispatch(actions.requestSentCVAction(user.id));
   };
 
   const loadUploadedCV = () => {
@@ -75,6 +87,14 @@ export function Profile(props) {
           user={user}
           loadUploadedCV={loadUploadedCV}
           uploadedCV={profile.uploadedCV}
+        />
+      )}
+      {selectedTab === 2 && (
+        <Favorites
+          user={user}
+          favoriteJobs={profile.favoriteJobs}
+          sentCVs={profile.sentCVs}
+          loadSentCV={loadSentCV}
         />
       )}
     </div>

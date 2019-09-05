@@ -8,6 +8,7 @@ const configs = {
       list: `${JOBS_SERVER}`,
       topCategories: `${JOBS_SERVER}/topCategories`,
       categories: `${JOBS_SERVER}/categories`,
+      favorites: `${JOBS_SERVER}/favorites`,
     },
     account: {
       login: `${ACCOUNT_SERVER}/login`,
@@ -17,6 +18,7 @@ const configs = {
     cv: {
       abstract: `${CV_SERVER}/abstract`,
       uploaded: `${CV_SERVER}/uploaded`,
+      sent: `${CV_SERVER}/sent`,
     },
   },
 };

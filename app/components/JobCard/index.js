@@ -25,10 +25,19 @@ const selectIcon = icon => {
 
 function JobCard(props) {
   const classes = styles();
-  const { job, hideNavigation, className } = props;
+  const { job, hideNavigation, className, onDelete, showSentDetails } = props;
   const cardClasses = classNames(classes.card, className);
+  console.log(showSentDetails);
   return (
     <Card className={cardClasses} raised>
+      {onDelete && (
+        <div
+          className={classNames(classes.deleteIcon, 'delete-icon')}
+          onClick={onDelete}
+        >
+          <i className="flaticon-close" />
+        </div>
+      )}
       <CardMedia
         className={classes.cover}
         image={selectIcon(job.icon)}
@@ -50,11 +59,17 @@ function JobCard(props) {
             </Grid>
           </Grid>
         </CardContent>
-        {!hideNavigation &&
+        {showSentDetails && (
+          <div className={classes.sentDetail}>
+            <div> تاریخ ارسال: {job.date}</div>
+            <Typography>{job.state}</Typography>
+          </div>
+        )}
+        {!hideNavigation && (
           <div className={classes.arrow}>
             <i className="i-arrow-left" />
           </div>
-        }
+        )}
       </div>
     </Card>
   );
@@ -64,6 +79,8 @@ JobCard.propTypes = {
   job: PropTypes.object.isRequired,
   hideNavigation: PropTypes.bool,
   className: PropTypes.string,
+  onDelete: PropTypes.func,
+  showSentDetails: PropTypes.bool,
 };
 
 export default JobCard;
