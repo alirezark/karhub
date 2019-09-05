@@ -32,10 +32,11 @@ import Settings from './Settings';
 import Favorites from './Favorites';
 import MyCV from './MyCV';
 import Notifications from './Notifications';
+import GeneralView from './GeneralView';
 import * as actions from './actions';
 
 export function Profile(props) {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(-1);
   const { dispatch, user, profile } = props;
 
   useInjectReducer({ key: 'profile', reducer });
@@ -87,6 +88,9 @@ export function Profile(props) {
       </Helmet>
       <UserInfo user={profile.profile} />
       <MainTabs selected={selectedTab} setSelected={handleSetSelectedTab} />
+      {selectedTab === -1 && (
+        <GeneralView sentCVs={profile.sentCVs} loadSentCV={loadSentCV} />
+      )}
       {selectedTab === 0 && (
         <Settings
           user={profile.profile}
