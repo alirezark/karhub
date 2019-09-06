@@ -21,6 +21,7 @@ const styles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'row',
     flexGrow: 1,
+    cursor: 'pointer',
   },
   content: {
     flexGrow: 1,
@@ -29,6 +30,7 @@ const styles = makeStyles(theme => ({
   cover: {
     width: 100,
     backgroundSize: 'auto',
+    cursor: 'pointer',
   },
   title: {
     padding: '16px 0',
@@ -48,6 +50,7 @@ const styles = makeStyles(theme => ({
     textAlign: 'center',
     display: 'flex',
     alignItems: 'center',
+    cursor: 'pointer',
   },
   deleteIcon: {
     position: 'absolute',
@@ -71,6 +74,7 @@ const styles = makeStyles(theme => ({
     padding: '1.6rem',
     alignItems: 'flex-end',
     flexDirection: 'column',
+    cursor: 'pointer',
     '& p': {
       color: theme.palette.primary.main,
       fontSize: 'inherit',

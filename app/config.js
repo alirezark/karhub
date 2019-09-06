@@ -23,6 +23,7 @@ const configs = {
       sent: `${CV_SERVER}/sent`,
     },
     company: {
+      profile: `${COMPANY_SERVER}`,
       favorite: `${COMPANY_SERVER}/favorites`,
     },
   },

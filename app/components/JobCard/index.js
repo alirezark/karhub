@@ -6,15 +6,18 @@
 
 import React from 'react';
 import classNames from 'classnames';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Grid,
+} from '@material-ui/core';
 import icon1 from 'app/assets/images/icon-1.png';
 import icon2 from 'app/assets/images/icon-2.png';
 import icon3 from 'app/assets/images/icon-3.png';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import styles from './style';
 
 const selectIcon = icon => {
@@ -25,8 +28,22 @@ const selectIcon = icon => {
 
 function JobCard(props) {
   const classes = styles();
-  const { job, hideNavigation, className, onDelete, showSentDetails } = props;
+  const {
+    job,
+    hideNavigation,
+    className,
+    onDelete,
+    showSentDetails,
+    history,
+  } = props;
   const cardClasses = classNames(classes.card, className);
+
+  const handleOpenJob = () => {
+    history.push({
+      pathname: `/Company/${job.id}`,
+    });
+  };
+
   return (
     <Card className={cardClasses} raised>
       {onDelete && (
@@ -41,8 +58,9 @@ function JobCard(props) {
         className={classNames(classes.cover, 'card-cover')}
         image={selectIcon(job.icon)}
         title="Live from space album cover"
+        onClick={handleOpenJob}
       />
-      <div className={classes.details}>
+      <div className={classes.details} onClick={handleOpenJob}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5" className={classes.title}>
             {job.title}
@@ -59,13 +77,13 @@ function JobCard(props) {
           </Grid>
         </CardContent>
         {showSentDetails && (
-          <div className={classes.sentDetail}>
+          <div className={classes.sentDetail} onClick={handleOpenJob}>
             <div> تاریخ ارسال: {job.date}</div>
             <Typography>{job.state}</Typography>
           </div>
         )}
         {!hideNavigation && (
-          <div className={classes.arrow}>
+          <div className={classes.arrow} onClick={handleOpenJob}>
             <i className="i-arrow-left" />
           </div>
         )}
@@ -80,6 +98,7 @@ JobCard.propTypes = {
   className: PropTypes.string,
   onDelete: PropTypes.func,
   showSentDetails: PropTypes.bool,
+  history: PropTypes.object,
 };
 
-export default JobCard;
+export default withRouter(JobCard);

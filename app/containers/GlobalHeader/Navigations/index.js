@@ -5,13 +5,17 @@ import { withRouter } from 'react-router-dom';
 import { MTabs, MTab } from 'mui/MTabs';
 import messages from './messages';
 import styles from './style';
+import { some } from 'underscore';
 
 const HOME_LOCATIONS = ['/', '/Categories', '/Profile'];
 const JOB_LOCATIONS = ['/Jobs'];
+const COMPANY_LOCATIONS = ['/Company'];
 
 function locationToNav(location) {
   if (HOME_LOCATIONS.indexOf(location) > -1) return '/';
   if (JOB_LOCATIONS.indexOf(location) > -1) return '/Jobs';
+  if (some(COMPANY_LOCATIONS, loc => location.indexOf(loc) > -1))
+    return '/Company';
   return '';
 }
 
@@ -38,7 +42,10 @@ function Navigations(props) {
         })}
         value="/Jobs"
       />
-      <MTab label={props.intl.formatMessage({ ...messages.companies_info })} />
+      <MTab
+        label={props.intl.formatMessage({ ...messages.companies_info })}
+        value="/Company"
+      />
       <MTab label={props.intl.formatMessage({ ...messages.exam })} />
       <MTab label={props.intl.formatMessage({ ...messages.cv_maker })} />
       <MTab label={props.intl.formatMessage({ ...messages.blog })} />
