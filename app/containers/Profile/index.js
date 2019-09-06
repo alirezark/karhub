@@ -25,6 +25,7 @@ import {
   favoriteJobsSaga,
   sentCVSaga,
   favoriteCompaniesSaga,
+  employerRequestsSaga,
 } from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
@@ -46,6 +47,7 @@ export function Profile(props) {
   useInjectSaga({ key: 'profile_uploadedCV', saga: uploadedCVSaga });
   useInjectSaga({ key: 'profile_favoriteJobs', saga: favoriteJobsSaga });
   useInjectSaga({ key: 'profile_sentCV', saga: sentCVSaga });
+  useInjectSaga({ key: 'employer_requests', saga: employerRequestsSaga });
   useInjectSaga({
     key: 'profile_favoriteCompanies',
     saga: favoriteCompaniesSaga,
@@ -80,6 +82,10 @@ export function Profile(props) {
     dispatch(actions.requestUploadedCVAction(user.id));
   };
 
+  const loadEmployerRequests = () => {
+    dispatch(actions.requestEmployerRequestsAction(user.id));
+  };
+
   return (
     <div>
       <Helmet>
@@ -89,7 +95,12 @@ export function Profile(props) {
       <UserInfo user={profile.profile} />
       <MainTabs selected={selectedTab} setSelected={handleSetSelectedTab} />
       {selectedTab === -1 && (
-        <GeneralView sentCVs={profile.sentCVs} loadSentCV={loadSentCV} />
+        <GeneralView
+          sentCVs={profile.sentCVs}
+          loadSentCV={loadSentCV}
+          employerRequests={profile.employerRequests}
+          loadEmplyerRequests={loadEmployerRequests}
+        />
       )}
       {selectedTab === 0 && (
         <Settings

@@ -49,6 +49,11 @@ const proxy = {
     { id: 3, date: '98/05/25', type: 'پلن قهوه ای', price: '۱۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
     { id: 4, date: '98/06/01', type: 'پلن طلایی', price: '۳۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
   ],
+  'GET /rest/user/employer_requests/:id': [
+    { id: 1, date: '98/02/15', title: 'درخواست انجام آزمون MBTI', description: 'توضیحات مربوط به این درخواست از سمت کارفرما', icon: 'icon-1' },
+    { id: 2, date: '98/02/05', title: 'درخواست انجام آزمون MBTI', description: 'توضیحات مربوط به این درخواست از سمت کارفرما', icon: 'icon-2' },
+    { id: 3, date: '98/05/24', title: 'درخواست انجام آزمون MBTI', description: 'توضیحات مربوط به این درخواست از سمت کارفرما', icon: 'icon-3' },
+  ],
   // =====================
   // === Jobs requests ===
   'GET /rest/jobs': [

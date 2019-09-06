@@ -103,3 +103,17 @@ export function responseFavoriteCompaniesAction(companies) {
     companies,
   };
 }
+
+export function requestEmployerRequestsAction(userId) {
+  return {
+    type: actions.REQUEST_EMPLOYER_REQUESTS,
+    userId,
+  };
+}
+
+export function responseEmployerRequestsAction(result) {
+  return {
+    type: actions.RESPONSE_EMPLOYER_REQUESTS,
+    result,
+  };
+}

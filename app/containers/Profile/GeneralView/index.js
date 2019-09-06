@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
 import MContainer from 'mui/MContainer';
-import { Grid, Typography, Box } from '@material-ui/core';
+import { Grid, Typography, Box, Badge } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 // import messages from './messages';
 import { isEmpty } from 'underscore';
 import styles from './style';
 import SentCV from '../Favorites/sentCV';
+import EmployerRequests from './employerRequests';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -35,14 +36,12 @@ TabPanel.propTypes = {
 function GeneralView(props) {
   const classes = styles();
   const [tab, setTab] = useState(1);
-  const {
-    loadSentCV,
-    sentCVs,
-  } = props;
+  const { loadSentCV, sentCVs, loadEmplyerRequests, employerRequests } = props;
 
   const handleTabChange = (e, val) => {
     setTab(val);
     if (val === 2 && isEmpty(sentCVs)) loadSentCV();
+    else if (val === 3 && isEmpty(employerRequests)) loadEmplyerRequests();
   };
 
   return (
@@ -59,8 +58,19 @@ function GeneralView(props) {
               >
                 <MTab label="پروفایل" value={1} />
                 <MTab label="رزومه های ارسالی ۳ بار" value={2} />
-                <MTab label="درخواست های از سمت کارفرما" value={3} />
-                <MTab label="آزمون" value={4} />
+                <MTab
+                  label={
+                    <Badge
+                      className={classes.badge}
+                      color="secondary"
+                      badgeContent={2}
+                    >
+                      درخواست های از سمت کارفرما
+                    </Badge>
+                  }
+                  value={3}
+                />
+                <MTab label="آزمون ها" value={4} />
               </MTabs>
               <TabPanel value={tab} index={1} className={classes.tabContent}>
                 Profile
@@ -69,10 +79,10 @@ function GeneralView(props) {
                 <SentCV CVs={sentCVs} />
               </TabPanel>
               <TabPanel value={tab} index={3} className={classes.tabContent}>
-                Requests
+                <EmployerRequests employerRequests={employerRequests} />
               </TabPanel>
               <TabPanel value={tab} index={4} className={classes.tabContent}>
-                Notifications
+                Exams
               </TabPanel>
             </div>
           </Grid>
@@ -85,6 +95,8 @@ function GeneralView(props) {
 GeneralView.propTypes = {
   sentCVs: PropTypes.array,
   loadSentCV: PropTypes.func.isRequired,
+  employerRequests: PropTypes.array,
+  loadEmplyerRequests: PropTypes.func.isRequired,
 };
 
 export default GeneralView;

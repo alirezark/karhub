@@ -32,8 +32,14 @@ const styles = makeStyles(theme => ({
       height: 4,
     },
   },
+  badge: {
+    '& .MuiBadge-badge': {
+      background: '#ff3e48',
+      top: 10,
+    },
+  },
   tabContent: {
-    padding: '10px 40px 30px',
+    padding: '30px 40px 30px',
     fontSize: 14,
     minHeight: 442,
     '& label': {

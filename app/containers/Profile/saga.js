@@ -38,6 +38,11 @@ const fetchFavoriteCompanies = userId =>
     response.json(),
   );
 
+const fetchEmployerRequests = userId =>
+  fetch(`${configs.services.account.employerRequests}/${userId}`).then(
+    response => response.json(),
+  );
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -89,5 +94,13 @@ export function* favoriteCompaniesSaga() {
     const { userId } = yield take(constants.REQUEST_FAVORITE_COMPANIES);
     const companies = yield call(() => fetchFavoriteCompanies(userId));
     yield put(actions.responseFavoriteCompaniesAction(companies));
+  }
+}
+
+export function* employerRequestsSaga() {
+  while (true) {
+    const { userId } = yield take(constants.REQUEST_EMPLOYER_REQUESTS);
+    const requests = yield call(() => fetchEmployerRequests(userId));
+    yield put(actions.responseEmployerRequestsAction(requests));
   }
 }
