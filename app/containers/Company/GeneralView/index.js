@@ -7,6 +7,7 @@ import MContainer from 'mui/MContainer';
 import { MTab, MTabs } from 'mui/MTabs';
 import CompanyInfo from './comanyInfo';
 import TopInfo from './topInfo';
+import Jobs from './jobs';
 import styles from './style';
 
 function TabPanel(props) {
@@ -52,7 +53,7 @@ function Tabs(props) {
         <CompanyInfo company={company} />
       </TabPanel>
       <TabPanel value={tab} index={2} className={classes.tabContent}>
-        Jobs
+        <Jobs />
       </TabPanel>
       <TabPanel value={tab} index={3} className={classes.tabContent}>
         Image gallery
