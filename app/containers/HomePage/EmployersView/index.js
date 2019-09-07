@@ -2,16 +2,26 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Grid from '@material-ui/core/Grid';
-import MAvatar from 'mui/MAvatar';
 import messages from './messages';
 import styles from './style';
 import imgTestmonial from '../../../assets/images/icons/testmonial_h.png';
-import imgAvatar1 from '../../../assets/images/avatar_grey_1.jpg';
-import imgAvatar2 from '../../../assets/images/avatar_grey_2.jpg';
-import imgQuote from '../../../assets/images/icons/qoute.png';
+import QuoteCard from 'components/QuoteCard';
+
+const quotes = [
+  {
+    id: 1,
+    name: 'فرهاد جعفری',
+    position: 'مدیر عامل استدیو ایکس',
+    avatar: 'avatar1',
+  },
+  {
+    id: 2,
+    name: 'پدرام فرزین',
+    position: 'مدیر عامل پتروشیمی',
+    avatar: 'avatar2',
+  },
+];
 
 function EmployersView() {
   const classes = styles();
@@ -31,66 +41,11 @@ function EmployersView() {
         </Grid>
         <Grid item md={9}>
           <Grid container>
-            <Grid item md={6}>
-              <Card className={classes.card} raised>
-                <MAvatar src={imgAvatar2} alt="user name" />
-                <CardContent className={classes.cardContent}>
-                  <Typography
-                    component="h5"
-                    variant="h5"
-                    className={classes.cardTitle}
-                  >
-                    فرهاد جعفری
-                  </Typography>
-                  <Typography
-                    variant="subtitle2"
-                    className={classes.cardSubTitle}
-                  >
-                    مدیر عامل استدیو ایکس
-                  </Typography>
-                  <div className={classes.cardSeparator}>
-                    <img alt="Quota" src={imgQuote} />
-                    <span />
-                  </div>
-                  <Typography variant="subtitle2" className={classes.cardText}>
-                    با شرکت در آزمون‌های کارهاب خودت رو بسنج و عملکرد بهتری
-                    داشته باش! شما میتوانید با انتخاب یکی از آزمون ها وارد صفحه
-                    صفحه آزمون شده و این متن به صورت تست می‌باشدبهتری داشته باش!
-                    شما میتوانید با انتخاب یکی شما میتوانید با انتخاب یکی .
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item md={6}>
-              <Card className={classes.card} raised>
-                <MAvatar src={imgAvatar1} alt="user name" />
-                <CardContent className={classes.cardContent}>
-                  <Typography
-                    component="h5"
-                    variant="h5"
-                    className={classes.cardTitle}
-                  >
-                    پدرام فرزین
-                  </Typography>
-                  <Typography
-                    variant="subtitle2"
-                    className={classes.cardSubTitle}
-                  >
-                    مدیر عامل پتروشیمی
-                  </Typography>
-                  <div className={classes.cardSeparator}>
-                    <img alt="Quota" src={imgQuote} />
-                    <span />
-                  </div>
-                  <Typography variant="subtitle2" className={classes.cardText}>
-                    با شرکت در آزمون‌های کارهاب خودت رو بسنج و عملکرد بهتری
-                    داشته باش! شما میتوانید با انتخاب یکی از آزمون ها وارد صفحه
-                    صفحه آزمون شده و این متن به صورت تست می‌باشدبهتری داشته باش!
-                    شما میتوانید با انتخاب یکی شما میتوانید با انتخاب یکی .
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {quotes.map(quote => (
+              <Grid key={quote.id} item md={6}>
+                <QuoteCard quote={quote} />
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </Grid>
