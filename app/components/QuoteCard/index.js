@@ -25,7 +25,7 @@ function QuoteCard(props) {
 
   return (
     <Card className={classNames(classes.card, className)} raised>
-      <MAvatar src={selectAvatar(quote.avatar)} alt="user name" />
+      <MAvatar className="card-avatar" src={selectAvatar(quote.avatar)} alt="user name" />
       <CardContent className={classes.cardContent}>
         <Typography component="h5" variant="h5" className={classes.cardTitle}>
           {quote.name}
@@ -37,7 +37,10 @@ function QuoteCard(props) {
           <img alt="Quota" src={imgQuote} />
           <span />
         </div>
-        <Typography variant="subtitle2" className={classes.cardText}>
+        <Typography
+          variant="subtitle2"
+          className={classNames(classes.cardText, 'card-text')}
+        >
           با شرکت در آزمون‌های کارهاب خودت رو بسنج و عملکرد بهتری داشته باش! شما
           میتوانید با انتخاب یکی از آزمون ها وارد صفحه صفحه آزمون شده و این متن
           به صورت تست می‌باشدبهتری داشته باش! شما میتوانید با انتخاب یکی شما

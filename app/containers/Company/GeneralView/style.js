@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles(theme => ({
   cover: {
-    height: 350,
+    height: 400,
     backgroundSize: 'cover',
     '&:before': {
       content: "''",
@@ -17,7 +17,7 @@ const styles = makeStyles(theme => ({
     boxShadow: '0 0 14px 0 rgba(178,178,178,0.5)',
     borderRadius: 8,
     position: 'relative',
-    marginTop: '-8rem',
+    marginTop: '-13rem',
     padding: 10,
     color: '#606062',
     fontSize: 12,

@@ -3,10 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import QuoteCard from 'components/QuoteCard';
 import messages from './messages';
 import styles from './style';
 import imgTestmonial from '../../../assets/images/icons/testmonial_h.png';
-import QuoteCard from 'components/QuoteCard';
 
 const quotes = [
   {
