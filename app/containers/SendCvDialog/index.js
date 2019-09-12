@@ -15,7 +15,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import User from 'app/selectors/user';
 import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import makeSelectSendCvDialog, { makeSelectJob } from './selectors';
 import reducer from './reducer';
 import saga from './saga';

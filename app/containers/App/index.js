@@ -21,6 +21,7 @@ import SendSVDialog from 'containers/SendCvDialog';
 import Profile from 'containers/Profile';
 import Company from 'containers/Company';
 
+import ScrollToTop from 'components/ScrollPageTop';
 import '../../assets/style.scss';
 
 import Rtl from '../../components/Rtl';
@@ -75,6 +76,7 @@ export default function App() {
     <Rtl>
       <ThemeProvider theme={theme}>
         <GlobalHeader />
+        <ScrollToTop />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/Jobs" component={Jobs} />

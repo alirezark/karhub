@@ -5,7 +5,7 @@ import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 // import messages from './messages';
-import { map } from 'underscore';
+import { map } from 'lodash';
 import JobCard from 'app/components/JobCard';
 import styles from './style';
 

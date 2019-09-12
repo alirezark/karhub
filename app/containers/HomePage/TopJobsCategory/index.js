@@ -1,9 +1,8 @@
 import React from 'react';
 import MContainer from 'mui/MContainer';
-import Typography from '@material-ui/core/Typography';
 import { FormattedMessage } from 'react-intl';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+import { Typography, Grid } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 import CategoryCard from 'components/CategoryCard';
 import messages from './messages';
 import styles from './style';
@@ -21,9 +20,9 @@ function TopJobsCategory() {
       <MContainer maxWidth="md">
         <Typography variant="h1" component="h1" className={classes.sectionHead}>
           <FormattedMessage {...messages.title} />
-          <Link href="/Categories" className={classes.blueLink} component="a">
+          <NavLink to="/Categories" className={classes.blueLink}>
             مشاهده همه
-          </Link>
+          </NavLink>
         </Typography>
         <Grid container spacing={5} className={classes.cardsRow}>
           <Grid item md={3}>

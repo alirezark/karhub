@@ -4,7 +4,7 @@ import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 import AbstractCV from 'components/AbstractCv';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import CVList from './CVList';
 import styles from './style';
 

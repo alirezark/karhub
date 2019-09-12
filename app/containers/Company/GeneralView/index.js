@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Typography, Box } from '@material-ui/core';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import cover from 'app/assets/images/temp/companies_cover.jpg';
 import MContainer from 'mui/MContainer';
 import { MTab, MTabs } from 'mui/MTabs';

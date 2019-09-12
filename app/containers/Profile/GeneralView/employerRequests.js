@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, Typography } from '@material-ui/core';
 import MButton from 'mui/MButton';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import icon1 from 'app/assets/images/icon-1.png';
 import icon2 from 'app/assets/images/icon-2.png';
 import icon3 from 'app/assets/images/icon-3.png';

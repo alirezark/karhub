@@ -5,7 +5,7 @@ import MContainer from 'mui/MContainer';
 import { Grid, Typography, Box, Badge } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
 // import messages from './messages';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import styles from './style';
 import SentCV from '../Favorites/sentCV';
 import EmployerRequests from './employerRequests';

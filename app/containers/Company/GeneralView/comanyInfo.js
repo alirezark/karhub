@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Typography, makeStyles, Grid } from '@material-ui/core';
-import { isEmpty } from 'underscore';
+import { isEmpty } from 'lodash';
 import cover from 'app/assets/images/temp/companies_cover.jpg';
 import map from 'app/assets/images/temp/map.jpg';
 import QuoteCard from 'app/components/QuoteCard';
