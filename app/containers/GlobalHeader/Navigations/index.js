@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl, intlShape } from 'react-intl';
+import { useIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
 import { MTabs, MTab } from 'mui/MTabs';
 import { some } from 'lodash';
@@ -21,6 +21,7 @@ function locationToNav(location) {
 
 function Navigations(props) {
   const classes = styles();
+  const intl = useIntl();
   const [tab, setTab] = useState(
     locationToNav(props.history.location.pathname),
   );
@@ -35,27 +36,26 @@ function Navigations(props) {
 
   return (
     <MTabs value={tab} className={classes.tabs} onChange={handleTabChange}>
-      <MTab label={props.intl.formatMessage({ ...messages.home })} value="/" />
+      <MTab label={intl.formatMessage({ ...messages.home })} value="/" />
       <MTab
-        label={props.intl.formatMessage({
+        label={intl.formatMessage({
           ...messages.jobs_opportunities,
         })}
         value="/Jobs"
       />
       <MTab
-        label={props.intl.formatMessage({ ...messages.companies_info })}
+        label={intl.formatMessage({ ...messages.companies_info })}
         value="/Company"
       />
-      <MTab label={props.intl.formatMessage({ ...messages.exam })} />
-      <MTab label={props.intl.formatMessage({ ...messages.cv_maker })} />
-      <MTab label={props.intl.formatMessage({ ...messages.blog })} />
+      <MTab label={intl.formatMessage({ ...messages.exam })} />
+      <MTab label={intl.formatMessage({ ...messages.cv_maker })} />
+      <MTab label={intl.formatMessage({ ...messages.blog })} />
     </MTabs>
   );
 }
 
 Navigations.propTypes = {
-  intl: intlShape.isRequired,
   history: PropTypes.object.isRequired,
 };
 
-export default injectIntl(withRouter(Navigations));
+export default withRouter(Navigations);

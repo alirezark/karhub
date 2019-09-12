@@ -21,6 +21,7 @@ const styles = makeStyles(theme => ({
   subtitle2: {
     lineHeight: '2rem',
     marginTop: '.8rem',
+    width: '70%',
   },
   greyLink: {
     fontSize: 10,
@@ -30,16 +31,20 @@ const styles = makeStyles(theme => ({
   blueLink: {
     color: '#486AB9',
     paddingBottom: 5,
-    textDecoration: 'none',
     borderBottom: '1px solid #486AB9',
     marginLeft: '.5rem',
     fontSize: '1.1rem',
-    fontWeight: 'bold',
+    fontWeight: '900',
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
   greenLink: {
     color: '#4BBB81',
     fontSize: '1rem',
-    fontWeight: 'bold',
+    fontWeight: '900',
+    textDecoration: 'none',
   },
   employers: {
     marginTop: '1rem',

@@ -30,6 +30,7 @@ const style = makeStyles({
   btn_search: {
     lineHeight: '38px',
     marginTop: 3,
+    fontSize: '1.2rem',
   },
 });
 

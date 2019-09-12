@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
+import { NavLink } from 'react-router-dom';
 import messages from './messages';
 import JobSearch from '../../../components/JobSearch';
 import MChip from '../../../mui/MChip';
@@ -32,39 +32,38 @@ function SearchContainer() {
         <MChip label="طراح یوآی" />
         <MChip label="طراح گرافیک" />
         <MChip label="طراح محصول" />
-        <Link
+        <NavLink
           to="/"
           className={classes.greyLink}
           onClick={foo}
           component="button"
         >
           <FormattedMessage {...messages.delete_all} />
-        </Link>
+        </NavLink>
       </div>
       <Typography variant="h2" gutterBottom className={classes.head2}>
         <FormattedMessage {...messages.head2} />
-        <Link
+        <NavLink
           to="/"
           className={classes.blueLink}
           onClick={foo}
-          component="button"
         >
           <FormattedMessage {...messages.employment_ad} />
-        </Link>
+        </NavLink>
       </Typography>
 
       <Grid container>
         <Grid item md={6}>
           <Typography variant="subtitle2" className={classes.subtitle2}>
             <FormattedMessage {...messages.sub_head1} />
-            <Link
+            <NavLink
               to="/"
               className={classes.greenLink}
               onClick={foo}
               component="button"
             >
               <FormattedMessage {...messages.why_karhub} />
-            </Link>
+            </NavLink>
           </Typography>
           <div className={classes.employers}>
             <i className="ie-1" />

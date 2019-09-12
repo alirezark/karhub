@@ -5,7 +5,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-console.log(path.resolve(__dirname, './app/mui/'));
+
 module.exports = options => ({
   mode: options.mode,
   entry: options.entry,
@@ -39,7 +39,7 @@ module.exports = options => ({
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          { loader: 'sass-loader', options: { javascriptEnabled: true } },
+          { loader: 'sass-loader', options: { sassOptions: { javascriptEnabled: true } } },
         ],
       },
       {
@@ -50,7 +50,7 @@ module.exports = options => ({
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          { loader: 'sass-loader', options: { javascriptEnabled: true } },
+          { loader: 'sass-loader', options: { sassOptions: { javascriptEnabled: true } } },
         ],
       },
       // {
@@ -103,7 +103,7 @@ module.exports = options => ({
                 optimizationLevel: 7,
               },
               pngquant: {
-                quality: '65-90',
+                quality: [0.65,0.90],
                 speed: 4,
               },
             },
