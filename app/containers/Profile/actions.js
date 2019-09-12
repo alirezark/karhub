@@ -117,3 +117,16 @@ export function responseEmployerRequestsAction(result) {
     result,
   };
 }
+
+export function requestTestsAction() {
+  return {
+    type: actions.REQUEST_TESTS,
+  };
+}
+
+export function responseTestsAction(result) {
+  return {
+    type: actions.RESPONSE_TESTS,
+    result,
+  };
+}

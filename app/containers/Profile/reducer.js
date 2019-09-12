@@ -15,6 +15,7 @@ export const initialState = {
   favoriteCompanies: [],
   sentCVs: [],
   employerRequests: [],
+  tests: [],
   isLoading: false,
   isLoadingPayment: false,
   isLoadingUploadedCV: false,
@@ -23,6 +24,7 @@ export const initialState = {
   isLoadingSentCV: false,
   isLoadingFavoriteCompanies: false,
   isLoadingEmployerRequests: false,
+  isLoadingTests: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -116,6 +118,17 @@ const profileReducer = (state = initialState, action) =>
           ...state,
           isLoadingEmployerRequests: false,
           employerRequests: action.result,
+        };
+      case actions.REQUEST_TESTS:
+        return {
+          ...state,
+          isLoadingTests: true,
+        };
+      case actions.RESPONSE_TESTS:
+        return {
+          ...state,
+          isLoadingTests: false,
+          tests: action.result,
         };
     }
   });

@@ -16,6 +16,7 @@ const configs = {
       profile: `${ACCOUNT_SERVER}`,
       paymentHistory: `${ACCOUNT_SERVER}/payment_history`,
       employerRequests: `${ACCOUNT_SERVER}/employer_requests`,
+      tests: `${ACCOUNT_SERVER}/tests`,
     },
     cv: {
       abstract: `${CV_SERVER}/abstract`,

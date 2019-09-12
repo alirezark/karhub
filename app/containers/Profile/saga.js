@@ -43,6 +43,9 @@ const fetchEmployerRequests = userId =>
     response => response.json(),
   );
 
+const fetchTests = () =>
+  fetch(`${configs.services.account.tests}`).then(response => response.json());
+
 export function* profileSaga(userId) {
   yield put(actions.requestProfileAction(userId));
   const profile = yield call(() => fetchProfile(userId));
@@ -102,5 +105,13 @@ export function* employerRequestsSaga() {
     const { userId } = yield take(constants.REQUEST_EMPLOYER_REQUESTS);
     const requests = yield call(() => fetchEmployerRequests(userId));
     yield put(actions.responseEmployerRequestsAction(requests));
+  }
+}
+
+export function* testsSaga() {
+  while (true) {
+    yield take(constants.REQUEST_TESTS);
+    const tests = yield call(() => fetchTests());
+    yield put(actions.responseTestsAction(tests));
   }
 }

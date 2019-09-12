@@ -26,6 +26,7 @@ import {
   sentCVSaga,
   favoriteCompaniesSaga,
   employerRequestsSaga,
+  testsSaga,
 } from './saga';
 import UserInfo from './UserInfo';
 import MainTabs from './MainTabs';
@@ -48,6 +49,7 @@ export function Profile(props) {
   useInjectSaga({ key: 'profile_favoriteJobs', saga: favoriteJobsSaga });
   useInjectSaga({ key: 'profile_sentCV', saga: sentCVSaga });
   useInjectSaga({ key: 'employer_requests', saga: employerRequestsSaga });
+  useInjectSaga({ key: 'tests', saga: testsSaga });
   useInjectSaga({
     key: 'profile_favoriteCompanies',
     saga: favoriteCompaniesSaga,
@@ -86,6 +88,10 @@ export function Profile(props) {
     dispatch(actions.requestEmployerRequestsAction(user.id));
   };
 
+  const loadTests = () => {
+    dispatch(actions.requestTestsAction());
+  };
+
   return (
     <div>
       <Helmet>
@@ -98,6 +104,8 @@ export function Profile(props) {
         <GeneralView
           sentCVs={profile.sentCVs}
           loadSentCV={loadSentCV}
+          loadTests={loadTests}
+          tests={profile.tests}
           employerRequests={profile.employerRequests}
           loadEmplyerRequests={loadEmployerRequests}
         />

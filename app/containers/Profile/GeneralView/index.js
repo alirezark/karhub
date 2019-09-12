@@ -9,6 +9,7 @@ import { isEmpty } from 'underscore';
 import styles from './style';
 import SentCV from '../Favorites/sentCV';
 import EmployerRequests from './employerRequests';
+import Tests from './tests';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,12 +37,20 @@ TabPanel.propTypes = {
 function GeneralView(props) {
   const classes = styles();
   const [tab, setTab] = useState(1);
-  const { loadSentCV, sentCVs, loadEmplyerRequests, employerRequests } = props;
+  const {
+    loadSentCV,
+    sentCVs,
+    loadEmplyerRequests,
+    employerRequests,
+    loadTests,
+    tests,
+  } = props;
 
   const handleTabChange = (e, val) => {
     setTab(val);
     if (val === 2 && isEmpty(sentCVs)) loadSentCV();
     else if (val === 3 && isEmpty(employerRequests)) loadEmplyerRequests();
+    else if (val === 4 && isEmpty(tests)) loadTests();
   };
 
   return (
@@ -82,7 +91,7 @@ function GeneralView(props) {
                 <EmployerRequests employerRequests={employerRequests} />
               </TabPanel>
               <TabPanel value={tab} index={4} className={classes.tabContent}>
-                Exams
+                <Tests tests={tests} />
               </TabPanel>
             </div>
           </Grid>
@@ -97,6 +106,8 @@ GeneralView.propTypes = {
   loadSentCV: PropTypes.func.isRequired,
   employerRequests: PropTypes.array,
   loadEmplyerRequests: PropTypes.func.isRequired,
+  loadTests: PropTypes.func.isRequired,
+  tests: PropTypes.array,
 };
 
 export default GeneralView;
