@@ -14,6 +14,10 @@ const styles = makeStyles(theme => ({
     color: '#888888',
     marginRight: 10,
   },
+  logo: {
+    width: 48,
+    display: 'block',
+  },
 }));
 
 export default styles;

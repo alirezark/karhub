@@ -72,7 +72,7 @@ export function GlobalHeader(props) {
         <Container>
           <Toolbar>
             <Link to="/" component="a">
-              <img src={logo} alt="t" />
+              <img className={classes.logo} src={logo} alt="t" />
             </Link>
 
             <Navigations />

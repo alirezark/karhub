@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import { MTabs, MTab } from 'mui/MTabs';
 import { some } from 'lodash';
 import messages from './messages';
-import styles from './style';
 
 const HOME_LOCATIONS = ['/', '/Categories', '/Profile'];
 const JOB_LOCATIONS = ['/Jobs'];
@@ -20,7 +19,6 @@ function locationToNav(location) {
 }
 
 function Navigations(props) {
-  const classes = styles();
   const intl = useIntl();
   const [tab, setTab] = useState(
     locationToNav(props.history.location.pathname),
@@ -35,21 +33,36 @@ function Navigations(props) {
   }
 
   return (
-    <MTabs value={tab} className={classes.tabs} onChange={handleTabChange}>
-      <MTab label={intl.formatMessage({ ...messages.home })} value="/" />
+    <MTabs value={tab} onChange={handleTabChange}>
       <MTab
+        style={{ width: '93px' }}
+        label={intl.formatMessage({ ...messages.home })}
+        value="/"
+      />
+      <MTab
+        style={{ width: '156px' }}
         label={intl.formatMessage({
           ...messages.jobs_opportunities,
         })}
         value="/Jobs"
       />
       <MTab
+        style={{ width: '158px' }}
         label={intl.formatMessage({ ...messages.companies_info })}
         value="/Company"
       />
-      <MTab label={intl.formatMessage({ ...messages.exam })} />
-      <MTab label={intl.formatMessage({ ...messages.cv_maker })} />
-      <MTab label={intl.formatMessage({ ...messages.blog })} />
+      <MTab
+        style={{ width: '93px' }}
+        label={intl.formatMessage({ ...messages.exam })}
+      />
+      <MTab
+        style={{ width: '98px' }}
+        label={intl.formatMessage({ ...messages.cv_maker })}
+      />
+      <MTab
+        style={{ width: '93px' }}
+        label={intl.formatMessage({ ...messages.blog })}
+      />
     </MTabs>
   );
 }
