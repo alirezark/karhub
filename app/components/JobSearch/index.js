@@ -6,11 +6,10 @@
 
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core';
 import MTextField from '../../mui/MTextField';
 import MButton from '../../mui/MButton';
 // import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
