@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { MTabs, MTab } from 'mui/MTabs';
 import { some } from 'lodash';
 import messages from './messages';
+import styles from './style';
 
 const HOME_LOCATIONS = ['/', '/Categories', '/Profile'];
 const JOB_LOCATIONS = ['/Jobs'];
@@ -20,6 +21,7 @@ function locationToNav(location) {
 
 function Navigations(props) {
   const intl = useIntl();
+  const classes = styles();
   const [tab, setTab] = useState(
     locationToNav(props.history.location.pathname),
   );
@@ -33,7 +35,7 @@ function Navigations(props) {
   }
 
   return (
-    <MTabs value={tab} onChange={handleTabChange}>
+    <MTabs value={tab} className={classes.tabs} onChange={handleTabChange}>
       <MTab
         style={{ width: '93px' }}
         label={intl.formatMessage({ ...messages.home })}
