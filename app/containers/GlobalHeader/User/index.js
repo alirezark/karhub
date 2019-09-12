@@ -1,6 +1,7 @@
 import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 // import messages from './messages';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
@@ -75,4 +76,4 @@ User.propTypes = {
   user: PropTypes.object.isRequired,
 };
 
-export default User;
+export default withRouter(User);

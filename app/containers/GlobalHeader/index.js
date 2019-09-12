@@ -33,7 +33,7 @@ import styles from './style';
 export function GlobalHeader(props) {
   useInjectReducer({ key: 'globalHeader', reducer });
   useInjectSaga({ key: 'globalHeader', saga: loginSaga });
-  const { history, globalHeader, dispatch } = props;
+  const { globalHeader, dispatch } = props;
 
   const openLoginDialog = () => {
     dispatch(actions.openLoginDialogAction());
@@ -75,7 +75,7 @@ export function GlobalHeader(props) {
               <img src={logo} alt="t" />
             </Link>
 
-            <Navigations history={history} />
+            <Navigations />
 
             <Button
               aria-label="Account of current user"
@@ -85,11 +85,7 @@ export function GlobalHeader(props) {
               <FormattedMessage {...messages.search_csv} />
             </Button>
             {globalHeader.user.isLogin ? (
-              <User
-                user={globalHeader.user}
-                history={history}
-                onLogout={handleLogout}
-              />
+              <User user={globalHeader.user} onLogout={handleLogout} />
             ) : (
               <Button
                 aria-label="Account of current user"
@@ -122,7 +118,6 @@ export function GlobalHeader(props) {
 GlobalHeader.propTypes = {
   dispatch: PropTypes.func.isRequired,
   globalHeader: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

@@ -74,7 +74,7 @@ export default function App() {
   return (
     <Rtl>
       <ThemeProvider theme={theme}>
-        <Route component={GlobalHeader} />
+        <GlobalHeader />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/Jobs" component={Jobs} />
