@@ -75,15 +75,17 @@ export function GlobalHeader(props) {
               <img className={classes.logo} src={logo} alt="t" />
             </Link>
 
-            <Navigations />
-
-            <Button
-              aria-label="Account of current user"
-              aria-controls="menu-appbar"
-              className={classes.searchButton}
-            >
-              <FormattedMessage {...messages.search_csv} />
-            </Button>
+            <Navigations user={globalHeader.user} />
+            {(!globalHeader.user.isLogin ||
+              globalHeader.user.role !== 'company') && (
+              <Button
+                aria-label="Account of current user"
+                aria-controls="menu-appbar"
+                className={classes.searchButton}
+              >
+                <FormattedMessage {...messages.search_csv} />
+              </Button>
+            )}
             {globalHeader.user.isLogin ? (
               <User user={globalHeader.user} onLogout={handleLogout} />
             ) : (

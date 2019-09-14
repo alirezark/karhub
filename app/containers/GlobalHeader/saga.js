@@ -6,6 +6,10 @@ import * as constants from './constants';
 const loginRequest = (username, password) =>
   fetch(configs.services.account.login, {
     method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       username,
       password,

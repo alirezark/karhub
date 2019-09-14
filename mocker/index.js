@@ -28,9 +28,13 @@ const proxy = {
     username: 'kenny',
     sex: 6,
   },
-  'POST /rest/user/login': {
-    id: 2,
-    name: 'مانکی دی لوفی',
+  'POST /rest/user/login': (req, res) => {
+    const { username, password } = req.body;
+    return res.json({
+      id: 2,
+      role: username === 'company' ? 'company' : 'user',
+      name: 'مانکی دی لوفی',
+    })
   },
   'GET /rest/user/payment_history/:id': [
     { id: 1, date: '98/02/15', type: 'پلن نقره ای', price: '۱۴۸۰۰۰ تومان', bank: 'ملی', card_number: '۶۲۱۵ **** **** ۲۵۱۰' },
