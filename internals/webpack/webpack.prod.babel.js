@@ -7,6 +7,9 @@ const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackRTLPlugin = require('webpack-rtl-plugin');
+
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
 
@@ -66,9 +69,16 @@ module.exports = require('./webpack.base.babel')({
   },
 
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+    new WebpackRTLPlugin({
+      filename: 'style.rtl.css',
+      diffOnly: true,
+    }),
     // Minify and optimize the index.html
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
+      template: 'app/index.ejs',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -80,6 +90,9 @@ module.exports = require('./webpack.base.babel')({
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true,
+      },
+      templateParameters: {
+        css_rtl: '/style.rtl.css',
       },
       inject: true,
     }),
