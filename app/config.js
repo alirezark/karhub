@@ -1,7 +1,8 @@
-const JOBS_SERVER = 'http://localhost:3721/rest/jobs';
-const ACCOUNT_SERVER = 'http://localhost:3721/rest/user';
-const CV_SERVER = 'http://localhost:3721/rest/cv';
-const COMPANY_SERVER = 'http://localhost:3721/rest/company';
+const SERVER = 'localhost';
+const JOBS_SERVER = `http://${SERVER}:3721/rest/jobs`;
+const ACCOUNT_SERVER = `http://${SERVER}:3721/rest/user`;
+const CV_SERVER = `http://${SERVER}:3721/rest/cv`;
+const COMPANY_SERVER = `http://${SERVER}:3721/rest/company`;
 
 const configs = {
   services: {

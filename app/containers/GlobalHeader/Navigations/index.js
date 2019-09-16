@@ -41,7 +41,9 @@ function locationToNav(location, nav) {
 function CompanyNavigations(props) {
   const { history } = props;
   const classes = styles();
-  const [tab, setTab] = useState(locationToNav(history.location.pathname));
+  const [tab, setTab] = useState(
+    locationToNav(history.location.pathname, 'company'),
+  );
 
   useEffect(() => {
     setTab(locationToNav(history.location.pathname, 'company'));
@@ -81,12 +83,13 @@ function DefaultNavigations(props) {
   const intl = useIntl();
   const { history } = props;
   const classes = styles();
+  console.log('nav', locationToNav(history.location.pathname, 'default'));
   const [tab, setTab] = useState(
-    locationToNav(history.location.pathname, 'user'),
+    locationToNav(history.location.pathname, 'default'),
   );
 
   useEffect(() => {
-    setTab(locationToNav(history.location.pathname));
+    setTab(locationToNav(history.location.pathname, 'default'));
   }, [history.location.key]);
 
   function handleTabChange(e, val) {
