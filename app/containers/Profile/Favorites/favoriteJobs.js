@@ -19,19 +19,11 @@ function FavoriteJobs(props) {
     list: favoriteJobs,
   });
 
-  useEffect(() => {
-    if (jobs.list.length !== favoriteJobs.length)
-      setJobs({
-        list: favoriteJobs,
-      });
-  });
-
   if (!favoriteJobs) return <div />;
 
   const handleDelete = index => {
-    favoriteJobs.splice(index, 1);
     setJobs({
-      list: favoriteJobs,
+      list: jobs.list.filter((_, i) => i !== index),
     });
   };
 

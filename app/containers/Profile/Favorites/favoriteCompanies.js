@@ -60,19 +60,11 @@ function FavoriteCompanies(props) {
     list: favoriteCompanies,
   });
 
-  useEffect(() => {
-    if (companies.list.length !== favoriteCompanies.length)
-      setCompanies({
-        list: favoriteCompanies,
-      });
-  });
-
   if (!favoriteCompanies) return <div />;
 
   const handleDelete = index => {
-    favoriteCompanies.splice(index, 1);
     setCompanies({
-      list: favoriteCompanies,
+      list: companies.list.filter((_, i) => i !== index),
     });
   };
 
