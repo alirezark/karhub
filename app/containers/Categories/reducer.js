@@ -43,17 +43,17 @@ const categoriesReducer = (state = initialState, action) =>
           categories: action.categories,
         };
       case actionTypes.PUSH_SELECTED_CATEGORY:
-        state.selectedCategories.push(action.category);
-
         return {
           ...state,
+          selectedCategories: [...state.selectedCategories, action.category],
         };
       case actionTypes.POP_SELECTED_CATEGORY:
-        for (let i = 0; i < action.count; i += 1)
-          state.selectedCategories.pop();
-
         return {
           ...state,
+          selectedCategories: state.selectedCategories.slice(
+            0,
+            state.selectedCategories.length - action.count,
+          ),
         };
     }
   });
