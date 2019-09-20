@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
+import UserProvider from 'app/containers/GlobalHeader/UserProvider';
 import GlobalHeader from 'containers/GlobalHeader';
 import GlobalFooter from 'components/GlobalFooter';
 import HomePage from 'containers/HomePage/Loadable';
@@ -75,17 +76,19 @@ export default function App() {
   return (
     <Rtl>
       <ThemeProvider theme={theme}>
-        <GlobalHeader />
-        <ScrollToTop />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/Jobs" component={Jobs} />
-          <Route exact path="/Categories" component={Categories} />
-          <Route exact path="/Profile" component={Profile} />
-          <Route path="/Company/:id" component={Company} />
-        </Switch>
-        <Route exact path="/Jobs" component={SendSVDialog} />
-        <GlobalFooter />
+        <UserProvider>
+          <GlobalHeader />
+          <ScrollToTop />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/Jobs" component={Jobs} />
+            <Route exact path="/Categories" component={Categories} />
+            <Route exact path="/Profile" component={Profile} />
+            <Route path="/Company/:id" component={Company} />
+          </Switch>
+          <Route exact path="/Jobs" component={SendSVDialog} />
+          <GlobalFooter />
+        </UserProvider>
       </ThemeProvider>
     </Rtl>
   );

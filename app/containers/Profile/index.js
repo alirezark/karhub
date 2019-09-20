@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -13,7 +13,6 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import User from 'app/selectors/user';
 import { isEmpty } from 'lodash';
 import makeSelectProfile from './selectors';
 import reducer from './reducer';
@@ -36,10 +35,12 @@ import MyCV from './MyCV';
 import Notifications from './Notifications';
 import GeneralView from './GeneralView';
 import * as actions from './actions';
+import { UserContext } from 'app/containers/GlobalHeader/UserProvider';
 
 export function Profile(props) {
   const [selectedTab, setSelectedTab] = useState(-1);
-  const { dispatch, user, profile } = props;
+  const { user } = useContext(UserContext)
+  const { dispatch, profile } = props;
 
   useInjectReducer({ key: 'profile', reducer });
   useInjectSaga({ key: 'profile', saga: () => profileSaga(user.id) });
@@ -140,14 +141,12 @@ export function Profile(props) {
 }
 
 Profile.propTypes = {
-  user: PropTypes.object,
   profile: PropTypes.object,
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
   profile: makeSelectProfile(),
-  user: User(),
 });
 
 function mapDispatchToProps(dispatch) {

@@ -36,7 +36,6 @@ export function Categories(props) {
   const { selectedCategories, topCategories, categories } = props;
 
   const categorySelect = cat => {
-    console.log(cat);
     props.dispatch(actions.pushSelecteCategoryAction(cat));
     props.dispatch(actions.requestSelectedCategory(cat));
     window.scrollTo(0, 0);

@@ -4,7 +4,7 @@
  *
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { FormattedMessage } from 'react-intl';
@@ -13,9 +13,8 @@ import { compose } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import User from 'app/selectors/user';
-import { openLoginDialogAction } from 'containers/GlobalHeader/actions';
 import { isEmpty } from 'lodash';
+import { UserContext } from 'app/containers/GlobalHeader/UserProvider';
 import makeSelectSendCvDialog, { makeSelectJob } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
@@ -29,7 +28,8 @@ export function SendCvDialog(props) {
   useInjectReducer({ key: 'sendCvDialog', reducer });
   useInjectSaga({ key: 'sendCvDialog', saga });
 
-  const { job, sendCvDialog, user, dispatch } = props;
+  const { showLogin, user } = useContext(UserContext);
+  const { job, sendCvDialog, dispatch } = props;
   const showGuestDialog = sendCvDialog.showSendCVDialog && !user.isLogin;
   const showUserDialog = sendCvDialog.showSendCVDialog && user.isLogin;
   const { showSuccessDialog } = sendCvDialog;
@@ -50,10 +50,6 @@ export function SendCvDialog(props) {
 
   const handleSendCV = () => {
     props.dispatch(actions.sendCVAction());
-  };
-
-  const showLogin = () => {
-    props.dispatch(openLoginDialogAction());
   };
 
   const handleCloseSuccess = () => {
@@ -90,12 +86,10 @@ SendCvDialog.propTypes = {
   dispatch: PropTypes.func.isRequired,
   job: PropTypes.object,
   sendCvDialog: PropTypes.object,
-  user: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   sendCvDialog: makeSelectSendCvDialog(),
-  user: User(),
   job: makeSelectJob(),
 });
 

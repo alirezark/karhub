@@ -83,7 +83,6 @@ function DefaultNavigations(props) {
   const intl = useIntl();
   const { history } = props;
   const classes = styles();
-  console.log('nav', locationToNav(history.location.pathname, 'default'));
   const [tab, setTab] = useState(
     locationToNav(history.location.pathname, 'default'),
   );
