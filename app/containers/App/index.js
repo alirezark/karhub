@@ -84,7 +84,7 @@ export default function App() {
             <Route exact path="/Jobs" component={Jobs} />
             <Route exact path="/Categories" component={Categories} />
             <Route exact path="/Profile" component={Profile} />
-            <Route path="/Company/:id" component={Company} />
+            <Route path="/Company/*" component={Company} />
           </Switch>
           <Route exact path="/Jobs" component={SendSVDialog} />
           <GlobalFooter />

@@ -5,29 +5,25 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router';
-// import { FormattedMessage } from 'react-intl';
 import { GeneralView } from './GeneralView';
-// import messages from './messages';
+import Navigations from './Navigations';
 
-export function Company(props) {
-  const { match } = props;
-
+export function Company() {
   return (
     <div>
       <Helmet>
         <title>Company</title>
         <meta name="description" content="Description of Company" />
       </Helmet>
-      <GeneralView companyId={match.params.id} />
+      <Navigations />
+      <Switch>
+        <Route exact path="/Company/:id" component={GeneralView} />
+      </Switch>
     </div>
   );
 }
-
-Company.propTypes = {
-  match: PropTypes.object.isRequired,
-};
 
 export default withRouter(Company);
