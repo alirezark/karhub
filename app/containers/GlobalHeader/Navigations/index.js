@@ -11,7 +11,7 @@ import styles from './style';
 const DEFAULT_NAV = {
   HOME_LOCATIONS: ['/', '/Categories', '/Profile'],
   JOB_LOCATIONS: ['/Jobs'],
-  COMPANY_LOCATIONS: ['/Company'],
+  COMPANY_LOCATIONS: ['/Company/Dashboard'],
 };
 
 const COMPANY_NAV = {
@@ -112,7 +112,7 @@ function DefaultNavigations(props) {
       <MTab
         style={{ width: '158px' }}
         label={intl.formatMessage({ ...messages.companies_info })}
-        value="/Company"
+        value="/Company/Dashboard"
       />
       <MTab
         style={{ width: '93px' }}

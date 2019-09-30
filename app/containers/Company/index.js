@@ -10,6 +10,7 @@ import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router';
 import { GeneralView } from './GeneralView';
 import Navigations from './Navigations';
+import Dashboard from './Dashboard';
 
 export function Company() {
   return (
@@ -20,6 +21,7 @@ export function Company() {
       </Helmet>
       <Navigations />
       <Switch>
+        <Route exact path="/Company/Dashboard" component={Dashboard} />
         <Route exact path="/Company/:id" component={GeneralView} />
       </Switch>
     </div>
