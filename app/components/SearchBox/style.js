@@ -19,7 +19,7 @@ const styles = makeStyles(theme => ({
       },
     },
     '& .MuiOutlinedInput-input': {
-      padding: '14px 160px 14px 14px',
+      padding: '15px 160px 15px 14px',
     },
     '& input, & svg': {
       zIndex: 1,

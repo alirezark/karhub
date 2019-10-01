@@ -156,7 +156,32 @@ const proxy = {
     city: 'تهران',
     description: ' با توجه به محدودیت های مختلف در حوزه مبادلات و پرداخت های بین المللی و همچنین توسعه تکنولوژی های نوین دنیابا توجه به محدودیت های مختلف در حوزه مبادلات و پرداخت های بین المللی و همچنین توسعه تکنولوژی های نوین دنیابا توجه به محدودیت های مختلف در حوزه مبادلات و پرداخت های بین المللی و همچنین توسعه تکنولوژی های نوین دنیا تجارب زیادی داریم',
     whyUs: 'با توجه به محدودیت های مختلف در حوزه مبادلات و پرداخت های بین المللی و همچنین توسعه تکنولوژی های نوین دنیا با توجه به محدودیت های مختلف در حوزه مبادلات و پرداخت های بین المللی و همچنین توسعه تکنولوژی های نوین دنیا مبادلات نوین دنیا می باشد'
-  }
+  },
+  'GET /rest/companies/advertisements/:filter': [
+    {id: 0, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 1, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 2, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 3, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 4, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 5, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    {id: 6, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+  ],
+  'GET /rest/company/advertisements/:filter': (req, res) => {
+    const { filter } = req.params;
+    let result = [
+      {id: 0, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 1, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 2, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 3, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 4, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 5, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+      {id: 6, name: 'طراح ارشد تجربه کاربری', date: '98/01/23', status: 'در انتظار تایید', resumeCount: '28', openedCount: '84', seenCount: '132'},
+    ];
+    let count = result.length;
+    if (filter != "all")
+      count -= (filter == "active" ? 2 : (filter === 'draft' ? 3 : 5));
+    return res.json(result.slice(0, count));
+  },
   // =====================
 };
 

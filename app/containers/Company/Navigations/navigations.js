@@ -7,13 +7,15 @@ import { Container } from '@material-ui/core';
 
 const DEFAULT_NAV = {
   DASHBOARD_LOCATIONS: ['/Company/Dashboard'],
-  JOB_LOCATIONS: ['/Jobs'],
+  Advertisements_LOCATIONS: ['/Company/Advertisements'],
   COMPANY_LOCATIONS: ['/Company'],
 };
 
 function locationToNav(location) {
   if (DEFAULT_NAV.DASHBOARD_LOCATIONS.indexOf(location) > -1)
     return '/Company/Dashboard';
+  if (DEFAULT_NAV.Advertisements_LOCATIONS.indexOf(location) > -1)
+    return '/Company/Advertisements';
   return '/Company/Dashboard';
 }
 
@@ -21,11 +23,11 @@ function Navigations(props) {
   const { history } = props;
   const classes = styles();
   const [tab, setTab] = useState(
-    locationToNav(history.location.pathname, 'default'),
+    locationToNav(history.location.pathname),
   );
 
   useEffect(() => {
-    setTab(locationToNav(history.location.pathname, 'default'));
+    setTab(locationToNav(history.location.pathname));
   }, [history.location.key]);
 
   function handleTabChange(e, val) {
@@ -37,7 +39,7 @@ function Navigations(props) {
       <Container>
         <MTabs value={tab} className={classes.tabs} onChange={handleTabChange}>
           <MTab label="داشبورد" value="/Company/Dashboard" />
-          <MTab label="مدیریت آگهی" />
+          <MTab label="مدیریت آگهی" value="/Company/Advertisements" />
           <MTab label="آزمون" />
           <MTab label="مدیریت شرکت" />
           <MTab label="اعتبار" />
