@@ -42,6 +42,15 @@ const styles = makeStyles(theme => ({
       margin: 0,
     },
   },
+  btnShowMore: {
+    background: '#7bccc5',
+    position: 'absolute',
+    left: '50%',
+    marginLeft: '-90px',
+    lineHeight: '32px',
+    bottom: -22,
+    width: 180,
+  },
 }));
 
 export default styles;

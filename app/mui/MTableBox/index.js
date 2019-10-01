@@ -5,6 +5,7 @@ const TableBoxStyle = makeStyles(() => ({
   root: {
     boxShadow: '0 0 8px 1px rgba(0,0,0,.3)',
     borderRadius: 8,
+    position: 'relative',
     padding: 20,
     '& table': {
       width: '100%',

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MTableBox from 'mui/MTableBox';
 import MContainer from 'mui/MContainer';
@@ -35,7 +35,7 @@ TabPanel.propTypes = {
 };
 
 function Advertisement(props) {
-  const { list, load } = useContext(AdvertisementContext);
+  const { list, load, showBtnMore } = useContext(AdvertisementContext);
   const classes = styles();
   const [tab, setTab] = useState(AdvertisementFilter.ALL_ADVERTISES);
 
@@ -99,6 +99,9 @@ function Advertisement(props) {
             </tr>
           ))}
         </table>
+        {showBtnMore && (
+          <MButton className={classes.btnShowMore}>نمایش همه</MButton>
+        )}
       </MTableBox>
     </MContainer>
   );

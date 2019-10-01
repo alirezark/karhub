@@ -13,9 +13,11 @@ const FILTERS = {
 };
 
 function AdvertisementProvider(props) {
+  const { embedded } = props;
   const [state, setState] = useState({
     list: [],
     isLoading: false,
+    showBtnMore: false,
   });
 
   useEffect(() => {
@@ -32,14 +34,17 @@ function AdvertisementProvider(props) {
       .then(response => {
         setState({
           ...state,
-          list: response,
+          list: embedded ? response.slice(0, 5) : response,
           isLoading: false,
+          showBtnMore: embedded && response.length > 5,
         });
       });
   };
 
   return (
-    <AdvertisementContext.Provider value={{ list: state.list, load }}>
+    <AdvertisementContext.Provider
+      value={{ list: state.list, load, showBtnMore: state.showBtnMore }}
+    >
       {props.children}
     </AdvertisementContext.Provider>
   );
@@ -47,6 +52,7 @@ function AdvertisementProvider(props) {
 
 AdvertisementProvider.propTypes = {
   children: PropTypes.element.isRequired,
+  embedded: PropTypes.bool,
 };
 
 export default AdvertisementProvider;
