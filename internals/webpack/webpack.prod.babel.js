@@ -10,6 +10,8 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebpackRTLPlugin = require('webpack-rtl-plugin');
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
 
@@ -153,6 +155,9 @@ module.exports = require('./webpack.base.babel')({
       hashFunction: 'sha256',
       hashDigest: 'hex',
       hashDigestLength: 20,
+    }),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true,
     }),
   ],
 

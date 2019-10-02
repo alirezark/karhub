@@ -9,7 +9,7 @@ import {
   DialogActions,
   Typography,
 } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import { Close as CloseIcon } from '@material-ui/icons';
 
 const DialogTitleStyle = makeStyles(theme => ({
   root: {

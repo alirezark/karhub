@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import PropTypes from 'prop-types';
 import { Typography, Grid, Breadcrumbs } from '@material-ui/core';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import { NavigateBefore as NavigateBeforeIcon } from '@material-ui/icons';
 import CategoryCard from 'components/CategoryCard';
 import imgCategory from 'app/assets/images/category_page.png';
 import iconData from 'app/assets/images/icons/data.png';

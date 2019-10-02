@@ -4,7 +4,7 @@ import MContainer from 'mui/MContainer';
 import PropTypes from 'prop-types';
 import { Typography, Grid, Breadcrumbs } from '@material-ui/core';
 // import messages from './messages';
-import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import { NavigateBefore as NavigateBeforeIcon } from '@material-ui/icons';
 import MAvatar from 'mui/MAvatar';
 import imgAvatar2 from 'app/assets/images/avatar.jpeg';
 import styles from './style';

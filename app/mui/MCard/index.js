@@ -1,6 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core';
-import Card from '@material-ui/core/Card';
+import { withStyles, Card } from '@material-ui/core';
 
 const MCard = withStyles(() => ({
   root: {},

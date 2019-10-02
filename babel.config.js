@@ -21,6 +21,26 @@ module.exports = {
         'transform-react-remove-prop-types',
         '@babel/plugin-transform-react-inline-elements',
         '@babel/plugin-transform-react-constant-elements',
+        [
+          'babel-plugin-import',
+          {
+            libraryName: '@material-ui/core',
+            // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+            libraryDirectory: 'esm',
+            camel2DashComponentName: false,
+          },
+          'core',
+        ],
+        [
+          'babel-plugin-import',
+          {
+            libraryName: '@material-ui/icons',
+            // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+            libraryDirectory: 'esm',
+            camel2DashComponentName: false,
+          },
+          'icons',
+        ],
       ],
     },
     test: {
