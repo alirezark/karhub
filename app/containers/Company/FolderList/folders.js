@@ -7,6 +7,7 @@ import { FoldersContext } from './folders.provider';
 import styles from './folders.style';
 import NewFolderDialog from './contents/newFolderDialog';
 import DeleteFolderDialog from './contents/deleteFolderDialog';
+import { Link } from 'react-router-dom';
 
 function Folders() {
   const { list, showBtnMore } = useContext(FoldersContext);
@@ -90,7 +91,9 @@ function Folders() {
                   <div>{folder.lastModified}</div>
                 </div>
               </td>
-              <td className={classes.colorBlue}>مشاهده پوشه</td>
+              <td>
+                <Link to={`/Company/Folder/${folder.id}`} className={classes.btnView}>مشاهده پوشه</Link>
+              </td>
             </tr>
           ))}
         </table>

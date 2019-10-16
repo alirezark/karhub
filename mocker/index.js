@@ -155,6 +155,26 @@ const proxy = {
     {id: 2, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
     {id: 3, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
   ],
+  'GET /rest/company/folder/:id': {
+    id: 1,
+    name: 'پدرام فرزین',
+    lastModified: '۳ روز پیش',
+    status: {
+      shortList: 3,
+      called: 2,
+      phoneInterview: 1,
+      faceToFaceInterview: 1,
+      invited: 1,
+      suggested: 1,
+      employed: 0,
+      rejected: 2,
+    },
+    requests: [
+      {id: 0, name: 'ناصر بصیرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+      {id: 1, name: 'ناصر بصیتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+      {id: 2, name: 'ناصر یرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    ]
+  },
   'GET /rest/company/:id': {
     name: 'شرکت نوین اندیشان پایدار',
     activeJobs: 25,

@@ -9,8 +9,6 @@ const styles = makeStyles(() => ({
     margin: '40px 0 30px',
   },
   colorBlue: {
-    fontWeight: 500,
-    color: '#4990e2',
     maxWidth: 140,
   },
   headMenu: {
@@ -22,6 +20,11 @@ const styles = makeStyles(() => ({
   },
   btnDelete: {
     margin: '0 10px',
+  },
+  btnView: {
+    color: '#4990e2',
+    textDecoration: 'none',
+    fontWeight: 500,
   },
 }));
 

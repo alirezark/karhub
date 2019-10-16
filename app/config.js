@@ -29,6 +29,7 @@ const configs = {
       favorite: `${COMPANY_SERVER}/favorites`,
       advertisements: `${COMPANY_SERVER}/advertisements`,
       folders: `${COMPANY_SERVER}/folders`,
+      folder: `${COMPANY_SERVER}/folder`,
     },
   },
 };
