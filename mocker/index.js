@@ -149,6 +149,12 @@ const proxy = {
     { id:7, name: 'سن ایچ', icon: 'icon-2' },
     { id:8, name: 'اسنپ فود', icon: 'icon-1' },
   ],
+  'GET /rest/company/folders': [
+    {id: 0, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
+    {id: 1, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
+    {id: 2, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
+    {id: 3, name: 'پوشه خوب', jobType: 'طراح ارشد تجربه کاربری', resumeCount: '28', lastModified: '98/02/11'},
+  ],
   'GET /rest/company/:id': {
     name: 'شرکت نوین اندیشان پایدار',
     activeJobs: 25,

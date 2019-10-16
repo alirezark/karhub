@@ -8,7 +8,7 @@ import { Container } from '@material-ui/core';
 const DEFAULT_NAV = {
   DASHBOARD_LOCATIONS: ['/Company/Dashboard'],
   Advertisements_LOCATIONS: ['/Company/Advertisements'],
-  COMPANY_LOCATIONS: ['/Company'],
+  FOLDERS_LOCATIONS: ['/Company/Folders'],
 };
 
 function locationToNav(location) {
@@ -16,6 +16,8 @@ function locationToNav(location) {
     return '/Company/Dashboard';
   if (DEFAULT_NAV.Advertisements_LOCATIONS.indexOf(location) > -1)
     return '/Company/Advertisements';
+  if (DEFAULT_NAV.FOLDERS_LOCATIONS.indexOf(location) > -1)
+    return '/Company/Folders';
   return '/Company/Dashboard';
 }
 
@@ -43,7 +45,7 @@ function Navigations(props) {
           <MTab label="آزمون" />
           <MTab label="مدیریت شرکت" />
           <MTab label="اعتبار" />
-          <MTab label="مدیریت پوشه ها" />
+          <MTab label="مدیریت پوشه ها" value="/Company/Folders" />
         </MTabs>
       </Container>
     </div>

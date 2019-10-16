@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { makeStyles, withStyles } from '@material-ui/core';
 
 const TableBoxStyle = makeStyles(() => ({
@@ -18,6 +19,21 @@ const TableBoxStyle = makeStyles(() => ({
           },
         },
       },
+      '& .check-td': {
+        padding: 0,
+        width: 0,
+        '& .MuiCheckbox-root': {
+          marginLeft: -42,
+          opacity: '0',
+          transition: '100ms opacity ease-in',
+          '&.Mui-checked': {
+            opacity: 1,
+          },
+        },
+      },
+      '& tr:hover .check-td .MuiCheckbox-root': {
+        opacity: '1',
+      },
       '& .inline-head': {
         display: 'flex',
         flexDirection: 'column',
@@ -34,16 +50,37 @@ const TableBoxStyle = makeStyles(() => ({
           },
         },
       },
+      '& .row-checkbox': {
+        marginLeft: -50,
+      },
+    },
+  },
+}));
+
+const TableBoxThinStyle = makeStyles(() => ({
+  root: {
+    paddingTop: 5,
+    '& table .inline-head': {
+      textAlign: 'left',
+      margin: '20px 0',
+      alignItems: 'baseline',
+      '&  div:first-child': {
+        fontSize: 12,
+      },
     },
   },
 }));
 
 const MTableBox = withStyles(() => ({}))(props => {
-  console.log(props);
-  const { children } = props;
+  const { children, thin } = props;
   const classes = TableBoxStyle();
+  const thinClasses = TableBoxThinStyle();
 
-  return <div className={classes.root}>{children}</div>;
+  return (
+    <div className={classNames(classes.root, { [thinClasses.root]: thin })}>
+      {children}
+    </div>
+  );
 });
 
 export default MTableBox;
