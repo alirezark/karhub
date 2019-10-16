@@ -32,6 +32,9 @@ const MDialog = withStyles(() => ({
     '& .MuiDialog-paperWidthSm': {
       maxWidth: 730,
     },
+    '& .MuiDialog-paperWidthXs': {
+      maxWidth: 600,
+    },
   },
 }))(Dialog);
 

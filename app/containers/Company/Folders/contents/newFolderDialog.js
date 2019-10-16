@@ -49,7 +49,7 @@ function NewFolderDialog(props) {
       maxWidth="sm"
     >
       <MDialogTitle id="customized-dialog-title" onClose={handleClose}>
-        ارسال رزومه
+        ایجاد پوشه
       </MDialogTitle>
       <MDialogContent>
         <div className={classes.formContainer}>

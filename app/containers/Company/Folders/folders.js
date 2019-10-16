@@ -6,10 +6,12 @@ import MButton from 'mui/MButton';
 import { FoldersContext } from './folders.provider';
 import styles from './folders.style';
 import NewFolderDialog from './contents/newFolderDialog';
+import DeleteFolderDialog from './contents/deleteFolderDialog';
 
 function Folders() {
   const { list, showBtnMore } = useContext(FoldersContext);
   const [openNewFolder, setOpenNewFolder] = useState(false);
+  const [openConfirmDeleteFolder, setConfirmDeleteFolder] = useState(false);
   const classes = styles();
 
   const handleOpenNewFolder = () => {
@@ -18,6 +20,14 @@ function Folders() {
 
   const handleCloseNewFolder = () => {
     setOpenNewFolder(false);
+  };
+
+  const handleOpenDeleteFolder = () => {
+    setConfirmDeleteFolder(true);
+  };
+
+  const handleCloseDeleteFolder = () => {
+    setConfirmDeleteFolder(false);
   };
 
   return (
@@ -29,13 +39,19 @@ function Folders() {
           </Typography>
         </div>
         <div>
-          <MButton className={classes.btnDelete} iconic>
+          <MButton
+            className={classes.btnDelete}
+            iconic
+            onClick={handleOpenDeleteFolder}
+          >
             <i className="flaticon-delete" />
             حذف پوشه
           </MButton>
         </div>
         <div>
-          <MButton btnBlue onClick={handleOpenNewFolder}> ایجاد پوشه</MButton>
+          <MButton btnBlue onClick={handleOpenNewFolder}>
+            ایجاد پوشه
+          </MButton>
         </div>
       </div>
       <MTableBox thin>
@@ -83,6 +99,10 @@ function Folders() {
         )}
       </MTableBox>
       <NewFolderDialog open={openNewFolder} onClose={handleCloseNewFolder} />
+      <DeleteFolderDialog
+        open={openConfirmDeleteFolder}
+        onClose={handleCloseDeleteFolder}
+      />
     </MContainer>
   );
 }

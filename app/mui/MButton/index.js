@@ -29,13 +29,33 @@ const MButton = withStyles(theme => ({
     lineHeight: '32px',
     padding: '6px 40px',
   },
+  danger: {
+    background: '#d95151',
+    lineHeight: '32px',
+    padding: '6px 40px',
+  },
+  default: {
+    background: '#c8c8c8',
+    lineHeight: '32px',
+    padding: '6px 40px',
+  },
 }))(props => {
-  const { btnBlue, iconic, primary, children, classes, className } = props;
-  console.log(classes);
+  const {
+    btnBlue,
+    iconic,
+    primary,
+    danger,
+    btnDefault,
+    children,
+    classes,
+    className,
+  } = props;
   const customs = classNames({
     [classes.iconic]: iconic,
     [classes.btnBlue]: btnBlue,
     [classes.primary]: primary,
+    [classes.danger]: danger,
+    [classes.default]: btnDefault,
     [className]: true,
   });
 
