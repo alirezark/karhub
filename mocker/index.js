@@ -175,6 +175,10 @@ const proxy = {
       {id: 2, name: 'ناصر یرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
     ]
   },
+  'GET /rest/company/credit/history': [
+    {id: 0, factorNum: 2341, type: 'نقره ای', start: '98/02/11', expire: '99/09/02', status: 'فعال'},
+    {id: 1, factorNum: 3541, type: 'نقره ای', start: '98/02/11', expire: '99/09/02', status: 'غیرفعال'},
+  ],
   'GET /rest/company/:id': {
     name: 'شرکت نوین اندیشان پایدار',
     activeJobs: 25,

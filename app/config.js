@@ -30,6 +30,7 @@ const configs = {
       advertisements: `${COMPANY_SERVER}/advertisements`,
       folders: `${COMPANY_SERVER}/folders`,
       folder: `${COMPANY_SERVER}/folder`,
+      creditHistory: `${COMPANY_SERVER}/credit/history`,
     },
   },
 };

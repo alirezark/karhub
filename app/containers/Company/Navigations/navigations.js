@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { MTabs, MTab } from 'mui/MTabs';
-import styles from './Navigations.style';
 import { Container } from '@material-ui/core';
+import { some } from 'lodash';
+import styles from './navigations.style';
 
 const DEFAULT_NAV = {
   DASHBOARD_LOCATIONS: ['/Company/Dashboard'],
   Advertisements_LOCATIONS: ['/Company/Advertisements'],
-  FOLDERS_LOCATIONS: ['/Company/Folders'],
+  FOLDERS_LOCATIONS: ['/Company/Folders', '/Company/Folder'],
+  CREDIT_LOCATIONS: ['/Company/Credit'],
 };
 
 function locationToNav(location) {
@@ -16,17 +18,17 @@ function locationToNav(location) {
     return '/Company/Dashboard';
   if (DEFAULT_NAV.Advertisements_LOCATIONS.indexOf(location) > -1)
     return '/Company/Advertisements';
-  if (DEFAULT_NAV.FOLDERS_LOCATIONS.indexOf(location) > -1)
+  if (some(DEFAULT_NAV.FOLDERS_LOCATIONS, loc => location.indexOf(loc) > -1))
     return '/Company/Folders';
+  if (DEFAULT_NAV.CREDIT_LOCATIONS.indexOf(location) > -1)
+    return '/Company/Credit';
   return '/Company/Dashboard';
 }
 
 function Navigations(props) {
   const { history } = props;
   const classes = styles();
-  const [tab, setTab] = useState(
-    locationToNav(history.location.pathname),
-  );
+  const [tab, setTab] = useState(locationToNav(history.location.pathname));
 
   useEffect(() => {
     setTab(locationToNav(history.location.pathname));
@@ -44,7 +46,7 @@ function Navigations(props) {
           <MTab label="مدیریت آگهی" value="/Company/Advertisements" />
           <MTab label="آزمون" />
           <MTab label="مدیریت شرکت" />
-          <MTab label="اعتبار" />
+          <MTab label="اعتبار" value="/Company/Credit" />
           <MTab label="مدیریت پوشه ها" value="/Company/Folders" />
         </MTabs>
       </Container>

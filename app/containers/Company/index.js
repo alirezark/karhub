@@ -14,6 +14,7 @@ import Dashboard from './Dashboard';
 import { Advertisement } from './Advertisement';
 import { Folders } from './FolderList';
 import { Folder } from './FolderView';
+import { Credit } from './Credit';
 
 export function Company() {
   return (
@@ -28,6 +29,7 @@ export function Company() {
         <Route exact path="/Company/Advertisements" component={Advertisement} />
         <Route exact path="/Company/Folders" component={Folders} />
         <Route exact path="/Company/Folder/:id" component={Folder} />
+        <Route exact path="/Company/Credit" component={Credit} />
         <Route exact path="/Company/:id" component={GeneralView} />
       </Switch>
     </div>
