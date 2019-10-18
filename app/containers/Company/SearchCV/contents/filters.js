@@ -6,17 +6,11 @@ import {
   ListItemIcon,
   ListItemText,
   Collapse,
-  ListSubheader,
   makeStyles, Checkbox,
 } from '@material-ui/core';
 import MButton from 'mui/MButton';
 import { map } from 'lodash';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
+import { KeyboardArrowDown, KeyboardArrowLeft } from '@material-ui/icons';
 
 const styles = makeStyles(theme => ({
   root: {
@@ -113,9 +107,9 @@ function Filters(props) {
               >
                 <ListItemText primary={filter.name} />
                 {filter.open ? (
-                  <ExpandLess color="primary" />
+                  <KeyboardArrowDown color="primary" />
                 ) : (
-                  <ExpandMore color="primary" />
+                  <KeyboardArrowLeft color="primary" />
                 )}
               </ListItem>
               <Collapse in={filter.open} timeout="auto" unmountOnExit>
