@@ -38,10 +38,8 @@ const styles = makeStyles(() => ({
       '& fieldset': {
         borderRadius: 50,
         borderWidth: 2,
+        borderColor: '#8E8E8C',
       },
-    },
-    '&.outlined-strong fieldset': {
-      borderColor: '#8E8E8C',
     },
     '& .MuiSelect-icon': {
       right: 10,

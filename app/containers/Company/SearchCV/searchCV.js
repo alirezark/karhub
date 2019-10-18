@@ -10,7 +10,7 @@ import MoveDialog from './contents/moveDialog';
 
 function SearchCV() {
   const { result, filters } = useContext(SearchCVContext);
-  const [openMoveDialog, setOpenMoveDialog] = useState(true);
+  const [openMoveDialog, setOpenMoveDialog] = useState(false);
   const classes = styles();
 
   const handleOpenMoveDialog = () => {
