@@ -67,6 +67,17 @@ const styles = makeStyles((theme) => ({
     fontWeight: 900,
     margin: '30px 0 25px',
   },
+  embeddedHead: {
+    display: 'flex',
+    alignItems: 'center',
+    margin: '90px 0 40px',
+    '& div:first-child': {
+      flexGrow: 1,
+    },
+    '& h1': {
+      fontWeight: 800,
+    },
+  },
 }));
 
 export default styles;

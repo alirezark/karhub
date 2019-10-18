@@ -1,14 +1,39 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Checkbox, Grid, Typography } from '@material-ui/core';
 import MContainer from 'mui/MContainer';
 import MTextField from 'mui/MTextField';
-import MTableBox from 'mui/MTableBox';
 import MButton from 'mui/MButton';
 import { CreditContext } from './credit.provider';
 import styles from './credit.style';
+import CreditHistory from './contents/creditHistory';
 
-function Credit() {
+function EmbeddedCredit(props) {
+  const { creditHistory } = props;
+  const classes = styles();
+
+  return (
+    <MContainer>
+      <div className={classes.embeddedHead}>
+        <div>
+          <Typography variant="h1">اعتبار خریداری شده</Typography>
+        </div>
+        <div>
+          <MButton btnBlue>خرید اعتبار</MButton>
+        </div>
+      </div>
+      <CreditHistory creditHistory={creditHistory} />
+    </MContainer>
+  );
+}
+
+EmbeddedCredit.propTypes = {
+  creditHistory: PropTypes.array.isRequired,
+};
+
+function Credit(props) {
+  const { embedded } = props;
   const [hasGift, setHasGift] = useState(false);
   const { creditHistory } = useContext(CreditContext);
   const classes = styles();
@@ -19,6 +44,8 @@ function Credit() {
       document.getElementsByName('giftCode')[0].focus();
     }, 30);
   };
+
+  if (embedded) return <EmbeddedCredit creditHistory={creditHistory} />;
 
   return (
     <MContainer>
@@ -101,51 +128,13 @@ function Credit() {
         اعتبارهای خریداری شده
       </Typography>
 
-      <MTableBox thin>
-        <table>
-          {creditHistory.map(credit => (
-            <tr key={credit.id}>
-              <td>
-                <div className="inline-head">
-                  <div>شماره فاکتور:</div>
-                  <div>{credit.factorNum}</div>
-                </div>
-              </td>
-              <td>
-                <div className="inline-head">
-                  <div>نوع اعتبار:</div>
-                  <div>{credit.type}</div>
-                </div>
-              </td>
-              <td>
-                <div className="inline-head">
-                  <div>تاریخ شروع:</div>
-                  <div>{credit.start}</div>
-                </div>
-              </td>
-              <td>
-                <div className="inline-head">
-                  <div>تاریخ انقضا:</div>
-                  <div>{credit.expire}</div>
-                </div>
-              </td>
-              <td>
-                <Typography
-                  variant="h3"
-                  className={classNames({
-                    [classes.colorGreen]: credit.status === 'فعال',
-                    [classes.colorYellow]: credit.status === 'غیرفعال',
-                  })}
-                >
-                  {credit.status}
-                </Typography>
-              </td>
-            </tr>
-          ))}
-        </table>
-      </MTableBox>
+      <CreditHistory creditHistory={creditHistory} />
     </MContainer>
   );
 }
+
+Credit.propTypes = {
+  embedded: PropTypes.bool,
+};
 
 export default Credit;
