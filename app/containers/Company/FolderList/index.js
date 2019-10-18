@@ -5,7 +5,7 @@ import Folders from './folders';
 
 const FoldersWrapper = ({ embedded }) => (
   <FoldersProvider embedded={embedded}>
-    <Folders />
+    <Folders embedded={embedded} />
   </FoldersProvider>
 );
 

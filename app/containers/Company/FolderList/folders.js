@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Typography, Checkbox } from '@material-ui/core';
 import MContainer from 'mui/MContainer';
 import MTableBox from 'mui/MTableBox';
 import MButton from 'mui/MButton';
+import { Link } from 'react-router-dom';
 import { FoldersContext } from './folders.provider';
 import styles from './folders.style';
 import NewFolderDialog from './contents/newFolderDialog';
 import DeleteFolderDialog from './contents/deleteFolderDialog';
-import { Link } from 'react-router-dom';
 
-function Folders() {
+function Folders(props) {
   const { list, showBtnMore } = useContext(FoldersContext);
+  const { embedded } = props;
   const [openNewFolder, setOpenNewFolder] = useState(false);
   const [openConfirmDeleteFolder, setConfirmDeleteFolder] = useState(false);
   const classes = styles();
@@ -33,6 +35,7 @@ function Folders() {
 
   return (
     <MContainer className={classes.root}>
+      {embedded && <div className={classes.freeSpace} />}
       <div className={classes.headMenu}>
         <div>
           <Typography variant="h1" className={classes.head}>
@@ -40,14 +43,16 @@ function Folders() {
           </Typography>
         </div>
         <div>
-          <MButton
-            className={classes.btnDelete}
-            iconic
-            onClick={handleOpenDeleteFolder}
-          >
-            <i className="flaticon-delete" />
-            حذف پوشه
-          </MButton>
+          {!embedded && (
+            <MButton
+              className={classes.btnDelete}
+              iconic
+              onClick={handleOpenDeleteFolder}
+            >
+              <i className="flaticon-delete" />
+              حذف پوشه
+            </MButton>
+          )}
         </div>
         <div>
           <MButton btnBlue onClick={handleOpenNewFolder}>
@@ -92,7 +97,12 @@ function Folders() {
                 </div>
               </td>
               <td>
-                <Link to={`/Company/Folder/${folder.id}`} className={classes.btnView}>مشاهده پوشه</Link>
+                <Link
+                  to={`/Company/Folder/${folder.id}`}
+                  className={classes.btnView}
+                >
+                  مشاهده پوشه
+                </Link>
               </td>
             </tr>
           ))}
@@ -109,5 +119,9 @@ function Folders() {
     </MContainer>
   );
 }
+
+Folders.propTypes = {
+  embedded: PropTypes.bool,
+};
 
 export default Folders;

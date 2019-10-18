@@ -1,15 +1,15 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import MTableBox from 'mui/MTableBox';
 import MContainer from 'mui/MContainer';
 import { Box, Typography } from '@material-ui/core';
 import { MTab, MTabs } from 'mui/MTabs';
+import MButton from 'mui/MButton';
 import styles from './advertisement.style';
 import {
   AdvertisementContext,
   AdvertisementFilter,
 } from './advertisement.provider';
-import MButton from 'mui/MButton';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -34,7 +34,7 @@ TabPanel.propTypes = {
   value: PropTypes.any.isRequired,
 };
 
-function Advertisement(props) {
+function Advertisement() {
   const { list, load, showBtnMore } = useContext(AdvertisementContext);
   const classes = styles();
   const [tab, setTab] = useState(AdvertisementFilter.ALL_ADVERTISES);

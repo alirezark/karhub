@@ -28,9 +28,9 @@ function FoldersProvider(props) {
       .then(response => {
         setState({
           ...state,
-          list: embedded ? response.slice(0, 5) : response,
+          list: embedded ? response.slice(0, 3) : response,
           isLoading: false,
-          showBtnMore: embedded && response.length > 5,
+          showBtnMore: embedded && response.length > 3,
         });
       });
   };
