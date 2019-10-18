@@ -64,14 +64,16 @@ function Folders(props) {
         <table>
           {list.map(folder => (
             <tr key={folder.id}>
-              <td className="check-td">
-                <Checkbox
-                  value={folder.id}
-                  inputProps={{
-                    'aria-label': 'check',
-                  }}
-                />
-              </td>
+              {!embedded && (
+                <td className="check-td">
+                  <Checkbox
+                    value={folder.id}
+                    inputProps={{
+                      'aria-label': 'check',
+                    }}
+                  />
+                </td>
+              )}
               <td>
                 <div className="inline-head">
                   <div>نام پوشه:</div>

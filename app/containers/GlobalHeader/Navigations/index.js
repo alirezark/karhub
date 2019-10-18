@@ -15,6 +15,13 @@ const DEFAULT_NAV = {
 };
 
 const COMPANY_NAV = {
+  HOME: [
+    '/Company/Dashboard',
+    '/Company/Advertisements',
+    '/Company/Folders',
+    '/Company/Folder',
+    '/Company/Credit',
+  ],
   SEARCH_CV: ['/Company/Search_CV'],
   SETTINGS: ['/Company/Settings'],
   FAQ: ['/Company/FAQ'],
@@ -34,6 +41,8 @@ function locationToNav(location, nav) {
     if (COMPANY_NAV.FAQ.indexOf(location) > -1) return '/Company/FAQ';
     if (COMPANY_NAV.SEND_TICKET.indexOf(location) > -1)
       return '/Company/Send_Ticket';
+    if (some(COMPANY_NAV.HOME, loc => location.indexOf(loc) > -1))
+      return '/Company/Dashboard';
   }
   return '';
 }
@@ -71,6 +80,7 @@ function CompanyNavigations(props) {
         label="جستجوی رزومه"
         value="/Company/Search_CV"
       />
+      <MTab style={{ width: '' }} label="خانه" value="/Company/Dashboard" />
     </MTabs>
   );
 }

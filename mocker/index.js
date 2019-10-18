@@ -32,7 +32,7 @@ const proxy = {
     const { username, password } = req.body;
     return res.json({
       id: 2,
-      role: username === 'company' ? 'company' : 'user',
+      role: username === 'user' ? 'user' : 'company',
       name: 'مانکی دی لوفی',
     })
   },
@@ -178,6 +178,24 @@ const proxy = {
   'GET /rest/company/credit/history': [
     {id: 0, factorNum: 2341, type: 'نقره ای', start: '98/02/11', expire: '99/09/02', status: 'فعال'},
     {id: 1, factorNum: 3541, type: 'نقره ای', start: '98/02/11', expire: '99/09/02', status: 'غیرفعال'},
+  ],
+  'GET /rest/company/searchCV/filters': [
+    {id: 0, name: 'دسته شغلی', children: [{id: 5, name: 'بانک'}, {id: 6, name: 'IT'}, {id: 7, name: 'پزشکی'}]},
+    {id: 1, name: 'سمت', children: [{id: 8, name: 'سمت اول'}, {id: 9, name: 'سمت دوم'}, {id: 10, name: 'سمت آخر'}]},
+    {id: 2, name: 'تحصیلات', children: [{id: 11, name: 'دیپلم'}, {id: 12, name: 'کارشناسی ارشد'}, {id: 13, name: 'دکتری'}]},
+    {id: 3, name: 'محل', children: [{id: 14, name: 'خونمون'}, {id: 15, name: 'خونشون'}, {id: 16, name: 'خونتون'}]},
+    {id: 4, name: 'جنسیت', children: [{id: 17, name: 'مرد'}, {id: 18, name: 'زن'}]},
+  ],
+  'GET /rest/company/searchCV/search':[
+    {id: 0, name: 'ناصر بصیرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 1, name: 'ناصر بصیتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 2, name: 'ناصر یرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 3, name: 'ناصر بصیرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 4, name: 'ناصر بصیتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 5, name: 'ناصر یرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 6, name: 'ناصر بصیرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 7, name: 'ناصر بصیتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
+    {id: 8, name: 'ناصر یرتی', jobType: 'مدیر فنی و پشتیبانی', company: 'ایرانسل', city: 'تهران', age: 28},
   ],
   'GET /rest/company/:id': {
     name: 'شرکت نوین اندیشان پایدار',

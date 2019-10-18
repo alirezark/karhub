@@ -22,7 +22,7 @@ function locationToNav(location) {
     return '/Company/Folders';
   if (DEFAULT_NAV.CREDIT_LOCATIONS.indexOf(location) > -1)
     return '/Company/Credit';
-  return '/Company/Dashboard';
+  return '';
 }
 
 function Navigations(props) {
@@ -37,6 +37,7 @@ function Navigations(props) {
   function handleTabChange(e, val) {
     history.push(val);
   }
+  if (tab === '') return <div />;
 
   return (
     <div className={classes.root}>

@@ -7,6 +7,8 @@ const MAppBar = withStyles(() => ({
     backgroundColor: '#fff',
     color: '#4A4A4A',
     boxShadow: '0 0 24px 0 rgba(197,197,197,0.5)',
+    position: 'relative',
+    zIndex: 1,
   },
 }))(props => <AppBar {...props} />);
 

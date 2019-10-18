@@ -31,6 +31,8 @@ const configs = {
       folders: `${COMPANY_SERVER}/folders`,
       folder: `${COMPANY_SERVER}/folder`,
       creditHistory: `${COMPANY_SERVER}/credit/history`,
+      searchCVFilters: `${COMPANY_SERVER}/searchCV/filters`,
+      searchCV: `${COMPANY_SERVER}/searchCV/search`,
     },
   },
 };

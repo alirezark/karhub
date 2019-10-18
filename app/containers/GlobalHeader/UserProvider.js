@@ -6,8 +6,12 @@ export const UserContext = React.createContext();
 
 class UserProvider extends React.Component {
   DEFAULT_USER = {
-    id: 0,
-    isLogin: false,
+    // id: 0,
+    // isLogin: false,
+    id: 2,
+    role: 'company',
+    name: 'مانکی دی لوفی',
+    isLogin: true,
   };
 
   constructor(props) {
@@ -118,7 +122,7 @@ class UserProvider extends React.Component {
 }
 
 UserProvider.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 export default UserProvider;
