@@ -82,7 +82,7 @@ const styles = makeStyles(theme => ({
 
 function SearchResult(props) {
   const classes = styles();
-  const { result } = props;
+  const { result, onMoveToFolder } = props;
 
   // TODO: make request row as component
   return (
@@ -121,7 +121,12 @@ function SearchResult(props) {
             </Grid>
           </div>
           <div className={classes.col_btns}>
-            <MButton className={classes.btnDescription}>انتقال به پوشه</MButton>
+            <MButton
+              className={classes.btnDescription}
+              onClick={onMoveToFolder}
+            >
+              انتقال به پوشه
+            </MButton>
             <MButton className={classes.btnView}>مشاهده</MButton>
           </div>
         </div>
@@ -132,6 +137,7 @@ function SearchResult(props) {
 
 SearchResult.propTypes = {
   result: PropTypes.array,
+  onMoveToFolder: PropTypes.func.isRequired,
 };
 
 export default SearchResult;

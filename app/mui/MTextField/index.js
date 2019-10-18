@@ -2,12 +2,15 @@ import React from 'react';
 import { withStyles } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
-const MTextField = withStyles(theme => ({
+const MTextField = withStyles(() => ({
   root: {
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
         borderRadius: 50,
       },
+    },
+    '& .MuiInputBase-multiline fieldset': {
+      borderRadius: '30px!important',
     },
     '&.outlined-strong fieldset': {
       borderWidth: 2,
