@@ -4,7 +4,7 @@
  *
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -19,20 +19,35 @@ import saga from './saga';
 import SearchPanel from './SearchPanel';
 import Filters from './Filters';
 import JobsList from './JobsList';
+import CreateAlertDialog from './contents/createAlertDialog';
 
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
 
+  const [openCreateAlert, setOpenCreateAlert] = useState(false);
+
   const showSendCVDialog = job => {
     props.dispatch(CVDialogActions.openSendCVAction(job));
   };
 
+  const openCreateAlertDialog = () => {
+    setOpenCreateAlert(true);
+  };
+
+  const closeCreateAlertDialog = () => {
+    setOpenCreateAlert(false);
+  };
+
   return (
     <div>
-      <SearchPanel />
+      <SearchPanel openCreateAlertDialog={openCreateAlertDialog} />
       <Filters />
       <JobsList showSendCVDialog={showSendCVDialog} />
+      <CreateAlertDialog
+        open={openCreateAlert}
+        onClose={closeCreateAlertDialog}
+      />
     </div>
   );
 }

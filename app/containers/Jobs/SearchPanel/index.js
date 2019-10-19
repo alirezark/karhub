@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import MContainer from 'mui/MContainer';
 import Button from '@material-ui/core/Button';
@@ -8,7 +9,8 @@ import IconNotify from 'assets/images/icons/notification.png';
 import messages from './messages';
 import styles from './style';
 
-function SearchPanel() {
+function SearchPanel(props) {
+  const { openCreateAlertDialog } = props;
   const classes = styles();
 
   return (
@@ -20,7 +22,7 @@ function SearchPanel() {
           </Grid>
           <Grid item md={3}>
             <div className={classes.divider} />
-            <Button className={classes.notify}>
+            <Button className={classes.notify} onClick={openCreateAlertDialog}>
               <img alt="notify" src={IconNotify} />
               <FormattedMessage {...messages.notify_me} />
             </Button>
@@ -30,5 +32,9 @@ function SearchPanel() {
     </MContainer>
   );
 }
+
+SearchPanel.propTypes = {
+  openCreateAlertDialog: PropTypes.func.isRequired,
+};
 
 export default SearchPanel;
