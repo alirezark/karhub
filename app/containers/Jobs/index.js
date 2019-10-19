@@ -20,12 +20,14 @@ import SearchPanel from './SearchPanel';
 import Filters from './Filters';
 import JobsList from './JobsList';
 import CreateAlertDialog from './contents/createAlertDialog';
+import ShareJobDialog from './contents/shareJobDialog';
 
 export function Jobs(props) {
   useInjectReducer({ key: 'jobs', reducer });
   useInjectSaga({ key: 'jobs', saga });
 
   const [openCreateAlert, setOpenCreateAlert] = useState(false);
+  const [openShareJob, setOpenShareJob] = useState(false);
 
   const showSendCVDialog = job => {
     props.dispatch(CVDialogActions.openSendCVAction(job));
@@ -39,15 +41,27 @@ export function Jobs(props) {
     setOpenCreateAlert(false);
   };
 
+  const openShareJobDialog = () => {
+    setOpenShareJob(true);
+  };
+
+  const closeShareJobDialog = () => {
+    setOpenShareJob(false);
+  };
+
   return (
     <div>
       <SearchPanel openCreateAlertDialog={openCreateAlertDialog} />
       <Filters />
-      <JobsList showSendCVDialog={showSendCVDialog} />
+      <JobsList
+        showSendCVDialog={showSendCVDialog}
+        showShareJobDialog={openShareJobDialog}
+      />
       <CreateAlertDialog
         open={openCreateAlert}
         onClose={closeCreateAlertDialog}
       />
+      <ShareJobDialog open={openShareJob} onClose={closeShareJobDialog} />
     </div>
   );
 }

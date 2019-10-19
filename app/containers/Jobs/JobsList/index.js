@@ -36,6 +36,7 @@ TabPanel.propTypes = {
 function JobsList(props) {
   const classes = styles();
   const [tab, setTab] = useState('1');
+  const { showShareJobDialog } = props;
 
   const jobs = [
     {
@@ -128,7 +129,10 @@ function JobsList(props) {
                 یک هفته پیش
               </span>
               <div className={classes.btnInfoContain}>
-                <MButton className={classes.icoInfo}>
+                <MButton
+                  className={classes.icoInfo}
+                  onClick={showShareJobDialog}
+                >
                   <i className="i-location" />
                   اشتراک
                 </MButton>
@@ -158,6 +162,7 @@ function JobsList(props) {
             </MTabs>
 
             <TabPanel value={tab} index="1" className={classes.tabContent}>
+              {/* eslint-disable-next-line max-len */}
               {`                برای تجربه چالشهای پیش روی یه کسب و کار مالی و طراحی راهکارهای مناسب به تیم فنی ما بپیوندید برای تجربه چالشهای پیش روی یه کسب و کار مالی و طراحی راهکارهای مناسب به تیم فنی ما بپیوندید.
 
                 توامندی های مورد انتظار:
@@ -208,6 +213,7 @@ function JobsList(props) {
               </Grid>
             </TabPanel>
             <TabPanel value={tab} index="2" className={classes.tabContent}>
+              {/* eslint-disable-next-line max-len */}
               {`با توجه به محدودیت‌های مختلف در حوزه مبادلات و پرداخت‌های بین‌المللی و همچنین توسعه تکنولوژی‌های نوین دنیا، سپهر به عنوان پیشگام در توسعه کسب و کارهای نوین و روشهای مبادلات نوین می‌باشد. تیم ما در ارائه محصولات جهت تسهیل مبادلات صنایع مختلف تمرکز دارد. ما همچنین در توسعه و نگهداری محصولات نرم‌افزاری، پورتال‌های تجارت الکترونیک، بازار، تجزیه و تحلیل کسب و کار تجارب زیادی داریم.  سپهر به عنوان پیشگام در توسعه کسب و کارهای نوین و روشهای مبادلات نوین می‌باشد. تیم ما در ارائه محصولات جهت تسهیل مبادلات صنایع مختلف تمرکز دارد.`}
               <Grid container spacing={2} style={{ marginTop: '1rem' }}>
                 <Grid item md={3} className={classes.infoTags}>
@@ -244,6 +250,7 @@ function JobsList(props) {
               </Typography>
               <Typography className={classes.tabInfo}>
                 {
+                  // eslint-disable-next-line max-len
                   'با توجه به محدودیت‌های مختلف در حوزه مبادلات و پرداخت‌های بین‌المللی و همچنین توسعه تکنولوژی‌های نوین دنیا، سپهر به عنوان پیشگام در توسعه کسب و کارهای نوین و روشهای مبادلات نوین می‌باشد. تیم ما در ارائه محصولات جهت تسهیل مبادلات صنایع مختلف تمرکز دارد.ما همچنین در توسعه و نگهداری محصولات نرم‌افزاری، پورتال‌های تجارت الکترونیک، بازار، تجزیه و تحلیل کسب و کار تجارب زیادی داریم. '
                 }
               </Typography>
@@ -257,6 +264,7 @@ function JobsList(props) {
 
 JobsList.propTypes = {
   showSendCVDialog: PropTypes.func.isRequired,
+  showShareJobDialog: PropTypes.func.isRequired,
 };
 
 export default JobsList;

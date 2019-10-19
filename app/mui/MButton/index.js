@@ -39,7 +39,10 @@ const styles = makeStyles(theme => ({
   btnCyan: {
     background: '#d7f0ed',
     color: '#4a4a4a!important',
-  }
+  },
+  linkGreen: {
+    color: '#4aba80!important',
+  },
 }));
 
 const MButton = withStyles(() => ({
@@ -56,6 +59,7 @@ const MButton = withStyles(() => ({
     danger,
     btnDefault,
     btnCyan,
+    linkGreen,
     children,
     className,
     ...res
@@ -68,6 +72,7 @@ const MButton = withStyles(() => ({
     [customClasses.danger]: danger,
     [customClasses.default]: btnDefault,
     [customClasses.btnCyan]: btnCyan,
+    [customClasses.linkGreen]: linkGreen,
     [className]: true,
   });
 
