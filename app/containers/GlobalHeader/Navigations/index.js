@@ -12,6 +12,7 @@ const DEFAULT_NAV = {
   HOME_LOCATIONS: ['/', '/Categories', '/Profile'],
   JOB_LOCATIONS: ['/Jobs'],
   COMPANY_LOCATIONS: ['/Company/Dashboard', '/Company/Top'],
+  CVMAKER_LOCATIONS: ['/CVMaker/Intro'],
 };
 
 const COMPANY_NAV = {
@@ -34,6 +35,8 @@ function locationToNav(location, nav) {
     if (DEFAULT_NAV.JOB_LOCATIONS.indexOf(location) > -1) return '/Jobs';
     if (some(DEFAULT_NAV.COMPANY_LOCATIONS, loc => location.indexOf(loc) > -1))
       return '/Company/Top';
+    if (some(DEFAULT_NAV.CVMAKER_LOCATIONS, loc => location.indexOf(loc) > -1))
+      return '/CVMaker/Intro';
   } else {
     if (COMPANY_NAV.SEARCH_CV.indexOf(location) > -1)
       return '/Company/Search_CV';
@@ -131,6 +134,7 @@ function DefaultNavigations(props) {
       <MTab
         style={{ width: '98px' }}
         label={intl.formatMessage({ ...messages.cv_maker })}
+        value="/CVMaker/Intro"
       />
       <MTab
         style={{ width: '93px' }}

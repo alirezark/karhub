@@ -21,6 +21,7 @@ import Categories from 'containers/Categories';
 import SendSVDialog from 'containers/SendCvDialog';
 import Profile from 'containers/Profile';
 import Company from 'containers/Company';
+import CVMaker from 'containers/CVMaker';
 
 import ScrollToTop from 'components/ScrollPageTop';
 import '../../assets/style.scss';
@@ -85,6 +86,7 @@ export default function App() {
             <Route exact path="/Categories" component={Categories} />
             <Route exact path="/Profile" component={Profile} />
             <Route path="/Company/*" component={Company} />
+            <Route path="/CVMaker/*" component={CVMaker} />
           </Switch>
           <Route exact path="/Jobs" component={SendSVDialog} />
           <GlobalFooter />
