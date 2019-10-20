@@ -11,7 +11,7 @@ import styles from './style';
 const DEFAULT_NAV = {
   HOME_LOCATIONS: ['/', '/Categories', '/Profile'],
   JOB_LOCATIONS: ['/Jobs'],
-  COMPANY_LOCATIONS: ['/Company/Dashboard'],
+  COMPANY_LOCATIONS: ['/Company/Dashboard', '/Company/Top'],
 };
 
 const COMPANY_NAV = {
@@ -33,7 +33,7 @@ function locationToNav(location, nav) {
     if (DEFAULT_NAV.HOME_LOCATIONS.indexOf(location) > -1) return '/';
     if (DEFAULT_NAV.JOB_LOCATIONS.indexOf(location) > -1) return '/Jobs';
     if (some(DEFAULT_NAV.COMPANY_LOCATIONS, loc => location.indexOf(loc) > -1))
-      return '/Company';
+      return '/Company/Top';
   } else {
     if (COMPANY_NAV.SEARCH_CV.indexOf(location) > -1)
       return '/Company/Search_CV';
@@ -122,7 +122,7 @@ function DefaultNavigations(props) {
       <MTab
         style={{ width: '158px' }}
         label={intl.formatMessage({ ...messages.companies_info })}
-        value="/Company/Dashboard"
+        value="/Company/Top"
       />
       <MTab
         style={{ width: '93px' }}

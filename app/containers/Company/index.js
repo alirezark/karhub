@@ -16,8 +16,9 @@ import { Folders } from './FolderList';
 import { Folder } from './FolderView';
 import { Credit } from './Credit';
 import { SearchCV } from './SearchCV';
+import { TopCompanies } from './TopCompanies';
 
-export function Company(props) {
+export function Company() {
   return (
     <div>
       <Helmet>
@@ -32,6 +33,7 @@ export function Company(props) {
         <Route exact path="/Company/Folder/:id" component={Folder} />
         <Route exact path="/Company/Credit" component={Credit} />
         <Route exact path="/Company/Search_CV" component={SearchCV} />
+        <Route exact path="/Company/Top" component={TopCompanies} />
         <Route exact path="/Company/:id" component={GeneralView} />
       </Switch>
     </div>

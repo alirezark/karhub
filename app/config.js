@@ -33,6 +33,7 @@ const configs = {
       creditHistory: `${COMPANY_SERVER}/credit/history`,
       searchCVFilters: `${COMPANY_SERVER}/searchCV/filters`,
       searchCV: `${COMPANY_SERVER}/searchCV/search`,
+      Top: `${COMPANY_SERVER}/Top`,
     },
   },
 };
