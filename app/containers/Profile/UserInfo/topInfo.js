@@ -33,13 +33,17 @@ const styles = makeStyles(theme => ({
 
 function TopInfo(props) {
   const classes = styles();
-  const { viewCount, shareCV, downloadCV } = props;
+  const { viewCount, shareCV, downloadCV, role } = props;
 
   return (
     <div className={classes.root}>
       <div className={classes.viewCount}>
-        بازدید از پروفایل شما:
-        <span>{viewCount} بار</span>
+        {role === 'user' && (
+          <span>
+            بازدید از پروفایل شما:
+            <span>{viewCount} بار</span>
+          </span>
+        )}
       </div>
       <div className={classes.menu}>
         <MButton className={classes.icoInfo} onClick={shareCV}>
@@ -47,12 +51,14 @@ function TopInfo(props) {
           اشتراک گذاری
         </MButton>
       </div>
-      <div className={classes.menu}>
-        <MButton className={classes.icoInfo} onClick={downloadCV}>
-          <i className="flaticon-download" />
-          ذخیره رزومه
-        </MButton>
-      </div>
+      {role === 'user' && (
+        <div className={classes.menu}>
+          <MButton className={classes.icoInfo} onClick={downloadCV}>
+            <i className="flaticon-download" />
+            ذخیره رزومه
+          </MButton>
+        </div>
+      )}
     </div>
   );
 }
@@ -61,6 +67,7 @@ TopInfo.propTypes = {
   viewCount: propTypes.number.isRequired,
   shareCV: propTypes.func.isRequired,
   downloadCV: propTypes.func.isRequired,
+  role: propTypes.string.isRequired,
 };
 
 export default TopInfo;

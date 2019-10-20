@@ -14,6 +14,7 @@ import { compose } from 'redux';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { isEmpty } from 'lodash';
+import { UserContext } from 'app/containers/GlobalHeader/UserProvider';
 import makeSelectProfile from './selectors';
 import reducer from './reducer';
 import {
@@ -35,11 +36,12 @@ import MyCV from './MyCV';
 import Notifications from './Notifications';
 import GeneralView from './GeneralView';
 import * as actions from './actions';
-import { UserContext } from 'app/containers/GlobalHeader/UserProvider';
 
 export function Profile(props) {
-  const [selectedTab, setSelectedTab] = useState(-1);
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
+  const [selectedTab, setSelectedTab] = useState(
+    user.role === 'company' ? 0 : -1,
+  );
   const { dispatch, profile } = props;
 
   useInjectReducer({ key: 'profile', reducer });
@@ -99,8 +101,10 @@ export function Profile(props) {
         <title>Profile</title>
         <meta name="description" content="Description of Profile" />
       </Helmet>
-      <UserInfo user={profile.profile} />
-      <MainTabs selected={selectedTab} setSelected={handleSetSelectedTab} />
+      <UserInfo user={profile.profile} role={user.role} />
+      {user.role === 'user' && (
+        <MainTabs selected={selectedTab} setSelected={handleSetSelectedTab} />
+      )}
       {selectedTab === -1 && (
         <GeneralView
           sentCVs={profile.sentCVs}

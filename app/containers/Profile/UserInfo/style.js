@@ -62,6 +62,9 @@ const styles = makeStyles(theme => ({
   cardsContainerSpaceBottom: {
     marginBottom: '-5rem',
   },
+  whiteSpace: {
+    padding: 10,
+  },
 }));
 
 export default styles;
