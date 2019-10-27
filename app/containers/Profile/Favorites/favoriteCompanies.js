@@ -57,8 +57,14 @@ function FavoriteCompanies(props) {
   const classes = styles();
   const { favoriteCompanies } = props;
   const [companies, setCompanies] = useState({
-    list: favoriteCompanies,
+    list: [],
   });
+
+  useEffect(() => {
+    setCompanies({
+      list: favoriteCompanies,
+    });
+  }, [favoriteCompanies]);
 
   if (!favoriteCompanies) return <div />;
 

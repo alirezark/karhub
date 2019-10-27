@@ -16,7 +16,6 @@ class JobsProvider extends React.Component {
   }
 
   componentDidMount() {
-    console.log('JOBS');
     this.loadJobs();
   }
 

@@ -69,7 +69,7 @@ function EmployerRequests(props) {
   return (
     <div>
       {employerRequests.map(request => (
-        <div className={classes.card}>
+        <div key={request.id} className={classes.card}>
           <div className={classes.icon}>
             <img alt="company" src={getIcon(request.icon)} />
           </div>
