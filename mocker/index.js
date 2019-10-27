@@ -110,7 +110,7 @@ const proxy = {
   ],
   // =====================
   // === CV Requests ===
-  'GET /rest/cv/abstract/:id': {
+  'GET /rest/cv/abstract': {
     country: 'ایران',
     city: 'تهران',
     mobile: '۰۹۳۶۸۶۷۵۲۰۵',

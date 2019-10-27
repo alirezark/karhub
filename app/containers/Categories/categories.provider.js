@@ -6,11 +6,6 @@ import configs from 'app/config';
 export const CategoriesContext = React.createContext();
 
 class CategoriesProvider extends React.Component {
-  DEFAULT_USER = {
-    id: 0,
-    isLogin: false,
-  };
-
   constructor(props) {
     super(props);
 

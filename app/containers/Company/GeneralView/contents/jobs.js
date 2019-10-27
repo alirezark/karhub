@@ -1,3 +1,4 @@
+// TODO: it's a duplicate code of job component
 import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import MButton from 'mui/MButton';

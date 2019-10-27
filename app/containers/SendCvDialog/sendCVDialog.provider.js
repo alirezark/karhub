@@ -2,29 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import configs from 'app/config';
-
-export const SendCVDialogContext = React.createContext();
+import { SharedContext } from 'app/components/SharedContext';
+import { SendCVDialogContext } from './sendCVDialog.context';
 
 class SendCVDialogProvider extends React.Component {
-  DEFAULT_USER = {
-    id: 0,
-    isLogin: false,
-  };
-
   constructor(props) {
     super(props);
-
     this.state = {
-      showSendCVDialog: false,
       showSuccessDialog: false,
       isLoadingCV: false,
-      job: {},
       abstractCV: {},
     };
   }
 
   componentDidMount() {
-    console.log('CVDialog');
+    this.context.setContext('showSendCVDialog', false);
+    this.context.setContext('sendCVJob', {});
     this.loadAbstractCV();
   }
 
@@ -43,33 +36,27 @@ class SendCVDialogProvider extends React.Component {
   };
 
   handleShowSendCVDialog = job => {
-    this.setState(prevState => ({
-      ...prevState,
-      showSendCVDialog: true,
-      job,
-    }));
+    this.context.setContext('showSendCVDialog', true);
+    this.context.setContext('sendCVJob', job);
   };
 
   handleCloseSendCVDialog = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      showSendCVDialog: false,
-    }));
+    this.context.setContext('showSendCVDialog', false);
   };
 
   handleSendCV = () => {
+    this.context.setContext('showSendCVDialog', false);
     this.setState(prevState => ({
       ...prevState,
-      showSendCVDialog: false,
       showSuccessDialog: true,
     }));
   };
 
   handleCloseSuccessSendCV = () => {
+    this.context.setContext('showSendCVDialog', false);
     this.setState(prevState => ({
       ...prevState,
       showSuccessDialog: false,
-      showSendCVDialog: false,
     }));
   };
 
@@ -83,10 +70,14 @@ class SendCVDialogProvider extends React.Component {
       handleCloseSuccessSendCV,
     } = this;
 
+    const { showSendCVDialog, sendCVJob } = this.context.sharedContext;
+
     return (
       <SendCVDialogContext.Provider
         value={{
           ...state,
+          job: sendCVJob,
+          showSendCVDialog,
           loadAbstractCV,
           handleShowSendCVDialog,
           handleCloseSendCVDialog,
@@ -103,5 +94,6 @@ class SendCVDialogProvider extends React.Component {
 SendCVDialogProvider.propTypes = {
   children: PropTypes.any.isRequired,
 };
+SendCVDialogProvider.contextType = SharedContext;
 
 export default SendCVDialogProvider;

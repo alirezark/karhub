@@ -11,7 +11,7 @@ import { UserContext } from 'app/containers/GlobalHeader/UserProvider';
 import GuestCVDialog from './GuestCVDialog';
 import UserCVDialog from './UserCVDialog';
 import SuccessDialog from './SuccessDialog';
-import { SendCVDialogContext } from './sendCVDialog.provider';
+import { SendCVDialogContext } from './sendCVDialog.context';
 
 export function SendCvDialog() {
   const { showLogin, user } = useContext(UserContext);

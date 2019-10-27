@@ -12,6 +12,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
+import SharedContextProvider from 'app/components/SharedContext';
 import UserProvider from 'app/containers/GlobalHeader/UserProvider';
 import GlobalHeader from 'containers/GlobalHeader';
 import GlobalFooter from 'components/GlobalFooter';
@@ -77,20 +78,22 @@ export default function App() {
   return (
     <Rtl>
       <ThemeProvider theme={theme}>
-        <UserProvider>
-          <GlobalHeader />
-          <ScrollToTop />
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/Jobs" component={Jobs} />
-            <Route exact path="/Categories" component={Categories} />
-            <Route exact path="/Profile" component={Profile} />
-            <Route path="/Company/*" component={Company} />
-            <Route path="/CVMaker/*" component={CVMaker} />
-          </Switch>
-          <Route exact path="/Jobs" component={SendSVDialog} />
-          <GlobalFooter />
-        </UserProvider>
+        <SharedContextProvider>
+          <UserProvider>
+            <GlobalHeader />
+            <ScrollToTop />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/Jobs" component={Jobs} />
+              <Route exact path="/Categories" component={Categories} />
+              <Route exact path="/Profile" component={Profile} />
+              <Route path="/Company/*" component={Company} />
+              <Route path="/CVMaker/*" component={CVMaker} />
+            </Switch>
+            <Route exact path="/Jobs" component={SendSVDialog} />
+            <GlobalFooter />
+          </UserProvider>
+        </SharedContextProvider>
       </ThemeProvider>
     </Rtl>
   );
