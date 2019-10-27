@@ -17,11 +17,11 @@ import GlobalHeader from 'containers/GlobalHeader';
 import GlobalFooter from 'components/GlobalFooter';
 import HomePage from 'containers/HomePage/Loadable';
 import Jobs from 'containers/Jobs/Loadable';
-import Categories from 'containers/Categories';
-import SendSVDialog from 'containers/SendCvDialog';
-import Profile from 'containers/Profile';
-import Company from 'containers/Company';
-import CVMaker from 'containers/CVMaker';
+import Categories from 'containers/Categories/Loadable';
+import SendSVDialog from 'containers/SendCvDialog/Loadable';
+import Profile from 'containers/Profile/Loadable';
+import Company from 'containers/Company/Loadable';
+import CVMaker from 'containers/CVMaker/Loadable';
 
 import ScrollToTop from 'components/ScrollPageTop';
 import '../../assets/style.scss';
