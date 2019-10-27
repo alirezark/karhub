@@ -9,6 +9,7 @@ import styles from './style';
 
 function CategoryList(props) {
   const classes = styles();
+  const {} = props;
 
   return (
     <MContainer maxWidth="md" mt={6} className={classes.root}>

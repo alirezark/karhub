@@ -11,28 +11,32 @@ import iconData from 'app/assets/images/icons/data.png';
 import messages from './messages';
 import styles from './style';
 
-const isTopCategories = function(props) {
-  return props.selectedCategories.length === 0;
-};
+const isTopCategories = selectedCategories => selectedCategories.length === 0;
 
 function TopCategories(props) {
   const classes = styles();
+  const {
+    categories,
+    selectedCategories,
+    onSelectCategory,
+    unSelectCategory,
+  } = props;
 
-  const cardContainerClassnames = classNames(classes.cardsContainer, {
-    [classes.cardsContainerSpaceBottom]: isTopCategories(props),
+  const cardContainerClassNames = classNames(classes.cardsContainer, {
+    [classes.cardsContainerSpaceBottom]: isTopCategories(selectedCategories),
   });
 
-  const handleCardClick = function(category) {
-    if (!isTopCategories(props)) props.onSelectCategory(category);
+  const handleCardClick = category => {
+    if (!isTopCategories(selectedCategories)) onSelectCategory(category);
   };
 
-  const handleBreadcrumbsClick = function(index) {
-    if (index < props.selectedCategories.length - 1)
-      props.unSelectCategory(props.selectedCategories.length - index - 1);
+  const handleBreadcrumbsClick = index => {
+    if (index < selectedCategories.length - 1)
+      unSelectCategory(selectedCategories.length - index - 1);
   };
 
   const removeSelected = () => {
-    props.unSelectCategory(props.selectedCategories.length);
+    unSelectCategory(selectedCategories.length);
   };
 
   return (
@@ -47,7 +51,7 @@ function TopCategories(props) {
             >
               <Typography>خانه</Typography>
               <Typography onClick={removeSelected}>دسته بندی شغلی</Typography>
-              {props.selectedCategories.map((category, index) => (
+              {selectedCategories.map((category, index) => (
                 <Typography
                   key={category.id}
                   onClick={() => handleBreadcrumbsClick(index)}
@@ -72,17 +76,19 @@ function TopCategories(props) {
               component="h1"
               className={classes.sectionHead}
             >
-              {props.categories.title}
+              {categories.title}
             </Typography>
             <Typography variant="subtitle2" component="p">
               <FormattedMessage {...messages.sub_head} />
             </Typography>
-            <Grid container spacing={4} className={cardContainerClassnames}>
-              {props.categories.items.map(category => (
+            <Grid container spacing={4} className={cardContainerClassNames}>
+              {categories.items.map(category => (
                 <Grid key={category.id} item md={3}>
                   <CategoryCard
                     title={category.title}
-                    icon={isTopCategories(props) ? iconData : undefined}
+                    icon={
+                      isTopCategories(selectedCategories) ? iconData : undefined
+                    }
                     onClick={() => handleCardClick(category)}
                   />
                 </Grid>
