@@ -82,5 +82,8 @@ But wait... there's more!
 1.  Make sure that you have Node.js v8.15.1 and npm v5 or above installed.
 2.  Clone this repo using `git clone https://gitlab.com/cto_mizan/kar-hub.git`
 3.  Move to the appropriate directory: `cd karhub`.<br />
-4.  Run `npm install` in order to install dependencies .
-5.  Run `npm run start` to see the app at `http://localhost:3000`.
+4.  If you are not osx user remove `fsevent` from `package.json`
+5.  Run `npm install` in order to install dependencies .
+6.  Run `npm run start` to see the app at `http://localhost:3000`.
+7.  Run `npm install mocker -g` To install mocker.
+8.  Run `mocker ./mocker` To start mocker.
