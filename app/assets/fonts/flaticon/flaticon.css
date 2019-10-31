@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 31/10/2019 09:01
+  	Creation date: 31/10/2019 14:38
   	*/
 
 @font-face {
@@ -45,3 +45,4 @@ font-style: normal;
 .flaticon-portfolio:before { content: "\f10d"; }
 .flaticon-certificate:before { content: "\f10e"; }
 .flaticon-design-skills:before { content: "\f10f"; }
+.flaticon-left-arrow:before { content: "\f110"; }

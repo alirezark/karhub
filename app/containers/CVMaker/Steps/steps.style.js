@@ -30,7 +30,7 @@ const styles = makeStyles(() => ({
     '& div': {
       width: '5px',
       height: 5,
-      transition: '100ms',
+      transition: '280ms ease-in-out',
       borderRadius: 3,
       background: 'rgb(0,160,193)',
       '&.step-1': {
@@ -84,6 +84,7 @@ const styles = makeStyles(() => ({
     flexGrow: 1,
     borderTop: '2px dashed #fef4e4',
     margin: '0 25px',
+    transition: '200ms',
   },
   step_icon: {
     width: 54,
@@ -93,7 +94,7 @@ const styles = makeStyles(() => ({
     color: '#fcb94c',
     textAlign: 'center',
     lineHeight: '5px',
-    transition: '100ms',
+    transition: '200ms',
     '& div': {
       fontSize: 30,
       fontWeight: 900,
@@ -102,7 +103,7 @@ const styles = makeStyles(() => ({
       fontSize: 14,
       fontWeight: 400,
       width: 140,
-      transition: '100ms',
+      transition: '200ms',
       margin: '40px 0 0 -50px',
       textAlign: 'center',
       whiteSpace: 'nowrap',

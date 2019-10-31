@@ -25,7 +25,7 @@ function Steps(props) {
 
   return (
     <div className={classes.root}>
-      <MContainer className={classes.container}>
+      <MContainer smaller className={classes.container}>
         <div className={classes.steps_container}>
           <div className={stepClassNames(0)}>
             <div className={classNames(classes.step_icon, 'step_icon')}>

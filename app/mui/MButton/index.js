@@ -73,7 +73,7 @@ const MButton = withStyles(() => ({
     [customClasses.default]: btnDefault,
     [customClasses.btnCyan]: btnCyan,
     [customClasses.linkGreen]: linkGreen,
-    [className]: true,
+    [className]: className !== undefined,
   });
 
   return (
