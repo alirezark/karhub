@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import MButton from 'mui/MButton';
+import MBtnLink from 'mui/MBtnLink';
 
 const styles = makeStyles(() => ({
   root: {
@@ -54,10 +55,13 @@ function Explanation() {
       </Typography>
       <div className={classes.headFooter}>
         <div>
-          <div className={classes.videoLink}> <i className="flaticon-play-button" /> آموزش ساخت رزومه</div>
+          <div className={classes.videoLink}>
+            {' '}
+            <i className="flaticon-play-button" /> آموزش ساخت رزومه
+          </div>
         </div>
         <div>
-          <MButton primary>شروع ساخت رزومه</MButton>
+          <MBtnLink to="/CVMaker/SelectTemplate" primary>شروع ساخت رزومه</MBtnLink>
         </div>
       </div>
     </div>);

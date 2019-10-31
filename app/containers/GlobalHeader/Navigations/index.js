@@ -12,7 +12,7 @@ const DEFAULT_NAV = {
   HOME_LOCATIONS: ['/', '/Categories', '/Profile'],
   JOB_LOCATIONS: ['/Jobs'],
   COMPANY_LOCATIONS: ['/Company/Dashboard', '/Company/Top'],
-  CVMAKER_LOCATIONS: ['/CVMaker/Intro'],
+  CVMAKER_LOCATIONS: ['/CVMaker'],
 };
 
 const COMPANY_NAV = {
