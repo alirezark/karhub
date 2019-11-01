@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Radio, Grid, Typography } from '@material-ui/core';
 import { MBtnLink, MContainer } from 'mui';
-import styles from './personalInfo.style';
 import AvatarUploader from 'components/AvatarUploader';
 import MTextField from 'mui/MTextField';
 import { PersonOutlined } from '@material-ui/icons';
+import styles from './personalInfo.style';
 
 function PersonalInfo() {
   const classes = styles();

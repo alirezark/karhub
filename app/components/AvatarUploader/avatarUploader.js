@@ -5,9 +5,7 @@
  */
 
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import styles from './avatarUploader.style';
 import MAvatar from 'mui/MAvatar';
 
 const UploadIcon = props => (
@@ -76,7 +74,7 @@ const StyledAvatar = styled(MAvatar)`
 function AvatarUploader() {
   const [uploadedFile, setUploadedFile] = useState(null);
 
-  const handleFileUpload = function(files) {
+  const handleFileUpload = files => {
     const reader = new FileReader();
 
     reader.onloadend = () => {
