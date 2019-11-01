@@ -1,6 +1,8 @@
 import { makeStyles } from '@material-ui/core';
+import { cvMakerFooter } from '../styles';
 
 const styles = makeStyles(() => ({
+  ...cvMakerFooter,
   root: {
     background: '#f9f9f9',
   },
@@ -43,15 +45,6 @@ const styles = makeStyles(() => ({
     lineHeight: '40px',
     textAlign: 'center',
     transition: '100ms',
-  },
-  footer: {
-    display: 'flex',
-    '& div:first-child': {
-      flexGrow: 1,
-    },
-    '& [class^="flaticon-"]': {
-      color: '#444',
-    },
   },
 }));
 

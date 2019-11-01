@@ -27,6 +27,8 @@ import CVMaker from 'containers/CVMaker/Loadable';
 import ScrollToTop from 'components/ScrollPageTop';
 import '../../assets/style.scss';
 
+import { StyleSheetManager } from 'styled-components';
+import stylisRTLPlugin from 'stylis-rtl';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -78,22 +80,24 @@ export default function App() {
   return (
     <Rtl>
       <ThemeProvider theme={theme}>
-        <SharedContextProvider>
-          <UserProvider>
-            <GlobalHeader />
-            <ScrollToTop />
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/Jobs" component={Jobs} />
-              <Route exact path="/Categories" component={Categories} />
-              <Route exact path="/Profile" component={Profile} />
-              <Route path="/Company/*" component={Company} />
-              <Route path="/CVMaker/*" component={CVMaker} />
-            </Switch>
-            <Route exact path="/Jobs" component={SendSVDialog} />
-            <GlobalFooter />
-          </UserProvider>
-        </SharedContextProvider>
+        <StyleSheetManager stylisPlugins={[stylisRTLPlugin]}>
+          <SharedContextProvider>
+            <UserProvider>
+              <GlobalHeader />
+              <ScrollToTop />
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route exact path="/Jobs" component={Jobs} />
+                <Route exact path="/Categories" component={Categories} />
+                <Route exact path="/Profile" component={Profile} />
+                <Route path="/Company/*" component={Company} />
+                <Route path="/CVMaker/*" component={CVMaker} />
+              </Switch>
+              <Route exact path="/Jobs" component={SendSVDialog} />
+              <GlobalFooter />
+            </UserProvider>
+          </SharedContextProvider>
+        </StyleSheetManager>
       </ThemeProvider>
     </Rtl>
   );

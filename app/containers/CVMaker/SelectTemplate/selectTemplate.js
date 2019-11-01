@@ -10,6 +10,7 @@ import styles from './selectTemplate.style';
 function SelectTemplate(props) {
   const classes = styles();
   const { history } = props;
+  console.log(classes);
 
   const onSelectTemplate = () => {
     history.push('/CVMaker/PersonalInfo');

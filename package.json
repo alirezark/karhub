@@ -93,7 +93,8 @@
     "react-intl": "3.4.0",
     "react-router-dom": "5.0.1",
     "sanitize.css": "11.0.0",
-    "styled-components": "4.4.0"
+    "styled-components": "^5.0.0-rc.1",
+    "stylis-rtl": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
