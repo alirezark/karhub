@@ -4,7 +4,11 @@ import classNames from 'classnames';
 import { MContainer } from 'mui';
 import styles from './steps.style';
 
-const STEP_LOCATIONS = ['/CVMaker/SelectTemplate', '/CVMaker/PersonalInfo'];
+const STEP_LOCATIONS = [
+  '/CVMaker/SelectTemplate',
+  '/CVMaker/PersonalInfo',
+  '/CVMaker/WorkExperience',
+];
 
 function Steps(props) {
   const classes = styles();

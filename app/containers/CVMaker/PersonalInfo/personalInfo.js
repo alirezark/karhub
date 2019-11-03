@@ -181,7 +181,7 @@ function PersonalInfo() {
             </MBtnLink>
           </div>
           <div>
-            <MBtnLink to="/CVMaker/PersonalInfo" primary>
+            <MBtnLink to="/CVMaker/WorkExperience" primary>
               ذخیره و مرحله بعد
             </MBtnLink>
           </div>

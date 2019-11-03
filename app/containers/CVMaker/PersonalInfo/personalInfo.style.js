@@ -1,20 +1,15 @@
 import { makeStyles } from '@material-ui/core';
-import { cvMakerFooter } from '../styles';
+import { cvMakerFooter, form } from '../styles';
 
 const styles = makeStyles(() => ({
   ...cvMakerFooter,
+  ...form,
   root: {
     background: '#f9f9f9',
   },
   container: {
     background: '#fff',
     padding: '20px 32px 40px',
-  },
-  form: {
-    width: '70%',
-    margin: '40px auto',
-    fontSize: 14,
-    fontWeight: 400,
   },
   alignCenter: {
     alignItems: 'center',

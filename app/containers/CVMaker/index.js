@@ -6,6 +6,7 @@ import Intro from './Intro';
 import SelectTemplate from './SelectTemplate';
 import Steps from './Steps';
 import PersonalInfo from './PersonalInfo';
+import WorkExperience from './WorkExprerience';
 
 export function Company() {
   return (
@@ -24,10 +25,11 @@ export function Company() {
           path="/CVMaker/SelectTemplate"
           component={SelectTemplate}
         />
+        <Route exact path="/CVMaker/PersonalInfo" component={PersonalInfo} />
         <Route
           exact
-          path="/CVMaker/PersonalInfo"
-          component={PersonalInfo}
+          path="/CVMaker/WorkExperience"
+          component={WorkExperience}
         />
       </Switch>
     </div>
