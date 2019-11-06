@@ -8,6 +8,8 @@ const STEP_LOCATIONS = [
   '/CVMaker/SelectTemplate',
   '/CVMaker/PersonalInfo',
   '/CVMaker/WorkExperience',
+  '/CVMaker/EducationExperience',
+  '/CVMaker/Skills',
 ];
 
 function Steps(props) {

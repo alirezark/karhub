@@ -78,6 +78,8 @@ module.exports = {
     'react/self-closing-comp': 0,
     'react/sort-comp': 0,
     'require-yield': 0,
+    'lodash/import-scope': [2, "member"],
+    'lodash/prefer-lodash-method': 0,
   },
   settings: {
     'import/resolver': {

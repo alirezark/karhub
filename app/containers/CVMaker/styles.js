@@ -18,6 +18,12 @@ const form = {
     margin: '40px auto',
     fontSize: 14,
     fontWeight: 400,
+    '&>h3': {
+      fontSize: 12,
+      fontWeight: 800,
+      margin: ' 30px 0',
+      color: '#818181',
+    },
   },
 };
 

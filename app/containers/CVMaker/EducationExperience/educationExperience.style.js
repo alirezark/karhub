@@ -11,25 +11,10 @@ const styles = makeStyles(theme => ({
     background: '#fff',
     padding: '20px 32px 40px',
   },
-  select: {
-    '&.MuiOutlinedInput-root': {
-      '& fieldset': {
-        borderRadius: 50,
-        borderWidth: 2,
-        borderColor: '#8E8E8C',
-      },
-    },
-    '& svg': {
-      color: '#8E8E8C',
-    },
-    '& .MuiSelect-icon': {
-      right: 10,
-    },
-  },
   addRow: {
     display: 'flex',
     alignItems: 'center',
-    margin: '40px 0 20px',
+    margin: '20px 0 20px',
     '& div:first-child': {
       flexGrow: 1,
       borderTop: '1px solid',
@@ -42,6 +27,10 @@ const styles = makeStyles(theme => ({
         color: '#8E8E8C',
       },
     },
+  },
+  btnAddCourse: {
+    border: '1px solid',
+    borderColor: theme.palette.primary.main,
   },
 }));
 

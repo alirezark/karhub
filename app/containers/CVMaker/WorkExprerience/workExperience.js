@@ -95,7 +95,7 @@ function WorkExperience() {
               </Grid>
             </Grid>
             <Grid item md={6}>
-              <Grid container className={classes.alignCenter} spacing={2}>
+              <Grid container spacing={2}>
                 <Grid item md={6}>
                   <MTextField
                     fullWidth
@@ -150,7 +150,7 @@ function WorkExperience() {
             </MBtnLink>
           </div>
           <div>
-            <MBtnLink to="/CVMaker/WorkExperience" primary>
+            <MBtnLink to="/CVMaker/EducationExperience" primary>
               ذخیره و مرحله بعد
             </MBtnLink>
           </div>
