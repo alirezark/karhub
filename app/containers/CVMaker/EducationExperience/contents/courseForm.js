@@ -4,6 +4,7 @@ import MTextField from 'mui/MTextField';
 import { PersonOutlined } from '@material-ui/icons';
 import FileUpload from 'components/FileUpload';
 
+// TODO: upload form is different from designed forms
 function CourseForm() {
   return (
     <>
