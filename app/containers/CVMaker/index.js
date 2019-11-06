@@ -9,6 +9,7 @@ import PersonalInfo from './PersonalInfo';
 import WorkExperience from './WorkExprerience';
 import EducationExperience from './EducationExperience';
 import Skills from './Skills';
+import Final from './Final';
 
 export function Company() {
   return (
@@ -19,6 +20,7 @@ export function Company() {
       </Helmet>
       <Switch>
         <Route exact path="/CVMaker/Intro" component={Intro} />
+        <Route exact path="/CVMaker/Final" component={Final} />
         <Route exact path="/CVMaker/*" component={Steps} />
       </Switch>
       <Switch>

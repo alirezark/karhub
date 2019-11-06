@@ -5,6 +5,7 @@
  */
 
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MAvatar from 'mui/MAvatar';
 
@@ -20,27 +21,27 @@ const UploadIcon = props => (
 );
 
 const StyledUploadIcon = styled(UploadIcon)`
-  width: 97px;
-  height: 97px;
+  width: ${props => (props.small ? '60px' : '97px')};
+  height: ${props => (props.small ? '60px' : '97px')};
   position: relative;
   margin: 3px;
 
   & .upload-icons {
-    width: 90px;
-    height: 90px;
-    padding: 15px 30px;
+    width: ${props => (props.small ? '55px' : '90px')};
+    height: ${props => (props.small ? '55px' : '90px')};
+    padding: ${props => (props.small ? '10px' : '15px 30px')};
     text-align: center;
-    border: 2px dashed #ccc;
+    border: ${props => (props.small ? '1px' : '2px')} dashed #ccc;
     border-radius: 45px;
     position: relative;
     cursor: pointer;
 
     & i:before {
-      font-size: 30px;
+      font-size: ${props => (props.small ? '18px' : '30px')};
       color: #96a7a6;
     }
     & i:last-child:before {
-      font-size: 20px;
+      font-size: ${props => (props.small ? '12px' : '20px')};
       margin-top: -5px;
       display: block;
     }
@@ -52,8 +53,8 @@ const StyledUploadIcon = styled(UploadIcon)`
     content: ' ';
     position: absolute;
     z-index: 0;
-    right: 17px;
-    top: 10px;
+    right: ${props => (props.small ? '10px' : '17px')};
+    top: ${props => (props.small ? '5px' : '10px')};
     width: 90%;
     height: 90%;
     background: #d7f0ee;
@@ -66,13 +67,14 @@ const StyledAvatar = styled(MAvatar)`
     position: relative;
     margin: 0;
     right: 0;
-    width: 97px;
-    height: 97px;
+    width: ${props => (props.small ? '66px' : '97px')};
+    height: ${props => (props.small ? '66px' : '97px')};
   }
 `;
 
-function AvatarUploader() {
+function AvatarUploader(props) {
   const [uploadedFile, setUploadedFile] = useState(null);
+  const { small = false } = props;
 
   const handleFileUpload = files => {
     const reader = new FileReader();
@@ -95,16 +97,18 @@ function AvatarUploader() {
         onChange={e => handleFileUpload(e.target.files)}
       />
       {uploadedFile === null ? (
-        <StyledUploadIcon />
+        <StyledUploadIcon small={small} />
       ) : (
         <label htmlFor="avatar-upload-file">
-          <StyledAvatar src={uploadedFile} />
+          <StyledAvatar src={uploadedFile} small={small} />
         </label>
       )}
     </div>
   );
 }
 
-AvatarUploader.propTypes = {};
+AvatarUploader.propTypes = {
+  small: PropTypes.bool,
+};
 
 export default AvatarUploader;

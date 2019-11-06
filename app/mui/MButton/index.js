@@ -9,6 +9,7 @@ const styles = makeStyles(theme => ({
     background: '#3a69db',
     lineHeight: '32px',
     margin: 0,
+    color: 'white',
   },
   iconic: {
     '&.MuiButton-root': {
@@ -24,15 +25,18 @@ const styles = makeStyles(theme => ({
   primary: {
     background: theme.palette.primary.main,
     lineHeight: '32px',
+    color: 'white',
     padding: '6px 40px',
   },
   danger: {
     background: '#d95151',
+    color: 'white',
     lineHeight: '32px',
     padding: '6px 40px',
   },
   default: {
     background: '#c8c8c8',
+    color: 'white',
     lineHeight: '32px',
     padding: '6px 40px',
   },
@@ -48,7 +52,7 @@ const styles = makeStyles(theme => ({
 const MButton = withStyles(() => ({
   root: {
     borderRadius: 50,
-    color: 'white',
+    color: '#444',
     boxShadow: 'none',
   },
 }))(props => {

@@ -42,7 +42,7 @@ function Skills() {
             </MBtnLink>
           </div>
           <div>
-            <MBtnLink to="/CVMaker/Skills" primary>
+            <MBtnLink to="/CVMaker/Final" primary>
               ذخیره و مرحله بعد
             </MBtnLink>
           </div>
