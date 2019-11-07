@@ -67,8 +67,9 @@ const StyledAvatar = styled(MAvatar)`
     position: relative;
     margin: 0;
     right: 0;
-    width: ${props => (props.small ? '66px' : '97px')};
-    height: ${props => (props.small ? '66px' : '97px')};
+    width: ${props => (props.small ? '62px' : '97px')};
+    height: ${props => (props.small ? '62px' : '97px')};
+    ${props => props.small && 'padding: 4px;'}
   }
 `;
 
