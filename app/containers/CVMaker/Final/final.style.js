@@ -12,6 +12,7 @@ const styles = makeStyles(() => ({
     color: '#606062',
     fontSize: 14,
     padding: '20px 15px 20px 40px',
+    marginBottom: 40,
   },
 }));
 
