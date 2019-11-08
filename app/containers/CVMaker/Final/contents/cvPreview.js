@@ -1,6 +1,10 @@
 import React from 'react';
 import { Grid, makeStyles } from '@material-ui/core';
-import { AboutMe, WorkExperience } from 'app/containers/cv';
+import {
+  AboutMe,
+  WorkExperience,
+  EducationExperience,
+} from 'app/containers/cv';
 
 const styles = makeStyles(() => ({
   cvBox: {
@@ -18,6 +22,13 @@ function CVPreview() {
       </div>
       <div className={classes.cvBox}>
         <WorkExperience editable />
+      </div>
+      <div className={classes.cvBox}>
+        <Grid container spacing={4}>
+          <Grid item md={6}>
+            <EducationExperience editable />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

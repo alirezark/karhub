@@ -75,6 +75,11 @@ const styles = makeStyles(theme => ({
     fontSize: 12,
     color: '#888',
   },
+  smallBold: {
+    fontSize: 12,
+    color: '#888',
+    fontWeight: 800,
+  },
 }));
 
 function LinearListCV(props) {
@@ -108,6 +113,9 @@ function LinearListCV(props) {
             )}
             {item.txtSmall && (
               <div className={classes.small}>{item.txtSmall}</div>
+            )}
+            {item.txtSmallBold && (
+              <div className={classes.smallBold}>{item.txtSmallBold}</div>
             )}
             {item.description && <Typography>{item.description}</Typography>}
           </div>
