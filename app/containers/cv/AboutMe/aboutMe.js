@@ -8,7 +8,9 @@ const styles = makeStyles(theme => ({
     display: 'flex',
   },
   iconContain: {
-    flexBasis: 60,
+    flexBasis: 40,
+    flexShrink: 0,
+    flexGrow: 0,
     paddingTop: 5,
   },
   content: {
