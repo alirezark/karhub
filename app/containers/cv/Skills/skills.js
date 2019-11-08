@@ -18,6 +18,7 @@ const styles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
+    marginBottom: 32,
     '& h3': {
       color: theme.palette.primary.main,
       fontSize: 14,

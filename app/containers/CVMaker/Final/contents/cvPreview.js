@@ -6,6 +6,7 @@ import {
   EducationExperience,
   CourseExperience,
   Skills,
+  Awards,
 } from 'app/containers/cv';
 
 const styles = makeStyles(() => ({
@@ -37,6 +38,13 @@ function CVPreview() {
       </div>
       <div className={classes.cvBox}>
         <Skills editable />
+      </div>
+      <div className={classes.cvBox}>
+        <Grid container spacing={4}>
+          <Grid item md={6}>
+            <Awards editable />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );
