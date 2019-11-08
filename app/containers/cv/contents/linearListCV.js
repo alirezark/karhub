@@ -81,6 +81,28 @@ const styles = makeStyles(theme => ({
     color: '#444',
     fontWeight: 500,
   },
+  textDescribe: {
+    display: 'flex',
+    margin: '15px 0 5px',
+    '& div:first-child': {
+      flexBasis: 150,
+      flexShrink: 0,
+      flexGrow: 0,
+    },
+    '& div:last-child': {
+      flexGrow: 1,
+      padding: '0 10px',
+      color: theme.palette.primary.main,
+      fontSize: 10,
+    },
+    '& div': {
+      fontSize: 12,
+      fontWeight: 400,
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+    },
+  },
 }));
 
 function LinearListCV(props) {
@@ -108,7 +130,7 @@ function LinearListCV(props) {
         {cv.list.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div key={index} className={classes.contentItem}>
-            <Typography variant="h3">{item.title}</Typography>
+            {item.title && <Typography variant="h3">{item.title}</Typography>}
             {item.txtGreen && (
               <div className={classes.smallGreen}>{item.txtGreen}</div>
             )}
@@ -119,6 +141,12 @@ function LinearListCV(props) {
               <div className={classes.smallBold}>{item.txtSmallBold}</div>
             )}
             {item.description && <Typography>{item.description}</Typography>}
+            {item.textDescribe && (
+              <div className={classes.textDescribe}>
+                <div>{item.textDescribe.text}</div>
+                <div>{item.textDescribe.describe}</div>
+              </div>
+            )}
           </div>
         ))}
       </div>
