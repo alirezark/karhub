@@ -4,6 +4,8 @@ import {
   AboutMe,
   WorkExperience,
   EducationExperience,
+  CourseExperience,
+  Skills,
 } from 'app/containers/cv';
 
 const styles = makeStyles(() => ({
@@ -28,7 +30,13 @@ function CVPreview() {
           <Grid item md={6}>
             <EducationExperience editable />
           </Grid>
+          <Grid item md={6}>
+            <CourseExperience editable />
+          </Grid>
         </Grid>
+      </div>
+      <div className={classes.cvBox}>
+        <Skills editable />
       </div>
     </div>
   );

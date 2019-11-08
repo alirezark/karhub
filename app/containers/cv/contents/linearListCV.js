@@ -73,12 +73,13 @@ const styles = makeStyles(theme => ({
   },
   small: {
     fontSize: 12,
+    fontWeight: 300,
     color: '#888',
   },
   smallBold: {
     fontSize: 12,
-    color: '#888',
-    fontWeight: 800,
+    color: '#444',
+    fontWeight: 500,
   },
 }));
 
