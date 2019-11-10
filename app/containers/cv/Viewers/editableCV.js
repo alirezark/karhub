@@ -8,6 +8,7 @@ import {
   Skills,
   Awards,
   Exams,
+  Languages,
 } from 'app/containers/cv/widgets';
 
 const styles = makeStyles(() => ({
@@ -47,6 +48,13 @@ function EditableCV() {
           </Grid>
           <Grid item md={6}>
             <Exams editable />
+          </Grid>
+        </Grid>
+      </div>
+      <div className={classes.cvBox}>
+        <Grid container spacing={4}>
+          <Grid item md={6}>
+            <Languages editable />
           </Grid>
         </Grid>
       </div>

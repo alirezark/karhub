@@ -2,41 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles, Typography, Grid } from '@material-ui/core';
 import { MButton } from 'mui/index';
+import PureWidget from '../contents/pureWidget';
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles(() => ({
   root: {
-    display: 'flex',
-  },
-  iconContain: {
-    flexBasis: 40,
-    flexShrink: 0,
-    flexGrow: 0,
-    paddingTop: 5,
-    '& i:before': {
-      fontSize: 22,
-    },
-  },
-  content: {
-    flexGrow: 1,
-    marginBottom: 32,
-    '& h3': {
-      color: theme.palette.primary.main,
-      fontSize: 14,
-    },
-  },
-  titleRow: {
-    display: 'flex',
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  btnEdit: {
-    fontSize: 12,
-    color: '#aaa',
-    marginLeft: 10,
-    '& i:before': {
-      fontSize: 14,
-      marginRight: 5,
-    },
+    marginTop: 0,
+    marginBottom: 0,
   },
   progressContain: {
     display: 'flex',
@@ -79,99 +50,82 @@ function Skills(props) {
   const { editable } = props;
 
   return (
-    <div className={classes.root}>
-      <div className={classes.iconContain}>
-        <i className="flaticon-lamp" />
-      </div>
-      <div className={classes.content}>
-        <div className={classes.titleRow}>
+    <PureWidget title="مهارت ها" icon="flaticon-lamp" editable={editable}>
+      <Grid container spacing={8} className={classes.root}>
+        <Grid item md={4} className={classes.progressContain}>
           <div>
-            <Typography variant="h3">مهارت ها:</Typography>
+            <div className={classes.progress}>
+              <span>100%</span>
+            </div>
           </div>
-          <div>
-            {editable && (
-              <MButton className={classes.btnEdit}>
-                <i className="flaticon-draw" /> ویرایش
-              </MButton>
-            )}
-          </div>
-        </div>
-        <Grid container spacing={8}>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>PHP</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '80%' }}>
-                <span>80%</span>
-              </div>
-            </div>
-            <div>Coffee Script</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>VueJS</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '40%' }}>
-                <span>40%</span>
-              </div>
-            </div>
-            <div>Angular</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>React</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>Database</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>مدیریت انسانی</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div>Database</div>
-          </Grid>
-          <Grid item md={4} className={classes.progressContain}>
-            <div>
-              <div className={classes.progress} style={{ width: '100%' }}>
-                <span>100%</span>
-              </div>
-            </div>
-            <div title="Material UI Designs">Material UI Designs</div>
-          </Grid>
+          <div>PHP</div>
         </Grid>
-      </div>
-    </div>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '80%' }}>
+              <span>80%</span>
+            </div>
+          </div>
+          <div>Coffee Script</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div>VueJS</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '40%' }}>
+              <span>40%</span>
+            </div>
+          </div>
+          <div>Angular</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div>React</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div>Database</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div>مدیریت انسانی</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div>Database</div>
+        </Grid>
+        <Grid item md={4} className={classes.progressContain}>
+          <div>
+            <div className={classes.progress} style={{ width: '100%' }}>
+              <span>100%</span>
+            </div>
+          </div>
+          <div title="Material UI Designs">Material UI Designs</div>
+        </Grid>
+      </Grid>
+    </PureWidget>
   );
 }
 

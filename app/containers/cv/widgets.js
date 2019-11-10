@@ -5,6 +5,7 @@ import CourseExperience from './CourseExperience';
 import Skills from './Skills';
 import Awards from './Awards';
 import Exams from './Exams';
+import Languages from './Languages';
 
 export {
   AboutMe,
@@ -14,4 +15,5 @@ export {
   Skills,
   Awards,
   Exams,
+  Languages,
 };
