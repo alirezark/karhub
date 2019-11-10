@@ -1,8 +1,8 @@
 import React from 'react';
 import { MContainer } from 'mui/index';
+import { EditableCV } from 'app/containers/cv';
 import styles from './final.style';
 import Overview from './contents/overview';
-import CVPreview from './contents/cvPreview';
 import Footer from './contents/footer';
 
 function Final() {
@@ -14,7 +14,7 @@ function Final() {
         <Overview />
       </div>
       <div className={classes.panel}>
-        <CVPreview />
+        <EditableCV />
       </div>
       <div className={classes.panel}>
         <Footer />

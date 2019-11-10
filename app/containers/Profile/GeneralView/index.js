@@ -10,6 +10,7 @@ import styles from './style';
 import SentCV from '../Favorites/sentCV';
 import EmployerRequests from './employerRequests';
 import Tests from './tests';
+import { EditableCV } from 'app/containers/cv';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -82,7 +83,7 @@ function GeneralView(props) {
                 <MTab label="آزمون ها" value={4} />
               </MTabs>
               <TabPanel value={tab} index={1} className={classes.tabContent}>
-                Profile
+                <EditableCV />
               </TabPanel>
               <TabPanel value={tab} index={2} className={classes.tabContent}>
                 <SentCV CVs={sentCVs} />
