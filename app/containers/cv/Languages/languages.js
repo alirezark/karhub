@@ -5,7 +5,7 @@ import PureWidget from '../contents/pureWidget';
 
 const styles = makeStyles(() => ({
   item: {
-    padding: 5,
+    fontSize: 12,
     '& span': {
       margin: '0 5px',
       width: 72,
@@ -14,7 +14,6 @@ const styles = makeStyles(() => ({
       background: '#fcba4c',
       display: 'inline-block',
       borderRadius: 10,
-      fontSize: 12,
     },
   },
 }));
@@ -24,7 +23,7 @@ function Languages(props) {
   const { editable } = props;
 
   return (
-    <PureWidget title="زبان" icon="flaticon-language" editable={editable}>
+    <PureWidget title="زبان" icon="flaticon-translation" editable={editable}>
       <Grid container spacing={4}>
         <Grid item md={6}>
           <div className={classes.item}>
