@@ -13,6 +13,9 @@ const styles = makeStyles(() => ({
     fontSize: 14,
     padding: '20px 15px 20px 40px',
     marginBottom: 40,
+    '&:last-child': {
+      marginBottom: 0,
+    },
   },
 }));
 

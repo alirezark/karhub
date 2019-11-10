@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 07/11/2019 09:37
+  	Creation date: 10/11/2019 14:49
   	*/
 
 @font-face {
@@ -55,3 +55,6 @@ font-style: normal;
 .flaticon-certified-cv:before { content: "\f117"; }
 .flaticon-draw:before { content: "\f118"; }
 .flaticon-lamp:before { content: "\f119"; }
+.flaticon-video-player:before { content: "\f11a"; }
+.flaticon-microphone:before { content: "\f11b"; }
+.flaticon-left-arrow-2:before { content: "\f11c"; }
