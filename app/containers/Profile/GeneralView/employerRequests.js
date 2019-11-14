@@ -49,6 +49,7 @@ const styles = makeStyles(() => ({
   btnBlue: {
     float: 'right',
     backgroundColor: '#6682C3',
+    color: 'white',
     width: 180,
     height: 48,
   },
