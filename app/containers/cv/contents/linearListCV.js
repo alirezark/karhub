@@ -8,10 +8,13 @@ const styles = makeStyles(theme => ({
     display: 'flex',
   },
   iconContain: {
-    flexBasis: 40,
+    flexBasis: props => (props.larger ? 45 : 40),
     flexShrink: 0,
     flexGrow: 0,
     paddingTop: 5,
+    '& i:before': {
+      fontSize: props => (props.larger ? 28 : 20),
+    },
   },
   content: {
     flexGrow: 1,
@@ -21,7 +24,8 @@ const styles = makeStyles(theme => ({
     alignItems: 'center',
     '& h3': {
       color: theme.palette.primary.main,
-      fontSize: 14,
+      fontSize: props => (props.larger ? 18 : 14),
+      lineHeight: props => (props.larger ? '44px' : '33px'),
     },
   },
   btnEdit: {
@@ -37,7 +41,7 @@ const styles = makeStyles(theme => ({
     lineHeight: '24px',
     position: 'relative',
     '& h3': {
-      fontSize: 14,
+      fontSize: props => (props.larger ? 16 : 14),
       margin: '15px 0 10px',
     },
     '& p': {
@@ -85,7 +89,7 @@ const styles = makeStyles(theme => ({
     display: 'flex',
     margin: '15px 0 5px',
     '& div:first-child': {
-      flexBasis: 150,
+      flexBasis: props => (props.larger ? 180 : 150),
       flexShrink: 0,
       flexGrow: 0,
     },
@@ -93,10 +97,10 @@ const styles = makeStyles(theme => ({
       flexGrow: 1,
       padding: '0 10px',
       color: theme.palette.primary.main,
-      fontSize: 10,
+      fontSize: props => (props.larger ? 12 : 10),
     },
     '& div': {
-      fontSize: 12,
+      fontSize: props => (props.larger ? 14 : 12),
       fontWeight: 400,
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
@@ -106,8 +110,8 @@ const styles = makeStyles(theme => ({
 }));
 
 function LinearListCV(props) {
-  const classes = styles();
-  const { editable, icon, cv } = props;
+  const { editable, icon, cv, larger } = props;
+  const classes = styles({ larger });
 
   return (
     <div className={classes.root}>
@@ -158,6 +162,7 @@ LinearListCV.propTypes = {
   editable: PropTypes.bool,
   icon: PropTypes.string.isRequired,
   cv: PropTypes.object.isRequired,
+  larger: PropTypes.bool,
 };
 
 export default LinearListCV;

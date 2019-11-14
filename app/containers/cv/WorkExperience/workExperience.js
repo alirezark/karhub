@@ -26,15 +26,21 @@ const experiences = {
 };
 
 function WorkExperience(props) {
-  const { editable } = props;
+  const { editable, larger = false } = props;
 
   return (
-    <LinearListCV icon="flaticon-cv" cv={experiences} editable={editable} />
+    <LinearListCV
+      icon="flaticon-cv"
+      cv={experiences}
+      editable={editable}
+      larger={larger}
+    />
   );
 }
 
 WorkExperience.propTypes = {
   editable: PropTypes.bool,
+  larger: PropTypes.bool,
 };
 
 export default WorkExperience;

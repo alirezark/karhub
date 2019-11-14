@@ -40,6 +40,7 @@ const styles = makeStyles(theme => ({
       lineHeight: '32px',
       width: 180,
       margin: 0,
+      color: 'white',
     },
   },
   btnShowMore: {

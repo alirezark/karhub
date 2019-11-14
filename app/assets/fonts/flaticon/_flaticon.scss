@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 10/11/2019 14:49
+    Creation date: 12/11/2019 14:47
     */
 
     @font-face {
@@ -66,6 +66,7 @@
 .flaticon-video-player:before { content: "\f11a"; }
 .flaticon-microphone:before { content: "\f11b"; }
 .flaticon-left-arrow-2:before { content: "\f11c"; }
+.flaticon-folder:before { content: "\f11d"; }
     
     $font-Flaticon-share: "\f100";
     $font-Flaticon-download: "\f101";
@@ -96,3 +97,4 @@
     $font-Flaticon-video-player: "\f11a";
     $font-Flaticon-microphone: "\f11b";
     $font-Flaticon-left-arrow-2: "\f11c";
+    $font-Flaticon-folder: "\f11d";

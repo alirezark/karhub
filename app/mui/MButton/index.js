@@ -52,7 +52,6 @@ const styles = makeStyles(theme => ({
 const MButton = withStyles(() => ({
   root: {
     borderRadius: 50,
-    color: '#444',
     boxShadow: 'none',
   },
 }))(props => {

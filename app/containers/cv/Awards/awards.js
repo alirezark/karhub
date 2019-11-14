@@ -19,15 +19,21 @@ const awards = {
 };
 // TODO:Award's fonts in design is smaller than this
 function Awards(props) {
-  const { editable } = props;
+  const { editable, larger } = props;
 
   return (
-    <LinearListCV icon="flaticon-university" cv={awards} editable={editable} />
+    <LinearListCV
+      icon="flaticon-university"
+      cv={awards}
+      editable={editable}
+      larger={larger}
+    />
   );
 }
 
 Awards.propTypes = {
   editable: PropTypes.bool,
+  larger: PropTypes.bool,
 };
 
 export default Awards;

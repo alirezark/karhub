@@ -5,17 +5,22 @@ import PureWidget from '../contents/pureWidget';
 
 const styles = makeStyles(() => ({
   text: {
-    fontSize: 14,
-    lineHeight: '24px',
+    fontSize: props => (props.larger ? 16 : 14),
+    lineHeight: props => (props.larger ? '30px' : '24px'),
   },
 }));
 
 function AboutMe(props) {
-  const classes = styles();
-  const { editable } = props;
+  const { editable, larger = false } = props;
+  const classes = styles({ larger });
 
   return (
-    <PureWidget title="درباره من" icon="flaticon-contact" editable={editable}>
+    <PureWidget
+      title="درباره من"
+      icon="flaticon-contact"
+      editable={editable}
+      larger={larger}
+    >
       <Typography className={classes.text}>
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
         از طراحان گرافیک است چاپگرها و متون بلکه روزنامه مجله در ستون و سطر
@@ -28,6 +33,7 @@ function AboutMe(props) {
 
 AboutMe.propTypes = {
   editable: PropTypes.bool,
+  larger: PropTypes.bool,
 };
 
 export default AboutMe;

@@ -19,19 +19,21 @@ const experiences = {
 };
 
 function CourseExperience(props) {
-  const { editable } = props;
+  const { editable, larger = false } = props;
 
   return (
     <LinearListCV
       icon="flaticon-certified-cv"
       cv={experiences}
       editable={editable}
+      larger={larger}
     />
   );
 }
 
 CourseExperience.propTypes = {
   editable: PropTypes.bool,
+  larger: PropTypes.bool,
 };
 
 export default CourseExperience;

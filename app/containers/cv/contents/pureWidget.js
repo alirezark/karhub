@@ -8,21 +8,23 @@ const styles = makeStyles(theme => ({
     display: 'flex',
   },
   iconContain: {
-    flexBasis: 40,
+    flexBasis: props => (props.larger ? 45 : 40),
     flexShrink: 0,
     flexGrow: 0,
     paddingTop: 5,
+    '& i:before': {
+      fontSize: props => (props.larger ? 28 : 20),
+    },
   },
   content: {
     flexGrow: 1,
     '& h3': {
       color: theme.palette.primary.main,
-      fontSize: 14,
+      fontSize: props => (props.larger ? 18 : 14),
+      lineHeight: props => (props.larger ? '40px' : '33px'),
     },
     '& p': {
-      fontSize: 14,
       marginTop: 5,
-      lineHeight: '24px',
     },
   },
   titleRow: {
@@ -44,8 +46,8 @@ const styles = makeStyles(theme => ({
 }));
 
 function PureWidget(props) {
-  const classes = styles();
-  const { editable, title, icon, children } = props;
+  const { editable, title, icon, children, larger } = props;
+  const classes = styles({ larger });
 
   return (
     <div className={classes.root}>
@@ -76,6 +78,7 @@ PureWidget.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   children: PropTypes.any,
+  larger: PropTypes.bool,
 };
 
 export default PureWidget;

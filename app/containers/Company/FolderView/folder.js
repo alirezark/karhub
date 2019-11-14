@@ -6,6 +6,7 @@ import avatar from 'app/assets/images/avatar.jpeg';
 import Search from './contents/search';
 import styles from './folder.style';
 import { FolderContext } from './folder.provider';
+import { MBtnLink } from 'mui/index';
 
 function Folder() {
   const { folder } = useContext(FolderContext);
@@ -93,7 +94,12 @@ function Folder() {
                     <MButton className={classes.btnDescription}>
                       توضیحات
                     </MButton>
-                    <MButton className={classes.btnView}>مشاهده</MButton>
+                    <MBtnLink
+                      to="/Company/Folder/CV"
+                      className={classes.btnView}
+                    >
+                      مشاهده
+                    </MBtnLink>
                   </div>
                 </div>
               ))}

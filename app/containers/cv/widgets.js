@@ -6,6 +6,7 @@ import Skills from './Skills';
 import Awards from './Awards';
 import Exams from './Exams';
 import Languages from './Languages';
+import QRLink from './QRLink';
 
 export {
   AboutMe,
@@ -16,4 +17,5 @@ export {
   Awards,
   Exams,
   Languages,
+  QRLink,
 };

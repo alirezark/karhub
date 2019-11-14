@@ -23,7 +23,7 @@ const styles = makeStyles(() => ({
       flexShrink: 0,
       flexGrow: 0,
       textAlign: 'right',
-      fontSize: 12,
+      fontSize: props => (props.larger ? 14 : 12),
       textOverflow: 'ellipsis',
       overflow: 'hidden',
       direction: 'rtl',
@@ -31,7 +31,7 @@ const styles = makeStyles(() => ({
   },
   progress: {
     position: 'relative',
-    height: 4,
+    height: props => (props.larger ? 6 : 4),
     width: '100%',
     borderRadius: 4,
     background:
@@ -39,20 +39,26 @@ const styles = makeStyles(() => ({
     '& span': {
       position: 'absolute',
       left: 1,
-      fontSize: 10,
-      top: -15,
+      fontSize: props => (props.larger ? 12 : 10),
+      top: props => (props.larger ? -18 : -15),
     },
   },
 }));
 
 function Skills(props) {
-  const classes = styles();
-  const { editable } = props;
+  const { editable, larger = false, col = 3 } = props;
+  const classes = styles({ larger });
+  const gridMD = 12 / col;
 
   return (
-    <PureWidget title="مهارت ها" icon="flaticon-lamp" editable={editable}>
+    <PureWidget
+      title="مهارت ها"
+      icon="flaticon-lamp"
+      editable={editable}
+      larger={larger}
+    >
       <Grid container spacing={8} className={classes.root}>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress}>
               <span>100%</span>
@@ -60,7 +66,7 @@ function Skills(props) {
           </div>
           <div>PHP</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '80%' }}>
               <span>80%</span>
@@ -68,7 +74,7 @@ function Skills(props) {
           </div>
           <div>Coffee Script</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -76,7 +82,7 @@ function Skills(props) {
           </div>
           <div>VueJS</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '40%' }}>
               <span>40%</span>
@@ -84,7 +90,7 @@ function Skills(props) {
           </div>
           <div>Angular</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -92,7 +98,7 @@ function Skills(props) {
           </div>
           <div>React</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -100,7 +106,7 @@ function Skills(props) {
           </div>
           <div>Database</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -108,7 +114,7 @@ function Skills(props) {
           </div>
           <div>مدیریت انسانی</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -116,7 +122,7 @@ function Skills(props) {
           </div>
           <div>Database</div>
         </Grid>
-        <Grid item md={4} className={classes.progressContain}>
+        <Grid item md={gridMD} className={classes.progressContain}>
           <div>
             <div className={classes.progress} style={{ width: '100%' }}>
               <span>100%</span>
@@ -131,6 +137,8 @@ function Skills(props) {
 
 Skills.propTypes = {
   editable: PropTypes.bool,
+  larger: PropTypes.bool,
+  col: PropTypes.number,
 };
 
 export default Skills;

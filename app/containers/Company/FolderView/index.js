@@ -10,7 +10,7 @@ const FolderWrapper = ({ match }) => (
 );
 
 FolderWrapper.propTypes = {
-  id: PropTypes.number.isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export { FolderWrapper as Folder };
