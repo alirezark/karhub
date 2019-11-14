@@ -7,10 +7,12 @@ import MContainer from 'mui/MContainer';
 import Filters from './contents/filters';
 import SearchResult from './contents/searchResult';
 import MoveDialog from './contents/moveDialog';
+import CVDialog from './contents/cvDialog';
 
 function SearchCV() {
   const { result, filters } = useContext(SearchCVContext);
   const [openMoveDialog, setOpenMoveDialog] = useState(false);
+  const [openCVDialog, setOpenCVDialog] = useState(true);
   const classes = styles();
 
   const handleOpenMoveDialog = () => {
@@ -21,6 +23,13 @@ function SearchCV() {
     setOpenMoveDialog(false);
   };
 
+  const handleOpenCVDialog = () => {
+    setOpenCVDialog(true);
+  };
+
+  const handleCloseCVDialog = () => {
+    setOpenCVDialog(false);
+  };
 
   return (
     <div>
@@ -31,11 +40,16 @@ function SearchCV() {
             <Filters filters={filters} />
           </Grid>
           <Grid item md={9}>
-            <SearchResult result={result} onMoveToFolder={handleOpenMoveDialog}/>
+            <SearchResult
+              result={result}
+              onMoveToFolder={handleOpenMoveDialog}
+              showCV={handleOpenCVDialog}
+            />
           </Grid>
         </Grid>
       </MContainer>
       <MoveDialog open={openMoveDialog} onClose={handleCloseMoveDialog} />
+      <CVDialog open={openCVDialog} onClose={handleCloseCVDialog} />
     </div>
   );
 }

@@ -82,7 +82,7 @@ const styles = makeStyles(theme => ({
 
 function SearchResult(props) {
   const classes = styles();
-  const { result, onMoveToFolder } = props;
+  const { result, onMoveToFolder, showCV } = props;
 
   // TODO: make request row as component
   return (
@@ -127,7 +127,9 @@ function SearchResult(props) {
             >
               انتقال به پوشه
             </MButton>
-            <MButton className={classes.btnView}>مشاهده</MButton>
+            <MButton className={classes.btnView} onClick={showCV}>
+              مشاهده
+            </MButton>
           </div>
         </div>
       ))}
@@ -138,6 +140,7 @@ function SearchResult(props) {
 SearchResult.propTypes = {
   result: PropTypes.array,
   onMoveToFolder: PropTypes.func.isRequired,
+  showCV: PropTypes.func.isRequired,
 };
 
 export default SearchResult;
