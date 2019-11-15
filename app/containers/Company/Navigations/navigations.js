@@ -11,6 +11,7 @@ const DEFAULT_NAV = {
   Advertisements_LOCATIONS: ['/Company/Advertisements'],
   FOLDERS_LOCATIONS: ['/Company/Folders', '/Company/Folder'],
   CREDIT_LOCATIONS: ['/Company/Credit'],
+  MANAGEMENT_LOCATIONS: ['/Company/Manage'],
 };
 
 function locationToNav(location) {
@@ -22,6 +23,8 @@ function locationToNav(location) {
     return '/Company/Folders';
   if (DEFAULT_NAV.CREDIT_LOCATIONS.indexOf(location) > -1)
     return '/Company/Credit';
+  if (DEFAULT_NAV.MANAGEMENT_LOCATIONS.indexOf(location) > -1)
+    return '/Company/Manage';
   return '';
 }
 
@@ -46,7 +49,7 @@ function Navigations(props) {
           <MTab label="داشبورد" value="/Company/Dashboard" />
           <MTab label="مدیریت آگهی" value="/Company/Advertisements" />
           <MTab label="آزمون" />
-          <MTab label="مدیریت شرکت" />
+          <MTab label="مدیریت شرکت" value="/Company/Manage" />
           <MTab label="اعتبار" value="/Company/Credit" />
           <MTab label="مدیریت پوشه ها" value="/Company/Folders" />
         </MTabs>

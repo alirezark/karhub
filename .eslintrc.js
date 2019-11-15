@@ -80,6 +80,7 @@ module.exports = {
     'require-yield': 0,
     'lodash/import-scope': [2, "member"],
     'lodash/prefer-lodash-method': 0,
+    'lodash/prefer-includes': 0,
   },
   settings: {
     'import/resolver': {

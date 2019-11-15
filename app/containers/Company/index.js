@@ -36,6 +36,7 @@ export function Company() {
         <Route exact path="/Company/Credit" component={Credit} />
         <Route exact path="/Company/Search_CV" component={SearchCV} />
         <Route exact path="/Company/Top" component={TopCompanies} />
+        <Route exact path="/Company/Manage" component={GeneralView} />
         <Route exact path="/Company/:id" component={GeneralView} />
       </Switch>
     </div>
