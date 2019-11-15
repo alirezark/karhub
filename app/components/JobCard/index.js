@@ -19,6 +19,7 @@ import icon3 from 'app/assets/images/icon-3.png';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
 import styles from './style';
+import { MButton } from 'mui/index';
 
 const selectIcon = icon => {
   if (icon === 1) return icon1;
@@ -35,6 +36,7 @@ function JobCard(props) {
     onDelete,
     showSentDetails,
     history,
+    showSendCV,
   } = props;
   const cardClasses = classNames(classes.card, className);
 
@@ -82,6 +84,14 @@ function JobCard(props) {
             <Typography>{job.state}</Typography>
           </div>
         )}
+        {showSendCV && (
+          <div className={classes.sendCVContain}>
+            <div>
+              <MButton btnBlue>ارسال رزومه</MButton>
+            </div>
+            <Typography>{job.state}</Typography>
+          </div>
+        )}
         {!hideNavigation && (
           <div className={classes.arrow} onClick={handleOpenJob}>
             <i className="i-arrow-left" />
@@ -95,6 +105,7 @@ function JobCard(props) {
 JobCard.propTypes = {
   job: PropTypes.object.isRequired,
   hideNavigation: PropTypes.bool,
+  showSendCV: PropTypes.bool,
   className: PropTypes.string,
   onDelete: PropTypes.func,
   showSentDetails: PropTypes.bool,

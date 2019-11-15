@@ -87,7 +87,7 @@ function TopInfo(props) {
   const classes = styles();
   const { company } = props;
   const { user } = useContext(UserContext);
-  console.log(user);
+
   return (
     <div className={classes.root}>
       <div className={classes.avatarContain}>

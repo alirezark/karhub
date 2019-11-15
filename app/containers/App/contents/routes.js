@@ -8,7 +8,7 @@ import Categories from 'app/containers/Categories/Loadable';
 import Profile from 'app/containers/Profile/Loadable';
 import Company from 'app/containers/Company/Loadable';
 import CVMaker from 'app/containers/CVMaker/Loadable';
-import SendSVDialog from 'app/containers/SendCvDialog/Loadable';
+import SendCVDialog from 'app/containers/SendCvDialog';
 import GlobalFooter from 'app/components/GlobalFooter';
 import { MainCV, MainCV2 } from 'app/containers/cv';
 
@@ -34,7 +34,7 @@ function CommonRoutes() {
         <Route path="/Company/*" component={Company} />
         <Route path="/CVMaker/*" component={CVMaker} />
       </Switch>
-      <Route exact path="/Jobs" component={SendSVDialog} />
+      <SendCVDialog />
       <GlobalFooter />
     </>
   );

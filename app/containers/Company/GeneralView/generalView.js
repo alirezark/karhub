@@ -7,6 +7,7 @@ import MContainer from 'mui/MContainer';
 import { MTab, MTabs } from 'mui/MTabs';
 import CompanyInfo from './contents/comanyInfo';
 import TopInfo from './contents/topInfo';
+import Job from '../Job';
 import Jobs from './contents/jobs';
 import styles from './generalView.style';
 import { GeneralViewContext } from './generalView.provider';
