@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import { makeStyles, Grid } from '@material-ui/core';
 import PureWidget from '../contents/pureWidget';
 
+const SIZES = {
+  ITEM_FONT_SIZE: [12, 12, 14],
+  ITEM_LINE_HEIGHT: ['20px', '20px', '26px'],
+};
+
 const styles = makeStyles(() => ({
   item: {
-    fontSize: props => (props.larger ? 14 : 12),
+    fontSize: props => SIZES.ITEM_FONT_SIZE[props.size],
     '& span': {
       margin: '0 5px',
       width: 72,
-      lineHeight: props => (props.larger ? '26px' : '20px'),
+      lineHeight: props => SIZES.ITEM_LINE_HEIGHT[props.size],
       textAlign: 'center',
       color: '#444',
       background: '#fcba4c',
@@ -20,8 +25,8 @@ const styles = makeStyles(() => ({
 }));
 
 function Languages(props) {
-  const { editable, larger = false, col = 2 } = props;
-  const classes = styles({ larger });
+  const { editable, size = 1, col = 2 } = props;
+  const classes = styles({ size });
   const gridMD = 12 / col;
 
   return (
@@ -29,7 +34,7 @@ function Languages(props) {
       title="زبان"
       icon="flaticon-translation"
       editable={editable}
-      larger={larger}
+      size={size}
     >
       <Grid container spacing={4}>
         <Grid item md={gridMD}>
@@ -49,7 +54,7 @@ function Languages(props) {
 
 Languages.propTypes = {
   editable: PropTypes.bool,
-  larger: PropTypes.bool,
+  size: PropTypes.number,
   col: PropTypes.number,
 };
 

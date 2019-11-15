@@ -8,27 +8,16 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 import SharedContextProvider from 'app/components/SharedContext';
 import UserProvider from 'app/containers/GlobalHeader/UserProvider';
-import GlobalHeader from 'containers/GlobalHeader';
-import GlobalFooter from 'components/GlobalFooter';
-import HomePage from 'containers/HomePage/Loadable';
-import Jobs from 'containers/Jobs/Loadable';
-import Categories from 'containers/Categories/Loadable';
-import SendSVDialog from 'containers/SendCvDialog/Loadable';
-import Profile from 'containers/Profile/Loadable';
-import Company from 'containers/Company/Loadable';
-import CVMaker from 'containers/CVMaker/Loadable';
-
-import ScrollToTop from 'components/ScrollPageTop';
 import '../../assets/style.scss';
 
 import { StyleSheetManager } from 'styled-components';
 import stylisRTLPlugin from 'stylis-rtl';
+import Routes from './contents/routes';
 import Rtl from '../../components/Rtl';
 
 const theme = createMuiTheme({
@@ -83,18 +72,7 @@ export default function App() {
         <StyleSheetManager stylisPlugins={[stylisRTLPlugin]}>
           <SharedContextProvider>
             <UserProvider>
-              <GlobalHeader />
-              <ScrollToTop />
-              <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route exact path="/Jobs" component={Jobs} />
-                <Route exact path="/Categories" component={Categories} />
-                <Route exact path="/Profile" component={Profile} />
-                <Route path="/Company/*" component={Company} />
-                <Route path="/CVMaker/*" component={CVMaker} />
-              </Switch>
-              <Route exact path="/Jobs" component={SendSVDialog} />
-              <GlobalFooter />
+              <Routes />
             </UserProvider>
           </SharedContextProvider>
         </StyleSheetManager>

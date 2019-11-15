@@ -3,17 +3,31 @@ import PropTypes from 'prop-types';
 import { makeStyles, Typography } from '@material-ui/core';
 import { MButton } from 'mui/index';
 
+const SIZES = {
+  MAIN_ICON_CONTAIN: [40, 40, 45],
+  MAIN_ICON_SIZE: [20, 20, 28],
+  HEAD_SIZE: [14, 14, 18],
+  HEAD_LINE_HEIGHT: ['30px', '33px', '44px'],
+  CONTENT_HEAD_SIZE: [12, 14, 16],
+  CONTENT_P_SIZE: [12, 14, 14],
+  SMALL_GREEN_FONT_SIZE: [10, 12, 12],
+  SMALL_FONT_SIZE: [10, 12, 12],
+  TEXT_DESCRIBE_WIDTH: [150, 150, 180],
+  TEXT_DESCRIBE_HEAD_FONT: [12, 12, 14],
+  TEXT_DESCRIBE_CONTENT_FONT: [10, 10, 12],
+};
+
 const styles = makeStyles(theme => ({
   root: {
     display: 'flex',
   },
   iconContain: {
-    flexBasis: props => (props.larger ? 45 : 40),
+    flexBasis: props => SIZES.MAIN_ICON_CONTAIN[props.size],
     flexShrink: 0,
     flexGrow: 0,
     paddingTop: 5,
     '& i:before': {
-      fontSize: props => (props.larger ? 28 : 20),
+      fontSize: props => SIZES.MAIN_ICON_SIZE[props.size],
     },
   },
   content: {
@@ -24,8 +38,8 @@ const styles = makeStyles(theme => ({
     alignItems: 'center',
     '& h3': {
       color: theme.palette.primary.main,
-      fontSize: props => (props.larger ? 18 : 14),
-      lineHeight: props => (props.larger ? '44px' : '33px'),
+      fontSize: props => SIZES.HEAD_SIZE[props.size],
+      lineHeight: props => SIZES.HEAD_LINE_HEIGHT[props.size],
     },
   },
   btnEdit: {
@@ -40,13 +54,13 @@ const styles = makeStyles(theme => ({
   contentItem: {
     lineHeight: '24px',
     position: 'relative',
+    paddingBottom: 10,
     '& h3': {
-      fontSize: props => (props.larger ? 16 : 14),
+      fontSize: props => SIZES.CONTENT_HEAD_SIZE[props.size],
       margin: '15px 0 10px',
     },
     '& p': {
-      fontSize: 14,
-      marginTop: 5,
+      fontSize: props => SIZES.CONTENT_P_SIZE[props.size],
       lineHeight: '24px',
     },
     '&:before': {
@@ -54,13 +68,13 @@ const styles = makeStyles(theme => ({
       position: 'absolute',
       left: -28,
       bottom: -6,
-      top: -10,
+      top: 4,
       borderLeft: '1px solid #97c0ba',
     },
     '&:after': {
       content: '" "',
       position: 'absolute',
-      top: 9,
+      top: 23,
       left: -28,
       width: 20,
       borderTop: '1px solid #97c0ba',
@@ -71,13 +85,23 @@ const styles = makeStyles(theme => ({
     },
   },
   smallGreen: {
-    margin: '5px 0',
+    marginBottom: 5,
     color: theme.palette.primary.main,
-    fontSize: 12,
+    fontSize: props => SIZES.SMALL_GREEN_FONT_SIZE[props.size],
+  },
+  smallGreen2: {
+    color: theme.palette.primary.main,
+    marginBottom: 5,
+    fontSize: 10,
   },
   small: {
-    fontSize: 12,
+    fontSize: props => SIZES.SMALL_FONT_SIZE[props.size],
     fontWeight: 300,
+    color: '#888',
+  },
+  smallLeft: {
+    fontSize: 10,
+    fontWeight: 500,
     color: '#888',
   },
   smallBold: {
@@ -87,9 +111,9 @@ const styles = makeStyles(theme => ({
   },
   textDescribe: {
     display: 'flex',
-    margin: '15px 0 5px',
+    padding: '10px 0 5px',
     '& div:first-child': {
-      flexBasis: props => (props.larger ? 180 : 150),
+      flexBasis: props => SIZES.TEXT_DESCRIBE_WIDTH[props.size],
       flexShrink: 0,
       flexGrow: 0,
     },
@@ -97,21 +121,28 @@ const styles = makeStyles(theme => ({
       flexGrow: 1,
       padding: '0 10px',
       color: theme.palette.primary.main,
-      fontSize: props => (props.larger ? 12 : 10),
+      fontSize: props => SIZES.TEXT_DESCRIBE_CONTENT_FONT[props.size],
     },
     '& div': {
-      fontSize: props => (props.larger ? 14 : 12),
+      fontSize: props => SIZES.TEXT_DESCRIBE_HEAD_FONT[props.size],
       fontWeight: 400,
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
       overflow: 'hidden',
     },
   },
+  flexRow: {
+    display: 'flex',
+    alignItems: 'center',
+    '&>div:first-child': {
+      flexGrow: 1,
+    },
+  },
 }));
 
 function LinearListCV(props) {
-  const { editable, icon, cv, larger } = props;
-  const classes = styles({ larger });
+  const { editable, icon, cv, leftDescribe = false, size = 1 } = props;
+  const classes = styles({ size });
 
   return (
     <div className={classes.root}>
@@ -132,16 +163,31 @@ function LinearListCV(props) {
           </div>
         </div>
         {cv.list.map((item, index) => (
-          // eslint-disable-next-line react/no-array-index-key
           <div key={index} className={classes.contentItem}>
-            {item.title && <Typography variant="h3">{item.title}</Typography>}
+            {item.title && (
+              <div className={classes.flexRow}>
+                <div>
+                  <Typography variant="h3">{item.title}</Typography>
+                </div>
+                <div>
+                  {leftDescribe && (
+                    <div className={classes.smallLeft}>{item.txtSmallBold}</div>
+                  )}
+                </div>
+              </div>
+            )}
             {item.txtGreen && (
-              <div className={classes.smallGreen}>{item.txtGreen}</div>
+              <div className={classes.flexRow}>
+                <div className={classes.smallGreen}>{item.txtGreen}</div>
+                {leftDescribe && (
+                  <div className={classes.smallGreen2}>{item.txtGreen2}</div>
+                )}
+              </div>
             )}
             {item.txtSmall && (
               <div className={classes.small}>{item.txtSmall}</div>
             )}
-            {item.txtSmallBold && (
+            {item.txtSmallBold && !leftDescribe && (
               <div className={classes.smallBold}>{item.txtSmallBold}</div>
             )}
             {item.description && <Typography>{item.description}</Typography>}
@@ -162,7 +208,8 @@ LinearListCV.propTypes = {
   editable: PropTypes.bool,
   icon: PropTypes.string.isRequired,
   cv: PropTypes.object.isRequired,
-  larger: PropTypes.bool,
+  leftDescribe: PropTypes.bool,
+  size: PropTypes.number,
 };
 
 export default LinearListCV;

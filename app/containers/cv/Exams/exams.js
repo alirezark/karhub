@@ -27,21 +27,21 @@ const exams = {
 };
 
 function Exams(props) {
-  const { editable, larger } = props;
+  const { editable, size = 1 } = props;
 
   return (
     <LinearListCV
       icon="flaticon-certified-cv"
       cv={exams}
       editable={editable}
-      larger={larger}
+      size={size}
     />
   );
 }
 
 Exams.propTypes = {
   editable: PropTypes.bool,
-  larger: PropTypes.bool,
+  size: PropTypes.number,
 };
 
 export default Exams;

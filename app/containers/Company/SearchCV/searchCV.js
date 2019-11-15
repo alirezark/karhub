@@ -12,7 +12,7 @@ import CVDialog from './contents/cvDialog';
 function SearchCV() {
   const { result, filters } = useContext(SearchCVContext);
   const [openMoveDialog, setOpenMoveDialog] = useState(false);
-  const [openCVDialog, setOpenCVDialog] = useState(true);
+  const [openCVDialog, setOpenCVDialog] = useState(false);
   const classes = styles();
 
   const handleOpenMoveDialog = () => {

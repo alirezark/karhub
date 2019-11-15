@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, makeStyles } from '@material-ui/core';
 import {
   AboutMe,
@@ -19,24 +20,25 @@ const styles = makeStyles(() => ({
   },
 }));
 
-function InlineCV() {
+function InlineCV(props) {
   const classes = styles();
+  const { hidePersonals = false } = props;
 
   return (
     <div>
-      <CVPersonalsHorizontal />
+      {!hidePersonals && <CVPersonalsHorizontal />}
       <div className={classes.cvBox}>
-        <AboutMe larger />
+        <AboutMe size={2} />
       </div>
       <div className={classes.cvBox}>
         <Grid container spacing={4}>
           <Grid item md={6}>
-            <WorkExperience larger />
-            <CourseExperience larger />
+            <WorkExperience size={2} />
+            <CourseExperience size={2} />
           </Grid>
           <Grid item md={6}>
-            <EducationExperience larger />
-            <Skills col={1} larger />
+            <EducationExperience size={2} />
+            <Skills col={1} size={1} />
           </Grid>
         </Grid>
       </div>
@@ -44,7 +46,7 @@ function InlineCV() {
       <div className={classes.cvBox}>
         <Grid container spacing={4}>
           <Grid item md={8}>
-            <Exams larger />
+            <Exams size={2} />
           </Grid>
           <Grid item md={4}>
             <QRLink />
@@ -55,15 +57,19 @@ function InlineCV() {
       <div className={classes.cvBox}>
         <Grid container spacing={4}>
           <Grid item md={6}>
-            <Awards larger />
+            <Awards size={2} />
           </Grid>
           <Grid item md={6}>
-            <Languages larger col={1} />
+            <Languages size={1} col={1} />
           </Grid>
         </Grid>
       </div>
     </div>
   );
 }
+
+InlineCV.propTypes = {
+  hidePersonals: PropTypes.bool,
+};
 
 export default InlineCV;
