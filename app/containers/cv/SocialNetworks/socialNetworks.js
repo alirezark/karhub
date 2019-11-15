@@ -3,14 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
-  Grid,
   List,
   ListItem,
   ListItemIcon,
-  ListItemSecondaryAction,
   ListItemText,
   makeStyles,
-  Typography,
 } from '@material-ui/core';
 import PureWidget from '../contents/pureWidget';
 
@@ -51,8 +48,13 @@ function SocialNetworks(props) {
     editable,
     larger = false,
     fullWidthContent = true,
+    className,
   } = props;
   const classes = styles();
+
+  const customClass = classNames(classes.widget, {
+    [className]: className !== undefined,
+  });
 
   return (
     <PureWidget
@@ -60,7 +62,7 @@ function SocialNetworks(props) {
       icon="flaticon-contact"
       editable={editable}
       larger={larger}
-      className={classes.widget}
+      className={customClass}
       fullWidthContent={fullWidthContent}
     >
       <List className={classes.introInfoList}>
@@ -91,6 +93,7 @@ SocialNetworks.propTypes = {
   editable: PropTypes.bool,
   larger: PropTypes.bool,
   fullWidthContent: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default SocialNetworks;

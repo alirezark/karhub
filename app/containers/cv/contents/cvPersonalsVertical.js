@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import {
   makeStyles,
   Typography,
@@ -37,7 +39,7 @@ const styles = makeStyles(theme => ({
     },
     '&:after': {
       right: -11,
-      bottom: -14,
+      bottom: -11,
       background: '#f6b54f',
     },
     '&>div:first-child': {
@@ -45,6 +47,28 @@ const styles = makeStyles(theme => ({
       bottom: -10,
       background: '#7bc8c0',
       zIndex: 1,
+      display: props => (props.theme === 'grey' ? 'block' : 'none'),
+    },
+  },
+  avatarContain2: {
+    width: 95,
+    height: 95,
+    margin: '45px auto 20px',
+    '&:before, &:after': {
+      width: 125,
+      height: 125,
+      borderRadius: 100,
+    },
+    '&:before': {
+      top: -32,
+      left: -50,
+      zIndex: 2,
+    },
+    '&:after': {
+      right: -100,
+      bottom: 20,
+      width: 200,
+      height: 200,
     },
   },
   avatar: {
@@ -52,8 +76,8 @@ const styles = makeStyles(theme => ({
     zIndex: 2,
     right: 0,
     margin: 0,
-    width: 85,
-    height: 85,
+    width: props => (props.theme === 'grey' ? 85 : 95),
+    height: props => (props.theme === 'grey' ? 85 : 95),
     padding: 2,
     boxShadow: '0 0 7px 0 rgba(178,178,178,0.75)',
     border: 'none',
@@ -71,7 +95,8 @@ const styles = makeStyles(theme => ({
   },
   btnLink: {
     '&&': {
-      color: theme.palette.primary.main,
+      color: props =>
+        props.theme === 'grey' ? theme.palette.primary.main : '#333',
       padding: '2px 10px',
       fontSize: 10,
       lineHeight: '24px',
@@ -115,6 +140,12 @@ const styles = makeStyles(theme => ({
     '& .icon-contain': {
       flexBasis: 30,
     },
+    '& .title': {
+      '& h3': {
+        color: props =>
+          props.theme === 'grey' ? theme.palette.primary.main : '#333',
+      },
+    },
     '& .content': {
       '& p': {
         fontSize: 11,
@@ -128,7 +159,8 @@ const styles = makeStyles(theme => ({
     },
     '& .MuiTypography-root': {
       fontSize: 12,
-      color: theme.palette.primary.main,
+      color: props =>
+        props.theme === 'grey' ? theme.palette.primary.main : '#333',
     },
     '& .MuiListItemSecondaryAction-root i:before': {
       fontSize: 16,
@@ -137,15 +169,26 @@ const styles = makeStyles(theme => ({
       paddingLeft: 0,
     },
   },
+  socials: {
+    '& .title': {
+      '& h3': {
+        color: props =>
+          props.theme === 'grey' ? theme.palette.primary.main : '#333',
+      },
+    },
+  },
 }));
 
-function CVPersonalsVertical() {
-  const classes = styles();
-
+function CVPersonalsVertical(props) {
+  const { theme = 'gray' } = props;
+  const classes = styles({ theme });
+  const avatarContainClasses = classNames(classes.avatarContain, {
+    [classes.avatarContain2]: theme === 'green',
+  });
   return (
     <div className={classes.root}>
       <div>
-        <div className={classes.avatarContain}>
+        <div className={avatarContainClasses}>
           <div />
           <MAvatar className={classes.avatar} src={imgAvatar} />
         </div>
@@ -215,10 +258,14 @@ function CVPersonalsVertical() {
       </div>
       <div>
         <div className={classes.divider} />
-        <SocialNetworks />
+        <SocialNetworks className={classes.socials} />
       </div>
     </div>
   );
 }
+
+CVPersonalsVertical.propTypes = {
+  theme: PropTypes.string,
+};
 
 export default CVPersonalsVertical;

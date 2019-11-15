@@ -10,12 +10,13 @@ import Company from 'app/containers/Company/Loadable';
 import CVMaker from 'app/containers/CVMaker/Loadable';
 import SendSVDialog from 'app/containers/SendCvDialog/Loadable';
 import GlobalFooter from 'app/components/GlobalFooter';
-import MainCV from 'app/containers/cv';
+import { MainCV, MainCV2 } from 'app/containers/cv';
 
 function CVRoutes() {
   return (
     <Switch>
       <Route exact path="/CV/t1/*" component={MainCV} />
+      <Route exact path="/CV/t2/*" component={MainCV2} />
     </Switch>
   );
 }

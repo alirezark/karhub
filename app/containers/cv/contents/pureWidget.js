@@ -78,7 +78,7 @@ function PureWidget(props) {
         <div className={classNames(classes.iconContain, 'icon-contain')}>
           <i className={icon} />
         </div>
-        <div className={classes.title}>
+        <div className={classNames(classes.title, 'title')}>
           <div>
             <Typography variant="h3">{title}:</Typography>
           </div>
