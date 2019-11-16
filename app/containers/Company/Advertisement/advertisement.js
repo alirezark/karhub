@@ -10,6 +10,7 @@ import {
   AdvertisementContext,
   AdvertisementFilter,
 } from './advertisement.provider';
+import { MBtnLink } from 'mui/index';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -65,7 +66,9 @@ function Advertisement() {
         />
         <div style={{ flexGrow: 1 }}></div>
         <div>
-          <MButton className={classes.btnAdd}>درج آگهی</MButton>
+          <MBtnLink to="/Company/AddAdvertisement" className={classes.btnAdd}>
+            درج آگهی
+          </MBtnLink>
         </div>
       </MTabs>
 

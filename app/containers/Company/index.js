@@ -18,6 +18,7 @@ import { Credit } from './Credit';
 import { SearchCV } from './SearchCV';
 import { TopCompanies } from './TopCompanies';
 import { FolderCV } from './FolderCV';
+import { AddAdvertisement } from './AddAdvetisement';
 
 export function Company() {
   return (
@@ -30,6 +31,11 @@ export function Company() {
       <Switch>
         <Route exact path="/Company/Dashboard" component={Dashboard} />
         <Route exact path="/Company/Advertisements" component={Advertisement} />
+        <Route
+          exact
+          path="/Company/AddAdvertisement"
+          component={AddAdvertisement}
+        />
         <Route exact path="/Company/Folders" component={Folders} />
         <Route exact path="/Company/Folder/CV" component={FolderCV} />
         <Route exact path="/Company/Folder/:id" component={Folder} />

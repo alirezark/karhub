@@ -51,6 +51,11 @@ const styles = makeStyles(theme => ({
     background: '#daf2e5',
     color: '#606060',
   },
+  primaryOutlined: {
+    color: theme.palette.primary.main,
+    border: '1px solid',
+    borderColor: theme.palette.primary.main,
+  },
 }));
 
 const MButton = withStyles(() => ({
@@ -70,6 +75,7 @@ const MButton = withStyles(() => ({
     linkGreen,
     children,
     className,
+    primaryOutlined,
     ...res
   } = props;
   const customClasses = styles();
@@ -82,6 +88,7 @@ const MButton = withStyles(() => ({
     [customClasses.btnCyan]: btnCyan,
     [customClasses.linkGreen]: linkGreen,
     [customClasses.lightGreen]: lightGreen,
+    [customClasses.primaryOutlined]: primaryOutlined,
     [className]: className !== undefined,
   });
 

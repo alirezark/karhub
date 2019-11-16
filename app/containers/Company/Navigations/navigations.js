@@ -8,7 +8,10 @@ import styles from './navigations.style';
 
 const DEFAULT_NAV = {
   DASHBOARD_LOCATIONS: ['/Company/Dashboard'],
-  Advertisements_LOCATIONS: ['/Company/Advertisements'],
+  ADVERTISEMENT_LOCATIONS: [
+    '/Company/Advertisements',
+    '/Company/AddAdvertisement',
+  ],
   FOLDERS_LOCATIONS: ['/Company/Folders', '/Company/Folder'],
   CREDIT_LOCATIONS: ['/Company/Credit'],
   MANAGEMENT_LOCATIONS: ['/Company/Manage'],
@@ -17,7 +20,7 @@ const DEFAULT_NAV = {
 function locationToNav(location) {
   if (DEFAULT_NAV.DASHBOARD_LOCATIONS.indexOf(location) > -1)
     return '/Company/Dashboard';
-  if (DEFAULT_NAV.Advertisements_LOCATIONS.indexOf(location) > -1)
+  if (DEFAULT_NAV.ADVERTISEMENT_LOCATIONS.indexOf(location) > -1)
     return '/Company/Advertisements';
   if (some(DEFAULT_NAV.FOLDERS_LOCATIONS, loc => location.indexOf(loc) > -1))
     return '/Company/Folders';

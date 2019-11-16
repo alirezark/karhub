@@ -19,6 +19,7 @@ const COMPANY_NAV = {
   HOME: [
     '/Company/Dashboard',
     '/Company/Advertisements',
+    '/Company/AddAdvertisement',
     '/Company/Folders',
     '/Company/Folder',
     '/Company/Credit',
