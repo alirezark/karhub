@@ -5,6 +5,7 @@ import { makeStyles, Typography, Grid, OutlinedInput, MenuItem } from '@material
 import MTextField from 'mui/MTextField';
 import { MButton } from 'mui/index';
 import MSelect from 'mui/MSelect';
+import PreviewDialog from './contents/previewDialog';
 
 const styles = makeStyles(() => ({
   head: {
@@ -107,6 +108,15 @@ function AddAdvertisement() {
     soldier: -1,
     gender: -1,
   });
+  const [openPreview, setOpenPreview] = useState(false);
+
+  const handleOpenPreview = () => {
+    setOpenPreview(true);
+  };
+
+  const handleClosePreview = () => {
+    setOpenPreview(false);
+  };
 
   function handleChange(event) {
     setValues(oldValues => ({
@@ -420,12 +430,19 @@ function AddAdvertisement() {
           </Grid>
         </Grid>
         <div className={classes.footer}>
-          <MButton className={classes.btnSubmit} primary>درج آگهی</MButton>
+          <MButton
+            className={classes.btnSubmit}
+            primary
+            onClick={handleOpenPreview}
+          >
+            درج آگهی
+          </MButton>
           <MButton className={classes.btnSubmit} primaryOutlined>
             ذخیره پیش نویس
           </MButton>
         </div>
       </div>
+      <PreviewDialog open={openPreview} onClose={handleClosePreview} />
     </MContainer>
   );
 }
