@@ -5,18 +5,27 @@ import MTextField from 'mui/MTextField';
 import { PersonOutlined } from '@material-ui/icons';
 import MSelect from 'mui/MSelect';
 import styles from './workExperience.style';
+import Preview from './contents/preview';
 
 function WorkExperience() {
   const [value, setValue] = useState(-1);
+  const [experiences, setExperiences] = useState([]);
   const classes = styles();
 
   const handleSelect = e => {
     setValue(e.target.value);
   };
 
+  const addExperience = () => {
+    setExperiences(prevState => [...prevState, prevState.length]);
+  };
+
   return (
     <div className={classes.root}>
       <MContainer smaller className={classes.container}>
+        {experiences.map((ex) => (
+          <Preview key={ex} />
+        ))}
         <div className={classes.form}>
           <Grid container spacing={3}>
             <Grid item md={6}>
@@ -136,7 +145,7 @@ function WorkExperience() {
           <div className={classes.addRow}>
             <div />
             <div>
-              <MButton iconic>
+              <MButton iconic onClick={addExperience}>
                 <i className="flaticon-plus" />
                 ذخیره و اضافه کردن سابقه
               </MButton>
