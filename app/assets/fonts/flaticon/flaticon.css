@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 14/11/2019 11:54
+  	Creation date: 16/11/2019 12:37
   	*/
 
 @font-face {
@@ -61,4 +61,4 @@ font-style: normal;
 .flaticon-folder:before { content: "\f11d"; }
 .flaticon-linkedin:before { content: "\f11e"; }
 .flaticon-telegram:before { content: "\f11f"; }
-.flaticon-instagram:before { content: "\f120"; }
+.flaticon-bookmark:before { content: "\f120"; }

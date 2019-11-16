@@ -83,6 +83,21 @@ const styles = makeStyles(theme => ({
       alignItems: 'flex-end',
     },
   },
+  sendCVContain: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    padding: '15px 15px 0 0',
+  },
+  btnBookmark: {
+    '&&': {
+      marginTop: 5,
+      lineHeight: '22px',
+    },
+    '& i:before': {
+      color: '#fcb654',
+    },
+  },
 }));
 
 export default styles;

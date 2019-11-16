@@ -18,8 +18,8 @@ import icon2 from 'app/assets/images/icon-2.png';
 import icon3 from 'app/assets/images/icon-3.png';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import styles from './style';
 import { MButton } from 'mui/index';
+import styles from './style';
 
 const selectIcon = icon => {
   if (icon === 1) return icon1;
@@ -37,13 +37,17 @@ function JobCard(props) {
     showSentDetails,
     history,
     showSendCV,
+    onClick,
+    handleShowSendCV,
   } = props;
   const cardClasses = classNames(classes.card, className);
 
   const handleOpenJob = () => {
-    history.push({
-      pathname: `/Company/${job.id}`,
-    });
+    if (onClick === undefined)
+      history.push({
+        pathname: `/Company/${job.id}`,
+      });
+    onClick();
   };
 
   return (
@@ -62,8 +66,8 @@ function JobCard(props) {
         title="Live from space album cover"
         onClick={handleOpenJob}
       />
-      <div className={classes.details} onClick={handleOpenJob}>
-        <CardContent className={classes.content}>
+      <div className={classes.details}>
+        <CardContent className={classes.content} onClick={handleOpenJob}>
           <Typography component="h5" variant="h5" className={classes.title}>
             {job.title}
           </Typography>
@@ -87,9 +91,16 @@ function JobCard(props) {
         {showSendCV && (
           <div className={classes.sendCVContain}>
             <div>
-              <MButton btnBlue>ارسال رزومه</MButton>
+              <MButton btnBlue onClick={handleShowSendCV}>
+                ارسال رزومه
+              </MButton>
             </div>
-            <Typography>{job.state}</Typography>
+            <div>
+              <MButton iconic className={classes.btnBookmark}>
+                <i className="flaticon-bookmark" />
+                ذخیره
+              </MButton>
+            </div>
           </div>
         )}
         {!hideNavigation && (
@@ -108,8 +119,10 @@ JobCard.propTypes = {
   showSendCV: PropTypes.bool,
   className: PropTypes.string,
   onDelete: PropTypes.func,
+  onClick: PropTypes.func,
   showSentDetails: PropTypes.bool,
   history: PropTypes.object,
+  handleShowSendCV: PropTypes.func,
 };
 
 export default withRouter(JobCard);
